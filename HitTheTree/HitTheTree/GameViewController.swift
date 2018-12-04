@@ -98,25 +98,25 @@ class GameViewController: UIViewController {
         //print("update game state")
         
         
-//        for animal in animals {
-//            if animal.position.z <= Float(animal.box.width/2.0 + 0.000001) {
-//                var vector = animal.position
-//                vector.z = Float(animal.box.width/2.0)
-//                animal.position = vector
-//                animal.velocity = SCNVector3(0.0, 0, 0.005)
-//            }
-//
-//            if !animal.isAlive {
-//                continue
-//            }
-//
-//            let velocity = animal.velocity + kGravity
-//            animal.velocity = velocity
-//
-//            var position = animal.position
-//            position = SCNVector3(position.x + velocity.x, position.y + velocity.y, position.z + velocity.z)
-//            animal.position = position
-//        }
+        for animal in animals {
+            if animal.position.z <= Float(animal.box.width/2.0 + 0.000001) {
+                var vector = animal.position
+                vector.z = Float(animal.box.width/2.0)
+                animal.position = vector
+                animal.velocity = SCNVector3(0.0, 0, 0.005)
+            }
+
+            if !animal.isAlive {
+                continue
+            }
+
+            let velocity = animal.velocity + kGravity
+            animal.velocity = velocity
+
+            var position = animal.position
+            position = SCNVector3(position.x + velocity.x, position.y + velocity.y, position.z + velocity.z)
+            animal.position = position
+        }
     }
     
     func addAnimal() {
@@ -189,7 +189,6 @@ extension GameViewController {
 extension GameViewController: SCNPhysicsContactDelegate {
     
     func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
-        print("collision")
         guard let nodeABitMask = contact.nodeA.physicsBody?.categoryBitMask,
             let nodeBBitMask = contact.nodeB.physicsBody?.categoryBitMask,
             nodeABitMask & nodeBBitMask == CollisionCategory.logos.rawValue & CollisionCategory.arBullets.rawValue else {

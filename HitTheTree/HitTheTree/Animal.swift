@@ -35,7 +35,7 @@ class Animal: SCNNode {
         
         let shape = SCNPhysicsShape(geometry: box, options: nil)
         
-        self.physicsBody = SCNPhysicsBody(type: .static, shape: shape)
+        self.physicsBody = SCNPhysicsBody(type: .kinematic, shape: shape)
         self.physicsBody?.isAffectedByGravity = false
         
         self.physicsBody?.categoryBitMask = CollisionCategory.logos.rawValue
