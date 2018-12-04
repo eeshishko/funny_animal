@@ -98,25 +98,25 @@ class GameViewController: UIViewController {
         //print("update game state")
         
         
-        for animal in animals {
-            if animal.position.z <= Float(animal.box.width/2.0 + 0.000001) {
-                var vector = animal.position
-                vector.z = Float(animal.box.width/2.0)
-                animal.position = vector
-                animal.velocity = SCNVector3(0.0, 0, 0.005)
-            }
-
-            if !animal.isAlive {
-                continue
-            }
-
-            let velocity = animal.velocity + kGravity
-            animal.velocity = velocity
-
-            var position = animal.position
-            position = SCNVector3(position.x + velocity.x, position.y + velocity.y, position.z + velocity.z)
-            animal.position = position
-        }
+//        for animal in animals {
+//            if animal.position.z <= Float(animal.box.width/2.0 + 0.000001) {
+//                var vector = animal.position
+//                vector.z = Float(animal.box.width/2.0)
+//                animal.position = vector
+//                animal.velocity = SCNVector3(0.0, 0, 0.005)
+//            }
+//
+//            if !animal.isAlive {
+//                continue
+//            }
+//
+//            let velocity = animal.velocity + kGravity
+//            animal.velocity = velocity
+//
+//            var position = animal.position
+//            position = SCNVector3(position.x + velocity.x, position.y + velocity.y, position.z + velocity.z)
+//            animal.position = position
+//        }
     }
     
     func addAnimal() {
@@ -202,7 +202,9 @@ extension GameViewController: SCNPhysicsContactDelegate {
         
         if let animal = contact.nodeA as? Animal {
             animal.damage(value: 0.2)
-            soundManager.playHitSound(node: animal)
+            if animal.health == 0 {
+                soundManager.playAnimalDead(animal: animal)
+            }
         }
         
         

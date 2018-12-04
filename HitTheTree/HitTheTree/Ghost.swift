@@ -18,6 +18,7 @@ class Ghost: SCNNode {
         let cubeNode = SCNNode(geometry: box)
         cubeNode.position = SCNVector3(x: 0, y: 0, z: 0)
         addChildNode(cubeNode)
+        self.opacity = 0.8
     }
     
     required init?(coder aDecoder: NSCoder) {

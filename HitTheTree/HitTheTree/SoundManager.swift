@@ -28,11 +28,23 @@ class SoundManager: NSObject {
         shootSound.load()
         shootSound.volume = 0.3
         
+        let cowDead = SCNAudioSource(fileNamed: "cowDead.wav")!
+        cowDead.load()
+        cowDead.volume = 0.8
+        
+        let pigDead = SCNAudioSource(fileNamed: "pigDead.wav")!
+        pigDead.load()
+        pigDead.volume = 0.3
+        
+        
+        
         sounds["hit"] = hitSound
         sounds["shoot"] = shootSound
+        sounds["cowDead"] = cowDead
+        sounds["pigDead"] = pigDead
         
         let backgroundMusic = SCNAudioSource(fileNamed: "background.mp3")!
-        backgroundMusic.volume = 0.8
+        backgroundMusic.volume = 0.1
         backgroundMusic.loops = true
         backgroundMusic.load()
         
@@ -51,6 +63,14 @@ class SoundManager: NSObject {
     func playShootSound(node: SCNNode) {
         let shootSound = sounds["shoot"]!
         node.runAction(SCNAction.playAudio(shootSound, waitForCompletion: true))
+    }
+    
+    func playAnimalDead(animal: Animal) {
+        if animal is AnimalCow {
+            animal.runAction(SCNAction.playAudio(sounds["cowDead"]!, waitForCompletion: true))
+        } else if animal is AnimalPig {
+            animal.runAction(SCNAction.playAudio(sounds["pigDead"]!, waitForCompletion: true))
+        }
     }
     
 }

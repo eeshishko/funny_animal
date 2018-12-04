@@ -10,12 +10,13 @@ import SceneKit
 
 class DeathAction: NSObject {
 
-    static func deathAction(height: Float, duration: TimeInterval) -> SCNAction {
-        let startVelocity = height/Float(duration/2.0) - kGravity.z * Float(duration/2.0)/2
+    static func deathAction(startVelocity: Float, duration: TimeInterval) -> SCNAction {
+        let velocity = startVelocity + kGravity.z * Float(duration)/2 //height/Float(duration/2.0)
         let action = SCNAction.customAction(duration: duration) { (node, currentTime) in
             var position = node.position
-            position.z = startVelocity * Float(currentTime) + kGravity.z * Float(currentTime * currentTime)/2.0
+            position.z = velocity * Float(currentTime) + kGravity.z * Float(currentTime * currentTime)/2.0
             node.position = position
+            print("position.z \(position.z)")
         }
         return action
     }
