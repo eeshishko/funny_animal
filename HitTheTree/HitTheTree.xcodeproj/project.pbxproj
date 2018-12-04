@@ -14,6 +14,12 @@
 		7885630B21987180002D47FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7885630921987180002D47FE /* LaunchScreen.storyboard */; };
 		7885631621987181002D47FE /* HitTheTreeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7885631521987181002D47FE /* HitTheTreeTests.swift */; };
 		78856321219873DA002D47FE /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 78856320219873DA002D47FE /* art.scnassets */; };
+		78BB1AE621B68E240052C19F /* GrassFloor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BB1AE521B68E240052C19F /* GrassFloor.swift */; };
+		78BB1AE821B6BAC70052C19F /* HealthBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BB1AE721B6BAC70052C19F /* HealthBar.swift */; };
+		78BB1AEA21B6D1FE0052C19F /* ARBullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BB1AE921B6D1FE0052C19F /* ARBullet.swift */; };
+		78BB1AEC21B6D2360052C19F /* CollisionCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BB1AEB21B6D2350052C19F /* CollisionCategory.swift */; };
+		78BB1AEE21B6EA700052C19F /* SCNVector3Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BB1AED21B6EA700052C19F /* SCNVector3Extension.swift */; };
+		78BB1AF021B6F5FB0052C19F /* Ghost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BB1AEF21B6F5FB0052C19F /* Ghost.swift */; };
 		F06C124D21B5CF170061C4E4 /* AnimalPig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06C124C21B5CF170061C4E4 /* AnimalPig.swift */; };
 		F06C124F21B5EAB30061C4E4 /* AnimalCow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06C124E21B5EAB30061C4E4 /* AnimalCow.swift */; };
 		F06C125121B6598D0061C4E4 /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06C125021B6598D0061C4E4 /* Animal.swift */; };
@@ -41,6 +47,12 @@
 		7885631521987181002D47FE /* HitTheTreeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitTheTreeTests.swift; sourceTree = "<group>"; };
 		7885631721987181002D47FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78856320219873DA002D47FE /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		78BB1AE521B68E240052C19F /* GrassFloor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrassFloor.swift; sourceTree = "<group>"; };
+		78BB1AE721B6BAC70052C19F /* HealthBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthBar.swift; sourceTree = "<group>"; };
+		78BB1AE921B6D1FE0052C19F /* ARBullet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARBullet.swift; sourceTree = "<group>"; };
+		78BB1AEB21B6D2350052C19F /* CollisionCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollisionCategory.swift; sourceTree = "<group>"; };
+		78BB1AED21B6EA700052C19F /* SCNVector3Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNVector3Extension.swift; sourceTree = "<group>"; };
+		78BB1AEF21B6F5FB0052C19F /* Ghost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ghost.swift; sourceTree = "<group>"; };
 		F06C124C21B5CF170061C4E4 /* AnimalPig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalPig.swift; sourceTree = "<group>"; };
 		F06C124E21B5EAB30061C4E4 /* AnimalCow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCow.swift; sourceTree = "<group>"; };
 		F06C125021B6598D0061C4E4 /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
@@ -91,6 +103,12 @@
 				F06C125021B6598D0061C4E4 /* Animal.swift */,
 				F06C124C21B5CF170061C4E4 /* AnimalPig.swift */,
 				F06C124E21B5EAB30061C4E4 /* AnimalCow.swift */,
+				78BB1AE521B68E240052C19F /* GrassFloor.swift */,
+				78BB1AE721B6BAC70052C19F /* HealthBar.swift */,
+				78BB1AE921B6D1FE0052C19F /* ARBullet.swift */,
+				78BB1AEB21B6D2350052C19F /* CollisionCategory.swift */,
+				78BB1AED21B6EA700052C19F /* SCNVector3Extension.swift */,
+				78BB1AEF21B6F5FB0052C19F /* Ghost.swift */,
 				788563042198717F002D47FE /* Main.storyboard */,
 				7885630721987180002D47FE /* Assets.xcassets */,
 				7885630921987180002D47FE /* LaunchScreen.storyboard */,
@@ -210,11 +228,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78BB1AE821B6BAC70052C19F /* HealthBar.swift in Sources */,
 				F06C124D21B5CF170061C4E4 /* AnimalPig.swift in Sources */,
 				F06C124F21B5EAB30061C4E4 /* AnimalCow.swift in Sources */,
 				788563032198717F002D47FE /* GameViewController.swift in Sources */,
+				78BB1AF021B6F5FB0052C19F /* Ghost.swift in Sources */,
+				78BB1AEA21B6D1FE0052C19F /* ARBullet.swift in Sources */,
+				78BB1AEE21B6EA700052C19F /* SCNVector3Extension.swift in Sources */,
+				78BB1AE621B68E240052C19F /* GrassFloor.swift in Sources */,
 				788562FF2198717F002D47FE /* AppDelegate.swift in Sources */,
 				F06C125121B6598D0061C4E4 /* Animal.swift in Sources */,
+				78BB1AEC21B6D2360052C19F /* CollisionCategory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,13 +401,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9UNTWSC5AR;
+				DEVELOPMENT_TEAM = 5DKYS885U3;
 				INFOPLIST_FILE = HitTheTree/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.SberTech.HitTheTree;
+				PRODUCT_BUNDLE_IDENTIFIER = com1.SberTech.HitTheTree;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -395,13 +419,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9UNTWSC5AR;
+				DEVELOPMENT_TEAM = 5DKYS885U3;
 				INFOPLIST_FILE = HitTheTree/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.SberTech.HitTheTree;
+				PRODUCT_BUNDLE_IDENTIFIER = com1.SberTech.HitTheTree;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

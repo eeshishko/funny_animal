@@ -12,11 +12,7 @@ class AnimalCow: Animal {
     
     override init() {
         super.init()
-        let box = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)
         box.materials = materials()
-        let cubeNode = SCNNode(geometry: box)
-        cubeNode.position = SCNVector3(x: 0, y: 0, z: 0)
-        addChildNode(cubeNode)
     }
     
     func materials() -> [SCNMaterial] {
@@ -37,11 +33,11 @@ class AnimalCow: Animal {
         material4.locksAmbientWithDiffuse = true
         
         let material5 = SCNMaterial()
-        material5.diffuse.contents = UIImage(named: "art.scnassets/cow/11_05.png")
+        material5.diffuse.contents = UIImage(named: "art.scnassets/cow/11_06.png")
         material5.locksAmbientWithDiffuse = true
         
         let material6 = SCNMaterial()
-        material6.diffuse.contents = UIImage(named: "art.scnassets/cow/11_06.png")
+        material6.diffuse.contents = UIImage(named: "art.scnassets/cow/11_05.png")
         material6.locksAmbientWithDiffuse = true
         
         

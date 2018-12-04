@@ -10,6 +10,7 @@ import UIKit
 import QuartzCore
 import SceneKit
 import ARKit
+import AudioToolbox.AudioServices
 
 class GameViewController: UIViewController {
     
@@ -21,8 +22,9 @@ class GameViewController: UIViewController {
     
     var timer: Timer!
     var animals: [Animal] = []
-    let gravity = SCNVector3(0, -0.01, 0)
+    let gravity = SCNVector3(0, 0, -0.0002)
     var planeIsDetection = false
+    let grassFloor = GrassFloor()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,15 +50,33 @@ class GameViewController: UIViewController {
         sceneView.session.run(configuration)
     }
     
-    func setupScene() {
-        scene = SCNScene(named: "art.scnassets/MainScene.scn")
-        sceneView.scene = scene
-        sceneView?.allowsCameraControl = true
+    @IBAction func didTapShootButton(_ sender: UIButton) {
+        shoot()
+    }
+    
+    private func shoot() {
+        let arBullet = ARBullet()
         
-        let pig = AnimalCow()
-        pig.position = SCNVector3(0, 0.5, 0)
-        scene.rootNode.addChildNode(pig)
-        animals.append(pig)
+        let (direction, position) = cameraVector
+        arBullet.position = position
+        arBullet.initialPosition = position
+        
+        let bulletDirection = direction
+        arBullet.physicsBody?.applyForce(bulletDirection, asImpulse: true)
+        sceneView.scene.rootNode.addChildNode(arBullet)
+        
+//        let vibrate = SystemSoundID(kSystemSoundID_Vibrate)
+//        AudioServicesPlaySystemSound(vibrate)
+        //TODO: check supported device
+        
+        let peek = SystemSoundID(1519)
+        AudioServicesPlaySystemSound(peek)
+    }
+    
+    func setupScene() {
+        scene = SCNScene() //named: "art.scnassets/MainScene.scn")
+        sceneView.scene = scene
+        sceneView.scene.physicsWorld.contactDelegate = self
     }
     
     
@@ -69,68 +89,34 @@ class GameViewController: UIViewController {
     }
     
     @objc func updateGameState() {
-        print("update game state")
+        //print("update game state")
         
         
         for animal in animals {
-            if animal.position.y <= 0.5001 {
+            if animal.position.z <= Float(animal.box.width/2.0 + 0.000001) {
                 var vector = animal.position
-                vector.y = 0.5
+                vector.z = Float(animal.box.width/2.0)
                 animal.position = vector
-                animal.velocity = SCNVector3(0.0, 0.2, 0)
+                animal.velocity = SCNVector3(0.0, 0, 0.005)
             }
-            
+
             let velocity = SCNVector3(animal.velocity.x + gravity.x, animal.velocity.y + gravity.y, animal.velocity.z + gravity.z)
             animal.velocity = velocity
-            
+
             var position = animal.position
             position = SCNVector3(position.x + velocity.x, position.y + velocity.y, position.z + velocity.z)
             animal.position = position
         }
     }
     
-    
-    func createPlaneNode(anchor: ARPlaneAnchor) -> SCNNode {
-        // Create a SceneKit plane to visualize the node using its position and extent.
-        
-        // Create the geometry and its materials
-        let plane = SCNPlane(width: CGFloat(anchor.extent.x), height: CGFloat(anchor.extent.z))
-        
-        let lavaImage = UIImage(named: "art.scnassets/grass.jpg")
-        let lavaMaterial = SCNMaterial()
-        lavaMaterial.diffuse.contents = lavaImage
-        lavaMaterial.isDoubleSided = true
-        
-        plane.materials = [lavaMaterial]
-        
-        // Create a node with the plane geometry we created
-        let planeNode = SCNNode(geometry: plane)
-        planeNode.position = SCNVector3Make(anchor.center.x, 0, anchor.center.z)
-        
-        // SCNPlanes are vertically oriented in their local coordinate space.
-        // Rotate it to match the horizontal orientation of the ARPlaneAnchor.
-        planeNode.transform = SCNMatrix4MakeRotation(-Float.pi / 2, 1, 0, 0)
-        
-        return planeNode
+    func addAnimal() {
+        let pig = AnimalCow()
+        pig.position = SCNVector3(0, 0, pig.box.width/2.0)//
+        pig.eulerAngles = SCNVector3(CGFloat.pi/2, 0, 0)
+        grassFloor.addChildNode(pig)
+        animals.append(pig)
     }
     
-    // Try with a floor node instead - this didn't work so well but leaving in for reference
-    func createFloorNode(anchor: ARPlaneAnchor) -> SCNNode {
-        let floor = SCNFloor()
-        
-        let lavaImage = UIImage(named: "art.scnassets/grass.jpg")
-        
-        let lavaMaterial = SCNMaterial()
-        lavaMaterial.diffuse.contents = lavaImage
-        lavaMaterial.isDoubleSided = true
-        
-        floor.materials = [lavaMaterial]
-        
-        let floorNode = SCNNode(geometry: floor)
-        floorNode.position = SCNVector3Make(anchor.center.x, 0, anchor.center.z)
-        
-        return floorNode
-    }
 
 }
 
@@ -143,28 +129,12 @@ extension GameViewController: ARSCNViewDelegate {
 //    }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-//        guard !planeIsDetection else {
-//            return
-//        }
-//        guard let planeAnchor = anchor as? ARPlaneAnchor else {
-//            return
-//        }
-//        planeIsDetection = true
-//        let planeNode = scene.rootNode
-//        planeNode.position = SCNVector3(planeAnchor.center.x, 0, planeAnchor.center.z)
-//
-//        // SCNPlanes are vertically oriented in their local coordinate space.
-//        // Rotate it to match the horizontal orientation of the ARPlaneAnchor.
-//        planeNode.transform = SCNMatrix4MakeRotation(-Float.pi / 2, 1, 0, 0)
-//
-//        node.addChildNode(planeNode)
-        
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-        
-        let planeNode = createPlaneNode(anchor: planeAnchor)
-        
-        // ARKit owns the node corresponding to the anchor, so make the plane a child node.
-        node.addChildNode(planeNode)
+        grassFloor.set(planeAnchor: planeAnchor)
+        node.addChildNode(grassFloor)
+        if animals.count == 0 {
+            addAnimal()
+        }
     }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
@@ -180,6 +150,60 @@ extension GameViewController: ARSCNViewDelegate {
     func sessionInterruptionEnded(_ session: ARSession) {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
+    }
+    
+}
+
+
+// MARK: - Utils
+
+extension GameViewController {
+    
+    fileprivate var cameraVector: (SCNVector3, SCNVector3) { // (direction, position)
+        if let frame = self.sceneView.session.currentFrame {
+            let mat = SCNMatrix4(frame.camera.transform) // 4x4 transform matrix describing camera in world space
+            let dir = SCNVector3(-1 * mat.m31, -1 * mat.m32, -1 * mat.m33) // orientation of camera in world space
+            let pos = SCNVector3(mat.m41, mat.m42, mat.m43) // location of camera in world space
+            
+            return (dir, pos)
+        }
+        return (SCNVector3(0, 0, 0), SCNVector3(0, 0, 0))
+    }
+    
+}
+
+// MARK: - SCNPhysicsContactDelegate
+
+extension GameViewController: SCNPhysicsContactDelegate {
+    
+    func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
+        guard let nodeABitMask = contact.nodeA.physicsBody?.categoryBitMask,
+            let nodeBBitMask = contact.nodeB.physicsBody?.categoryBitMask,
+            nodeABitMask & nodeBBitMask == CollisionCategory.logos.rawValue & CollisionCategory.arBullets.rawValue else {
+                return
+        }
+        print("collision")
+        
+        
+        
+        contact.nodeB.removeFromParentNode()
+        
+        if let animal = contact.nodeA as? Animal {
+            animal.damage(value: 0.2)
+        }
+        
+        
+//        logoCount -= 1
+//
+//        if logoCount == 0 {
+//            DispatchQueue.main.async {
+//                self.stopGame()
+//            }
+//        }
+//
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+//            contact.nodeA.removeFromParentNode()
+//        })
     }
     
 }
