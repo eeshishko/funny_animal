@@ -12,13 +12,17 @@ class AnimalCow: Animal {
     
     override init() {
         super.init()
-        box.materials = materials()
+        updateMaterials()
     }
     
-    func materials() -> [SCNMaterial] {
+    override func updateMaterials() {
         let material1 = SCNMaterial()
         material1.diffuse.contents = UIImage(named: "art.scnassets/cow/11_01.jpg")
         material1.locksAmbientWithDiffuse = true
+        
+        let material1Dead = SCNMaterial()
+        material1Dead.diffuse.contents = UIImage(named: "art.scnassets/cow/cowdead_01.jpg")
+        material1Dead.locksAmbientWithDiffuse = true
         
         let material2 = SCNMaterial()
         material2.diffuse.contents = UIImage(named: "art.scnassets/cow/11_02.png")
@@ -40,8 +44,8 @@ class AnimalCow: Animal {
         material6.diffuse.contents = UIImage(named: "art.scnassets/cow/11_05.png")
         material6.locksAmbientWithDiffuse = true
         
-        
-        return [material1, material2, material3, material4, material5, material6]
+        let face = isAlive ? material1 : material1Dead
+        box.materials = [face, material2, material3, material4, material5, material6]
     }
     
     required init?(coder aDecoder: NSCoder) {

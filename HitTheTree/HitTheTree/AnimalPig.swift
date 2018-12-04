@@ -14,41 +14,40 @@ class AnimalPig: Animal {
 
     override init() {
         super.init()
-        box.materials = materials()
+        updateMaterials()
     }
     
-    func materials() -> [SCNMaterial] {
+    override func updateMaterials() {
         let material1 = SCNMaterial()
-        let image = UIImage(named: "art.scnassets/pigFace.jpg")
-        material1.diffuse.contents = image
+        material1.diffuse.contents = UIImage(named: "art.scnassets/pig/pig_01.jpg")
         material1.locksAmbientWithDiffuse = true
         
+        let material1Dead = SCNMaterial()
+        material1Dead.diffuse.contents = UIImage(named: "art.scnassets/pig/pigdead_01.jpg")
+        material1Dead.locksAmbientWithDiffuse = true
+        
         let material2 = SCNMaterial()
-        material2.diffuse.contents = UIColor(red: 248.0/255.0, green: 208.0/255.0, blue: 206.0/255.0, alpha: 1.0)
+        material2.diffuse.contents = UIImage(named: "art.scnassets/pig/pig_02.png")
         material2.locksAmbientWithDiffuse = true
         
-        //        SCNMaterial *redMaterial                = [SCNMaterial material];
-        //        redMaterial.diffuse.contents            = [NSColor redColor];
-        //        redMaterial.locksAmbientWithDiffuse     = YES;
-        //
-        //        SCNMaterial *blueMaterial               = [SCNMaterial material];
-        //        blueMaterial.diffuse.contents           = [NSColor blueColor];
-        //        blueMaterial.locksAmbientWithDiffuse    = YES;
-        //
-        //        SCNMaterial *yellowMaterial             = [SCNMaterial material];
-        //        yellowMaterial.diffuse.contents         = [NSColor yellowColor];
-        //        yellowMaterial.locksAmbientWithDiffuse  = YES;
-        //
-        //        SCNMaterial *purpleMaterial             = [SCNMaterial material];
-        //        purpleMaterial.diffuse.contents         = [NSColor purpleColor];
-        //        purpleMaterial.locksAmbientWithDiffuse  = YES;
-        //
-        //        SCNMaterial *magentaMaterial            = [SCNMaterial material];
-        //        magentaMaterial.diffuse.contents        = [NSColor magentaColor];
-        //        magentaMaterial.locksAmbientWithDiffuse = YES;
-        //
-        //
-        return [material1, material1, material1, material1, material1, material1]
+        let material3 = SCNMaterial()
+        material3.diffuse.contents = UIImage(named: "art.scnassets/pig/pig_03.png")
+        material3.locksAmbientWithDiffuse = true
+        
+        let material4 = SCNMaterial()
+        material4.diffuse.contents = UIImage(named: "art.scnassets/pig/pig_04.png")
+        material4.locksAmbientWithDiffuse = true
+        
+        let material5 = SCNMaterial()
+        material5.diffuse.contents = UIImage(named: "art.scnassets/pig/pig_06.png")
+        material5.locksAmbientWithDiffuse = true
+        
+        let material6 = SCNMaterial()
+        material6.diffuse.contents = UIImage(named: "art.scnassets/pig/pig_05.png")
+        material6.locksAmbientWithDiffuse = true
+        
+        let face = isAlive ? material1 : material1Dead
+        box.materials = [face, material2, material3, material4, material5, material6]
     }
     
     required init?(coder aDecoder: NSCoder) {

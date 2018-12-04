@@ -61,6 +61,9 @@ class Animal: SCNNode {
         print("kill")
         isAlive = false
         ghost.position = position
+        updateMaterials()
+        
+        runAction(DeathAction.deathAction(height: 0.15, duration: 1.0))
         
         parent?.addChildNode(ghost)
         var toPosition = self.position
@@ -72,6 +75,10 @@ class Animal: SCNNode {
         let sequence = SCNAction.group([moveAction,fadeOuttAction])
         let totalAction = SCNAction.sequence([sequence,removeAction])
         ghost.runAction(totalAction)
+    }
+    
+    func updateMaterials() {
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

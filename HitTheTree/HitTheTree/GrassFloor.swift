@@ -41,7 +41,7 @@ class GrassFloor: SCNNode {
     func setupLight() {
         let light = SCNLight()
         light.type = .ambient
-        light.intensity = 1000
+        light.intensity = 100
         light.color = UIColor.white
         self.light = light
     }

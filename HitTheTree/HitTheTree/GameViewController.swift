@@ -12,6 +12,9 @@ import SceneKit
 import ARKit
 import AudioToolbox.AudioServices
 
+
+let kGravity = SCNVector3(0, 0, -0.0002)
+
 class GameViewController: UIViewController {
     
     
@@ -19,10 +22,10 @@ class GameViewController: UIViewController {
     
     //var sceneView: SCNView!
     var scene: SCNScene!
+    let soundManager = SoundManager()
     
     var timer: Timer!
     var animals: [Animal] = []
-    let gravity = SCNVector3(0, 0, -0.0002)
     var planeIsDetection = false
     let grassFloor = GrassFloor()
 
@@ -71,12 +74,15 @@ class GameViewController: UIViewController {
         
         let peek = SystemSoundID(1519)
         AudioServicesPlaySystemSound(peek)
+        
+        soundManager.playShootSound(node: sceneView.scene.rootNode)
     }
     
     func setupScene() {
         scene = SCNScene() //named: "art.scnassets/MainScene.scn")
         sceneView.scene = scene
         sceneView.scene.physicsWorld.contactDelegate = self
+        //soundManager.playBackgroundMusic(node: scene.rootNode)
     }
     
     
@@ -92,21 +98,25 @@ class GameViewController: UIViewController {
         //print("update game state")
         
         
-        for animal in animals {
-            if animal.position.z <= Float(animal.box.width/2.0 + 0.000001) {
-                var vector = animal.position
-                vector.z = Float(animal.box.width/2.0)
-                animal.position = vector
-                animal.velocity = SCNVector3(0.0, 0, 0.005)
-            }
-
-            let velocity = SCNVector3(animal.velocity.x + gravity.x, animal.velocity.y + gravity.y, animal.velocity.z + gravity.z)
-            animal.velocity = velocity
-
-            var position = animal.position
-            position = SCNVector3(position.x + velocity.x, position.y + velocity.y, position.z + velocity.z)
-            animal.position = position
-        }
+//        for animal in animals {
+//            if animal.position.z <= Float(animal.box.width/2.0 + 0.000001) {
+//                var vector = animal.position
+//                vector.z = Float(animal.box.width/2.0)
+//                animal.position = vector
+//                animal.velocity = SCNVector3(0.0, 0, 0.005)
+//            }
+//
+//            if !animal.isAlive {
+//                continue
+//            }
+//
+//            let velocity = animal.velocity + kGravity
+//            animal.velocity = velocity
+//
+//            var position = animal.position
+//            position = SCNVector3(position.x + velocity.x, position.y + velocity.y, position.z + velocity.z)
+//            animal.position = position
+//        }
     }
     
     func addAnimal() {
@@ -129,6 +139,8 @@ extension GameViewController: ARSCNViewDelegate {
 //    }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        sceneView.audioListener = scene.rootNode
+        soundManager.playBackgroundMusic(node: node)
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
         grassFloor.set(planeAnchor: planeAnchor)
         node.addChildNode(grassFloor)
@@ -190,6 +202,7 @@ extension GameViewController: SCNPhysicsContactDelegate {
         
         if let animal = contact.nodeA as? Animal {
             animal.damage(value: 0.2)
+            soundManager.playHitSound(node: animal)
         }
         
         
