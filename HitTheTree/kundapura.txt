@@ -1,0 +1,220 @@
+total 16
+drwxr-xr-x    7 maratkhuzhayarov  staff   224 Dec  3 23:50 .
+drwxr-xr-x+ 123 maratkhuzhayarov  staff  3936 Dec  3 23:50 ..
+-rw-r--r--@   1 maratkhuzhayarov  staff  6148 Dec  3 23:03 .DS_Store
+	com.apple.FinderInfo	  32 
+drwxr-xr-x    9 maratkhuzhayarov  staff   288 Dec  3 23:47 HitTheTree
+drwxr-xr-x@   5 maratkhuzhayarov  staff   160 Dec  3 23:47 HitTheTree.xcodeproj
+	LastUpgradeCheck	   4 
+	com.apple.FinderInfo	  32 
+	com.apple.lastuseddate#PS	  16 
+drwxr-xr-x    4 maratkhuzhayarov  staff   128 Dec  3 22:44 HitTheTreeTests
+-rw-r--r--    1 maratkhuzhayarov  staff     0 Dec  3 23:50 kundapura.txt
+
+./HitTheTree:
+total 40
+drwxr-xr-x   9 maratkhuzhayarov  staff   288 Dec  3 23:47 .
+drwxr-xr-x   7 maratkhuzhayarov  staff   224 Dec  3 23:50 ..
+-rw-r--r--@  1 maratkhuzhayarov  staff  6148 Dec  3 22:53 .DS_Store
+	com.apple.FinderInfo	  32 
+-rw-r--r--@  1 maratkhuzhayarov  staff  2195 Nov 11 17:17 AppDelegate.swift
+	com.apple.TextEncoding	  15 
+	com.apple.lastuseddate#PS	  16 
+	com.apple.quarantine	  57 
+drwxr-xr-x   4 maratkhuzhayarov  staff   128 Dec  3 22:44 Assets.xcassets
+drwxr-xr-x   4 maratkhuzhayarov  staff   128 Dec  3 22:44 Base.lproj
+-rw-r--r--@  1 maratkhuzhayarov  staff   925 Dec  3 23:00 GameViewController.swift
+	com.apple.lastuseddate#PS	  16 
+	com.apple.metadata:kMDLabel_ffq3cbjte4v4qepa5dq3nqpuoy	  89 
+-rw-r--r--@  1 maratkhuzhayarov  staff  1502 Dec  3 22:36 Info.plist
+	com.apple.quarantine	  57 
+drwxr-xr-x  12 maratkhuzhayarov  staff   384 Dec  3 23:01 art.scnassets
+
+./HitTheTree/Assets.xcassets:
+total 8
+drwxr-xr-x  4 maratkhuzhayarov  staff  128 Dec  3 22:44 .
+drwxr-xr-x  9 maratkhuzhayarov  staff  288 Dec  3 23:47 ..
+drwxr-xr-x  3 maratkhuzhayarov  staff   96 Dec  3 22:44 AppIcon.appiconset
+-rw-r--r--@ 1 maratkhuzhayarov  staff   62 Nov 11 17:17 Contents.json
+	com.apple.TextEncoding	 15 
+	com.apple.quarantine	 57 
+
+./HitTheTree/Assets.xcassets/AppIcon.appiconset:
+total 8
+drwxr-xr-x  3 maratkhuzhayarov  staff    96 Dec  3 22:44 .
+drwxr-xr-x  4 maratkhuzhayarov  staff   128 Dec  3 22:44 ..
+-rw-r--r--@ 1 maratkhuzhayarov  staff  1590 Nov 11 17:17 Contents.json
+	com.apple.quarantine	  57 
+
+./HitTheTree/Base.lproj:
+total 16
+drwxr-xr-x  4 maratkhuzhayarov  staff   128 Dec  3 22:44 .
+drwxr-xr-x  9 maratkhuzhayarov  staff   288 Dec  3 23:47 ..
+-rw-r--r--@ 1 maratkhuzhayarov  staff  1658 Nov 11 17:17 LaunchScreen.storyboard
+	com.apple.TextEncoding	  15 
+	com.apple.quarantine	  57 
+-rw-r--r--@ 1 maratkhuzhayarov  staff  1526 Nov 11 17:17 Main.storyboard
+	com.apple.TextEncoding	  15 
+	com.apple.quarantine	  57 
+
+./HitTheTree/art.scnassets:
+total 2928
+drwxr-xr-x  12 maratkhuzhayarov  staff     384 Dec  3 23:01 .
+drwxr-xr-x   9 maratkhuzhayarov  staff     288 Dec  3 23:47 ..
+-rw-r--r--@  1 maratkhuzhayarov  staff   26172 Nov 11 18:49 MainScene.scn
+	com.apple.lastuseddate#PS	    16 
+	com.apple.metadata:kMDLabel_ffq3cbjte4v4qepa5dq3nqpuoy	    89 
+	com.apple.quarantine	    57 
+-rw-r--r--@  1 maratkhuzhayarov  staff   13000 Nov 11 18:05 ball.scn
+	com.apple.lastuseddate#PS	    16 
+	com.apple.quarantine	    57 
+-rw-r--r--@  1 maratkhuzhayarov  staff  430945 Apr 24  2018 ballDiffuse.jpg
+	com.apple.lastuseddate#PS	    16 
+	com.apple.quarantine	    57 
+-rw-r--r--@  1 maratkhuzhayarov  staff  405805 Apr 26  2018 ballNormal.jpg
+	com.apple.lastuseddate#PS	    16 
+	com.apple.quarantine	    57 
+-rw-r--r--@  1 maratkhuzhayarov  staff  129932 Apr 20  2018 comicSkyBox.jpg
+	com.apple.lastuseddate#PS	    16 
+	com.apple.quarantine	    57 
+-rw-r--r--@  1 maratkhuzhayarov  staff  336943 Nov 11 18:23 grass.jpg
+	com.apple.lastuseddate#PS	    16 
+	com.apple.metadata:_kMDItemUserTags	    42 
+	com.apple.metadata:kMDItemWhereFroms	   162 
+	com.apple.quarantine	    57 
+-rw-r--r--@  1 maratkhuzhayarov  staff   14720 Dec  3 20:45 pig.scn
+	com.apple.lastuseddate#PS	    16 
+-rw-r--r--@  1 maratkhuzhayarov  staff   25030 Dec  3 22:31 pigFace.jpg
+	com.apple.FinderInfo	    32 
+	com.apple.ResourceFork	 32086 
+	com.apple.lastuseddate#PS	    16 
+	com.apple.metadata:_kMDItemUserTags	    42 
+-rw-r--r--@  1 maratkhuzhayarov  staff   32599 Dec  3 20:41 pigTexture.jpg
+	com.apple.FinderInfo	    32 
+	com.apple.ResourceFork	  8075 
+	com.apple.lastuseddate#PS	    16 
+	com.apple.metadata:_kMDItemUserTags	    42 
+-rw-r--r--@  1 maratkhuzhayarov  staff   19899 Nov 11 18:12 tree.scn
+	com.apple.lastuseddate#PS	    16 
+	com.apple.metadata:kMDLabel_ffq3cbjte4v4qepa5dq3nqpuoy	    89 
+	com.apple.quarantine	    57 
+
+./HitTheTree.xcodeproj:
+total 40
+drwxr-xr-x@ 5 maratkhuzhayarov  staff    160 Dec  3 23:47 .
+	LastUpgradeCheck	    4 
+	com.apple.FinderInfo	   32 
+	com.apple.lastuseddate#PS	   16 
+drwxr-xr-x  7 maratkhuzhayarov  staff    224 Dec  3 23:50 ..
+-rw-r--r--  1 maratkhuzhayarov  staff  17776 Dec  3 23:47 project.pbxproj
+drwxr-xr-x@ 5 maratkhuzhayarov  staff    160 Nov 11 17:17 project.xcworkspace
+	com.apple.lastuseddate#PS	   16 
+	com.apple.quarantine	   57 
+drwxr-xr-x@ 4 maratkhuzhayarov  staff    128 Dec  3 20:24 xcuserdata
+	com.apple.quarantine	   57 
+
+./HitTheTree.xcodeproj/project.xcworkspace:
+total 8
+drwxr-xr-x@ 5 maratkhuzhayarov  staff  160 Nov 11 17:17 .
+	com.apple.lastuseddate#PS	 16 
+	com.apple.quarantine	 57 
+drwxr-xr-x@ 5 maratkhuzhayarov  staff  160 Dec  3 23:47 ..
+	LastUpgradeCheck	  4 
+	com.apple.FinderInfo	 32 
+	com.apple.lastuseddate#PS	 16 
+-rw-r--r--@ 1 maratkhuzhayarov  staff  155 Nov 11 17:17 contents.xcworkspacedata
+	com.apple.quarantine	 57 
+drwxr-xr-x@ 3 maratkhuzhayarov  staff   96 Nov 11 17:17 xcshareddata
+	com.apple.quarantine	 57 
+drwxr-xr-x@ 4 maratkhuzhayarov  staff  128 Dec  3 20:24 xcuserdata
+	com.apple.quarantine	 57 
+
+./HitTheTree.xcodeproj/project.xcworkspace/xcshareddata:
+total 8
+drwxr-xr-x@ 3 maratkhuzhayarov  staff   96 Nov 11 17:17 .
+	com.apple.quarantine	 57 
+drwxr-xr-x@ 5 maratkhuzhayarov  staff  160 Nov 11 17:17 ..
+	com.apple.lastuseddate#PS	 16 
+	com.apple.quarantine	 57 
+-rw-r--r--@ 1 maratkhuzhayarov  staff  238 Nov 11 17:17 IDEWorkspaceChecks.plist
+	com.apple.quarantine	 57 
+
+./HitTheTree.xcodeproj/project.xcworkspace/xcuserdata:
+total 0
+drwxr-xr-x@ 4 maratkhuzhayarov  staff  128 Dec  3 20:24 .
+	com.apple.quarantine	 57 
+drwxr-xr-x@ 5 maratkhuzhayarov  staff  160 Nov 11 17:17 ..
+	com.apple.lastuseddate#PS	 16 
+	com.apple.quarantine	 57 
+drwxr-xr-x  3 maratkhuzhayarov  staff   96 Dec  3 23:50 maratkhuzhayarov.xcuserdatad
+drwxr-xr-x@ 3 maratkhuzhayarov  staff   96 Dec  3 15:10 maratkhuzhayarovimac.xcuserdatad
+	com.apple.quarantine	 57 
+
+./HitTheTree.xcodeproj/project.xcworkspace/xcuserdata/maratkhuzhayarov.xcuserdatad:
+total 96
+drwxr-xr-x  3 maratkhuzhayarov  staff     96 Dec  3 23:50 .
+drwxr-xr-x@ 4 maratkhuzhayarov  staff    128 Dec  3 20:24 ..
+	com.apple.quarantine	   57 
+-rw-r--r--  1 maratkhuzhayarov  staff  45724 Dec  3 23:50 UserInterfaceState.xcuserstate
+
+./HitTheTree.xcodeproj/project.xcworkspace/xcuserdata/maratkhuzhayarovimac.xcuserdatad:
+total 56
+drwxr-xr-x@ 3 maratkhuzhayarov  staff     96 Dec  3 15:10 .
+	com.apple.quarantine	   57 
+drwxr-xr-x@ 4 maratkhuzhayarov  staff    128 Dec  3 20:24 ..
+	com.apple.quarantine	   57 
+-rw-r--r--@ 1 maratkhuzhayarov  staff  27016 Dec  3 15:10 UserInterfaceState.xcuserstate
+	com.apple.quarantine	   57 
+
+./HitTheTree.xcodeproj/xcuserdata:
+total 0
+drwxr-xr-x@ 4 maratkhuzhayarov  staff  128 Dec  3 20:24 .
+	com.apple.quarantine	 57 
+drwxr-xr-x@ 5 maratkhuzhayarov  staff  160 Dec  3 23:47 ..
+	LastUpgradeCheck	  4 
+	com.apple.FinderInfo	 32 
+	com.apple.lastuseddate#PS	 16 
+drwxr-xr-x  3 maratkhuzhayarov  staff   96 Dec  3 20:24 maratkhuzhayarov.xcuserdatad
+drwxr-xr-x@ 3 maratkhuzhayarov  staff   96 Nov 11 17:17 maratkhuzhayarovimac.xcuserdatad
+	com.apple.quarantine	 57 
+
+./HitTheTree.xcodeproj/xcuserdata/maratkhuzhayarov.xcuserdatad:
+total 0
+drwxr-xr-x  3 maratkhuzhayarov  staff   96 Dec  3 20:24 .
+drwxr-xr-x@ 4 maratkhuzhayarov  staff  128 Dec  3 20:24 ..
+	com.apple.quarantine	 57 
+drwxr-xr-x  3 maratkhuzhayarov  staff   96 Dec  3 23:47 xcschemes
+
+./HitTheTree.xcodeproj/xcuserdata/maratkhuzhayarov.xcuserdatad/xcschemes:
+total 8
+drwxr-xr-x  3 maratkhuzhayarov  staff   96 Dec  3 23:47 .
+drwxr-xr-x  3 maratkhuzhayarov  staff   96 Dec  3 20:24 ..
+-rw-r--r--  1 maratkhuzhayarov  staff  445 Dec  3 23:47 xcschememanagement.plist
+
+./HitTheTree.xcodeproj/xcuserdata/maratkhuzhayarovimac.xcuserdatad:
+total 0
+drwxr-xr-x@ 3 maratkhuzhayarov  staff   96 Nov 11 17:17 .
+	com.apple.quarantine	 57 
+drwxr-xr-x@ 4 maratkhuzhayarov  staff  128 Dec  3 20:24 ..
+	com.apple.quarantine	 57 
+drwxr-xr-x@ 3 maratkhuzhayarov  staff   96 Nov 11 17:17 xcschemes
+	com.apple.quarantine	 57 
+
+./HitTheTree.xcodeproj/xcuserdata/maratkhuzhayarovimac.xcuserdatad/xcschemes:
+total 8
+drwxr-xr-x@ 3 maratkhuzhayarov  staff   96 Nov 11 17:17 .
+	com.apple.quarantine	 57 
+drwxr-xr-x@ 3 maratkhuzhayarov  staff   96 Nov 11 17:17 ..
+	com.apple.quarantine	 57 
+-rw-r--r--@ 1 maratkhuzhayarov  staff  333 Nov 11 17:17 xcschememanagement.plist
+	com.apple.quarantine	 57 
+
+./HitTheTreeTests:
+total 16
+drwxr-xr-x  4 maratkhuzhayarov  staff  128 Dec  3 22:44 .
+drwxr-xr-x  7 maratkhuzhayarov  staff  224 Dec  3 23:50 ..
+-rw-r--r--@ 1 maratkhuzhayarov  staff  934 Nov 11 17:17 HitTheTreeTests.swift
+	com.apple.TextEncoding	 15 
+	com.apple.quarantine	 57 
+-rw-r--r--@ 1 maratkhuzhayarov  staff  701 Nov 11 17:17 Info.plist
+	com.apple.quarantine	 57 
