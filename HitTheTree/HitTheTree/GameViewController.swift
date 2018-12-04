@@ -189,6 +189,7 @@ extension GameViewController {
 extension GameViewController: SCNPhysicsContactDelegate {
     
     func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
+        print("collision")
         guard let nodeABitMask = contact.nodeA.physicsBody?.categoryBitMask,
             let nodeBBitMask = contact.nodeB.physicsBody?.categoryBitMask,
             nodeABitMask & nodeBBitMask == CollisionCategory.logos.rawValue & CollisionCategory.arBullets.rawValue else {
