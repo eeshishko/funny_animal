@@ -79,7 +79,7 @@ class Animal: SCNNode {
         let movingGroupAction = SCNAction.group([rotateAction,movingAction])
         
         position.z = -Float(box.width)
-        let moveDieDownAction = SCNAction.move(to: position, duration: 2.0)
+        let moveDieDownAction = SCNAction.move(to: position, duration: 5.0)
         
         runAction(SCNAction.sequence([movingGroupAction,moveDieDownAction]))
         
@@ -88,7 +88,7 @@ class Animal: SCNNode {
         parent?.addChildNode(ghost)
         var toPosition = self.position
         toPosition.z += 0.3
-        let duration : TimeInterval = 3.0
+        let duration : TimeInterval = 8.0
         let waitAction = SCNAction.wait(duration: movingGroupAction.duration)
         let moveAction = SCNAction.move(to: toPosition, duration: duration)
         let fadeOuttAction = SCNAction.fadeOut(duration: duration)

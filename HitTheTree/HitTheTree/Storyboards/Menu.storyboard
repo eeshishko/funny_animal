@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,7 +12,7 @@
         <!--Menu View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MenuViewController" customModule="FarmInvasion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MenuViewController" customModule="HitTheTree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -52,6 +51,9 @@
                                                 <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="1ze-iy-nIn" kind="presentation" id="B0g-6G-Y2f"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evH-ke-dAj">
                                         <rect key="frame" x="0.0" y="79" width="954" height="63"/>
@@ -136,10 +138,18 @@
             </objects>
             <point key="canvasLocation" x="1066.6666666666667" y="141.03260869565219"/>
         </scene>
+        <!--Main-->
+        <scene sceneID="xxF-Zo-gfI">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="1ze-iy-nIn" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Nw-Bl-QJq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1476" y="-322"/>
+        </scene>
         <!--Game Records View Controller-->
         <scene sceneID="8QH-mm-zDK">
             <objects>
-                <viewController id="ztA-aJ-uqF" customClass="GameRecordsViewController" customModule="FarmInvasion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ztA-aJ-uqF" customClass="GameRecordsViewController" customModule="HitTheTree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i4z-ZB-acY">
                         <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -193,7 +203,7 @@
         <!--Rules View Controller-->
         <scene sceneID="TvP-yt-anT">
             <objects>
-                <viewController id="taq-Wf-Fdg" customClass="RulesViewController" customModule="FarmInvasion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="taq-Wf-Fdg" customClass="RulesViewController" customModule="HitTheTree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2PJ-g2-6F5">
                         <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -251,7 +261,7 @@
         <!--Settings View Controller-->
         <scene sceneID="NKX-4V-Dyl">
             <objects>
-                <viewController id="6wJ-Bd-niN" customClass="SettingsViewController" customModule="FarmInvasion" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6wJ-Bd-niN" customClass="SettingsViewController" customModule="HitTheTree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lKX-Rl-arO">
                         <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
