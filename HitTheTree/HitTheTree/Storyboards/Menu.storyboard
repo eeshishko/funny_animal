@@ -309,10 +309,10 @@
             </objects>
             <point key="canvasLocation" x="1861" y="883"/>
         </scene>
-        <!--View Controller-->
+        <!--Game Over View Controller-->
         <scene sceneID="zaL-FL-7vg">
             <objects>
-                <viewController id="9fO-nz-bD7" sceneMemberID="viewController">
+                <viewController id="9fO-nz-bD7" customClass="GameOverViewController" customModule="HitTheTree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fNd-ii-3ZF">
                         <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -341,26 +341,10 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QeO-Rl-gHV">
-                                <rect key="frame" x="120" y="680" width="954" height="51"/>
-                                <color key="backgroundColor" red="0.0" green="0.47058823529999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="51" id="t5y-Om-261"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
-                                <state key="normal" title="Еще раз">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RzZ-Bi-Zrv">
                                 <rect key="frame" x="120" y="747" width="954" height="51"/>
                                 <color key="backgroundColor" red="0.0" green="0.47058823529999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="51" id="UF0-3x-SeD"/>
+                                    <constraint firstAttribute="height" constant="51" id="t5y-Om-261"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
                                 <state key="normal" title="В меню">
@@ -371,27 +355,30 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="callMenuBlock:" destination="9fO-nz-bD7" eventType="touchUpInside" id="Kzh-jB-EKO"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.24537299771155377" green="0.56970985659102713" blue="0.91560238599777222" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="RzZ-Bi-Zrv" firstAttribute="top" secondItem="QeO-Rl-gHV" secondAttribute="bottom" constant="16" id="0kO-kW-Xrw"/>
-                            <constraint firstItem="uic-wK-pML" firstAttribute="bottom" secondItem="RzZ-Bi-Zrv" secondAttribute="bottom" constant="16" id="DSg-1b-kET"/>
                             <constraint firstItem="QeO-Rl-gHV" firstAttribute="centerX" secondItem="uic-wK-pML" secondAttribute="centerX" id="Dws-lK-GaW"/>
                             <constraint firstItem="eVN-yU-XZz" firstAttribute="centerX" secondItem="uic-wK-pML" secondAttribute="centerX" id="MYN-Ky-YwZ"/>
-                            <constraint firstItem="RzZ-Bi-Zrv" firstAttribute="trailing" secondItem="QeO-Rl-gHV" secondAttribute="trailing" id="WQ8-M0-k9N"/>
-                            <constraint firstItem="RzZ-Bi-Zrv" firstAttribute="top" secondItem="QeO-Rl-gHV" secondAttribute="bottom" constant="16" id="bo3-71-x9C"/>
                             <constraint firstItem="QeO-Rl-gHV" firstAttribute="leading" secondItem="uic-wK-pML" secondAttribute="leading" constant="40" id="hUR-Y7-xmq">
                                 <variation key="heightClass=regular-widthClass=regular" constant="120"/>
                             </constraint>
+                            <constraint firstItem="uic-wK-pML" firstAttribute="bottom" secondItem="QeO-Rl-gHV" secondAttribute="bottom" constant="16" id="jfI-RG-5Bw"/>
                             <constraint firstItem="eVN-yU-XZz" firstAttribute="top" secondItem="uic-wK-pML" secondAttribute="top" constant="16" id="ljM-Dg-ok4"/>
                             <constraint firstItem="uic-wK-pML" firstAttribute="trailing" secondItem="QeO-Rl-gHV" secondAttribute="trailing" constant="40" id="o9S-mY-1tr">
                                 <variation key="heightClass=regular-widthClass=regular" constant="120"/>
                             </constraint>
-                            <constraint firstItem="RzZ-Bi-Zrv" firstAttribute="leading" secondItem="QeO-Rl-gHV" secondAttribute="leading" id="q6y-TA-KOz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uic-wK-pML"/>
                     </view>
+                    <connections>
+                        <outlet property="recordLabel" destination="vqe-sn-RUk" id="e7l-Ni-MZy"/>
+                        <outlet property="scoreLabel" destination="95m-ae-fxe" id="g7z-nh-ebZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PrJ-I2-Mbs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
