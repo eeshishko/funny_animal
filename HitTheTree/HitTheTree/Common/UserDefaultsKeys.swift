@@ -9,5 +9,5 @@
 import Foundation
 
 class UserDefaultKeys{
-	static let records = "FarmInvasionUserDefaultsRecords"
+	static let records = "FIFarmInvasionUserDefaultsRecords"
 }

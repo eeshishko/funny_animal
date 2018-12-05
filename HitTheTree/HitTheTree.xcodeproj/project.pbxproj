@@ -144,7 +144,6 @@
 				F0174F9721B71233009D1908 /* sounds */,
 				78856320219873DA002D47FE /* art.scnassets */,
 				788562FE2198717F002D47FE /* AppDelegate.swift */,
-				788563022198717F002D47FE /* GameViewController.swift */,
 				F06C125021B6598D0061C4E4 /* Animal.swift */,
 				F06C124C21B5CF170061C4E4 /* AnimalPig.swift */,
 				F06C124E21B5EAB30061C4E4 /* AnimalCow.swift */,
@@ -193,6 +192,7 @@
 		E0DA941321B7378E00CE21FC /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				788563022198717F002D47FE /* GameViewController.swift */,
 				E0DA941421B7378E00CE21FC /* RulesViewController.swift */,
 				E0DA941521B7378E00CE21FC /* Game Records */,
 				E0DA941921B7378E00CE21FC /* GameOverViewController.swift */,
@@ -529,13 +529,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9UNTWSC5AR;
+				DEVELOPMENT_TEAM = B5MHTW4TA8;
 				INFOPLIST_FILE = HitTheTree/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.SberTech.HitTheTree;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.sberbank.FarmInvasion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -547,13 +547,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9UNTWSC5AR;
+				DEVELOPMENT_TEAM = B5MHTW4TA8;
 				INFOPLIST_FILE = HitTheTree/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.SberTech.HitTheTree;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.sberbank.FarmInvasion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -194,7 +194,7 @@ class GameViewController: UIViewController {
     
     func decreaseSecondsToFinish() {
         secondsToFinish -= 1
-        if secondsToFinish < 0 {
+        if secondsToFinish == 0 {
             secondsToFinish = 0
             stopGame()
         }
@@ -203,19 +203,17 @@ class GameViewController: UIViewController {
     func stopGame() {
         let storyboard = UIStoryboard(name: "Menu", bundle: nil)
         let gameOverVc = storyboard.instantiateViewController(withIdentifier: "GameOverViewControllerID") as! GameOverViewController
-        gameOverVc.loadViewIfNeeded()
-        gameOverVc.scoreLabel.text = "\(totalPoints)"
-        gameOverVc.menuClickHandler = {[weak gameOverVc, weak self] in
-            gameOverVc?.dismiss(animated: false, completion: {
-                self?.dismiss(animated: false, completion: nil)
-            })
-        }
+        gameOverVc.score = totalPoints
+		gameOverVc.delegate = self
         present(gameOverVc, animated: true, completion: nil)
-        
     }
-
 }
 
+extension GameViewController: GameOverViewControllerDelegate {
+	func didTapMenuButton(viewController: UIViewController) {
+		self.dismiss(animated: true, completion: nil)
+	}
+}
 
 extension GameViewController: ARSCNViewDelegate {
     
