@@ -12,7 +12,7 @@ class Ghost: SCNNode {
 
     fileprivate(set) var box = SCNBox(width: 0.05, height: 0.05, length: 0.05, chamferRadius: 0)
     
-    override init() {
+    init(box: SCNBox = SCNBox(width: 0.05, height: 0.05, length: 0.05, chamferRadius: 0)) {
         super.init()
         box.materials = materials()
         let cubeNode = SCNNode(geometry: box)

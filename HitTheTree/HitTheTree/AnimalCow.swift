@@ -8,14 +8,9 @@
 
 import SceneKit
 
-class AnimalCow: Animal {
+extension Animal {
     
-    override init() {
-        super.init()
-        updateMaterials()
-    }
-    
-    override func updateMaterials() {
+    func cowMaterials() {
         let material1 = SCNMaterial()
         material1.diffuse.contents = UIImage(named: "art.scnassets/cow/11_01.jpg")
         material1.locksAmbientWithDiffuse = true
@@ -46,10 +41,6 @@ class AnimalCow: Animal {
         
         let face = isAlive ? material1 : material1Dead
         box.materials = [face, material2, material3, material4, material5, material6]
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
 }

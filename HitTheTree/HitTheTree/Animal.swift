@@ -9,6 +9,10 @@
 import SceneKit
 
 class Animal: SCNNode {
+    
+    enum AnimalType: Int {
+        case cow = 1, pig, cat, mouse
+    }
 
     var velocity : SCNVector3 = SCNVector3(x: 0, y: 0, z: 0)
     fileprivate var maxHealth: CGFloat = 5.0
@@ -19,17 +23,21 @@ class Animal: SCNNode {
     }
     private let healthBar = HealthBar()
     fileprivate(set) var isAlive = true
-    fileprivate let ghost = Ghost()
+    fileprivate let ghost: Ghost
+    fileprivate(set) var type: AnimalType = .cow
+    fileprivate(set) var points: Int = 100
     
     fileprivate(set) var box = SCNBox(width: 0.05, height: 0.05, length: 0.05, chamferRadius: 0)
     
-    override init() {
+    init(box: SCNBox = SCNBox(width: 0.05, height: 0.05, length: 0.05, chamferRadius: 0)) {
+        let ghostBox = SCNBox(width: box.width, height: box.height, length: box.length, chamferRadius: box.chamferRadius)
+        ghost = Ghost(box: ghostBox)
         super.init()
-        
+        self.box = box
         let cubeNode = SCNNode(geometry: box)
         cubeNode.position = SCNVector3(x: 0, y: 0, z: 0)
         addChildNode(cubeNode)
-        
+        updateMaterials()
         addChildNode(healthBar)
         healthBar.position = SCNVector3(0,box.width,0)
         
@@ -64,7 +72,7 @@ class Animal: SCNNode {
         updateMaterials()
         
         var position = self.position
-        position.z += 0.15
+        position.z += Float(box.width * 3)
         let moveTopAction = SCNAction.move(to: position, duration: 0.3)
         moveTopAction.timingMode = .easeOut
         
@@ -99,11 +107,64 @@ class Animal: SCNNode {
     }
     
     func updateMaterials() {
-        
+        switch type {
+        case .cow:
+            cowMaterials()
+        case .pig:
+            pigMaterials()
+        case .cat:
+            catMaterials()
+        case .mouse:
+            mouseMaterials()
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    static func createCow() -> Animal {
+        let size: CGFloat = 0.1
+        let animal = Animal(box: SCNBox(width: size, height: size, length: size, chamferRadius: 0))
+        animal.type = .cow
+        animal.cowMaterials()
+        animal.maxHealth = 15.0
+        animal.health = animal.maxHealth
+        animal.points = 100
+        return animal
+    }
+    
+    static func createPig() -> Animal {
+        let size: CGFloat = 0.07
+        let animal = Animal(box: SCNBox(width: size, height: size, length: size, chamferRadius: 0))
+        animal.type = .pig
+        animal.pigMaterials()
+        animal.maxHealth = 10.0
+        animal.health = animal.maxHealth
+        animal.points = 200
+        return animal
+    }
+    
+    static func createCat() -> Animal {
+        let size: CGFloat = 0.03
+        let animal = Animal(box: SCNBox(width: size, height: size, length: size, chamferRadius: 0))
+        animal.type = .cat
+        animal.pigMaterials()
+        animal.maxHealth = 5.0
+        animal.health = animal.maxHealth
+        animal.points = 500
+        return animal
+    }
+    
+    static func createMouse() -> Animal {
+        let size: CGFloat = 0.01
+        let animal = Animal(box: SCNBox(width: size, height: size, length: size, chamferRadius: 0))
+        animal.type = .mouse
+        animal.pigMaterials()
+        animal.maxHealth = 2.0
+        animal.health = animal.maxHealth
+        animal.points = 1000
+        return animal
     }
     
 }

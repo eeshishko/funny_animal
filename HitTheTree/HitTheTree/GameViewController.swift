@@ -28,6 +28,7 @@ class GameViewController: UIViewController {
     var animals: [Animal] = []
     var planeIsDetection = false
     let grassFloor = GrassFloor()
+    var totalPoints: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,7 +121,10 @@ class GameViewController: UIViewController {
     }
     
     func addAnimal() {
-        let pig = AnimalCow()
+        if animals.count != 0 {
+            return
+        }
+        let pig = Animal.createCow()
         pig.position = SCNVector3(0, 0, pig.box.width/2.0)//
         pig.eulerAngles = SCNVector3(CGFloat.pi/2, 0, 0)
         grassFloor.addChildNode(pig)
@@ -144,9 +148,7 @@ extension GameViewController: ARSCNViewDelegate {
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
         grassFloor.set(planeAnchor: planeAnchor)
         node.addChildNode(grassFloor)
-        if animals.count == 0 {
-            addAnimal()
-        }
+        addAnimal()
     }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
@@ -204,6 +206,7 @@ extension GameViewController: SCNPhysicsContactDelegate {
             animal.damage(value: 0.2)
             if animal.health == 0 {
                 soundManager.playAnimalDead(animal: animal)
+                totalPoints += animal.points
             }
         }
         

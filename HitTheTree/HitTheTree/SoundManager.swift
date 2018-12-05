@@ -66,10 +66,13 @@ class SoundManager: NSObject {
     }
     
     func playAnimalDead(animal: Animal) {
-        if animal is AnimalCow {
+        switch animal.type {
+        case .cow:
             animal.runAction(SCNAction.playAudio(sounds["cowDead"]!, waitForCompletion: true))
-        } else if animal is AnimalPig {
+        case .pig:
             animal.runAction(SCNAction.playAudio(sounds["pigDead"]!, waitForCompletion: true))
+        default:
+            break
         }
     }
     

@@ -37,6 +37,8 @@
 		F0174FA321B72A25009D1908 /* DeathAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0174FA221B72A25009D1908 /* DeathAction.swift */; };
 		F0174FA621B74922009D1908 /* cowDead.wav in Resources */ = {isa = PBXBuildFile; fileRef = F0174FA421B74922009D1908 /* cowDead.wav */; };
 		F0174FA721B74922009D1908 /* pigDead.wav in Resources */ = {isa = PBXBuildFile; fileRef = F0174FA521B74922009D1908 /* pigDead.wav */; };
+		F0174FA921B7A5B1009D1908 /* AnimalMouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0174FA821B7A5B1009D1908 /* AnimalMouse.swift */; };
+		F0174FAB21B7A5BF009D1908 /* AnimalCat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0174FAA21B7A5BF009D1908 /* AnimalCat.swift */; };
 		F06C124D21B5CF170061C4E4 /* AnimalPig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06C124C21B5CF170061C4E4 /* AnimalPig.swift */; };
 		F06C124F21B5EAB30061C4E4 /* AnimalCow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06C124E21B5EAB30061C4E4 /* AnimalCow.swift */; };
 		F06C125121B6598D0061C4E4 /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06C125021B6598D0061C4E4 /* Animal.swift */; };
@@ -88,6 +90,8 @@
 		F0174FA221B72A25009D1908 /* DeathAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathAction.swift; sourceTree = "<group>"; };
 		F0174FA421B74922009D1908 /* cowDead.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cowDead.wav; sourceTree = "<group>"; };
 		F0174FA521B74922009D1908 /* pigDead.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pigDead.wav; sourceTree = "<group>"; };
+		F0174FA821B7A5B1009D1908 /* AnimalMouse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalMouse.swift; sourceTree = "<group>"; };
+		F0174FAA21B7A5BF009D1908 /* AnimalCat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCat.swift; sourceTree = "<group>"; };
 		F06C124C21B5CF170061C4E4 /* AnimalPig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalPig.swift; sourceTree = "<group>"; };
 		F06C124E21B5EAB30061C4E4 /* AnimalCow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCow.swift; sourceTree = "<group>"; };
 		F06C125021B6598D0061C4E4 /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
@@ -144,6 +148,8 @@
 				F06C125021B6598D0061C4E4 /* Animal.swift */,
 				F06C124C21B5CF170061C4E4 /* AnimalPig.swift */,
 				F06C124E21B5EAB30061C4E4 /* AnimalCow.swift */,
+				F0174FA821B7A5B1009D1908 /* AnimalMouse.swift */,
+				F0174FAA21B7A5BF009D1908 /* AnimalCat.swift */,
 				78BB1AE521B68E240052C19F /* GrassFloor.swift */,
 				78BB1AE721B6BAC70052C19F /* HealthBar.swift */,
 				78BB1AE921B6D1FE0052C19F /* ARBullet.swift */,
@@ -355,8 +361,10 @@
 				F0174FA321B72A25009D1908 /* DeathAction.swift in Sources */,
 				78BB1AE621B68E240052C19F /* GrassFloor.swift in Sources */,
 				788562FF2198717F002D47FE /* AppDelegate.swift in Sources */,
+				F0174FAB21B7A5BF009D1908 /* AnimalCat.swift in Sources */,
 				F06C125121B6598D0061C4E4 /* Animal.swift in Sources */,
 				78BB1AEC21B6D2360052C19F /* CollisionCategory.swift in Sources */,
+				F0174FA921B7A5B1009D1908 /* AnimalMouse.swift in Sources */,
 				E0DA941C21B7378E00CE21FC /* RulesViewController.swift in Sources */,
 				E0DA941221B7378300CE21FC /* GameResult.swift in Sources */,
 			);
