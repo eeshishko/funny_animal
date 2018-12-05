@@ -12,7 +12,7 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		let gameResult = GameResult(score: 50, date: Date())
+		let gameResult = GameResult(score: 20, date: Date())
 		let array: [GameResult] = Array(repeating: gameResult, count: 40)
 		let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: array)
 		
