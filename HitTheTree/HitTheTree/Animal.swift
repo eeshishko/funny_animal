@@ -14,6 +14,7 @@ class Animal: SCNNode {
         case cow = 1, pig, cat, mouse
     }
 
+    fileprivate(set) var defaultVelocity : SCNVector3 = SCNVector3(x: 0, y: 0, z: 0)
     var velocity : SCNVector3 = SCNVector3(x: 0, y: 0, z: 0)
     fileprivate var maxHealth: CGFloat = 5.0
     fileprivate(set) var health: CGFloat = 5.0 {
@@ -30,7 +31,7 @@ class Animal: SCNNode {
     fileprivate(set) var box = SCNBox(width: 0.05, height: 0.05, length: 0.05, chamferRadius: 0)
     
     init(box: SCNBox = SCNBox(width: 0.05, height: 0.05, length: 0.05, chamferRadius: 0)) {
-        let ghostBox = SCNBox(width: box.width, height: box.height, length: box.length, chamferRadius: box.chamferRadius)
+        let ghostBox = SCNBox(width: box.width * 0.9, height: box.height * 0.9, length: box.length * 0.9, chamferRadius: box.chamferRadius * 0.9)
         ghost = Ghost(box: ghostBox)
         super.init()
         self.box = box
@@ -89,8 +90,6 @@ class Animal: SCNNode {
         position.z = -Float(box.width)
         let moveDieDownAction = SCNAction.move(to: position, duration: 5.0)
         
-        runAction(SCNAction.sequence([movingGroupAction,moveDieDownAction]))
-        
         //runAction(DeathAction.deathAction(height: 0.15, duration: 1.0))
         
         parent?.addChildNode(ghost)
@@ -104,6 +103,10 @@ class Animal: SCNNode {
         let group = SCNAction.group([moveAction,fadeOuttAction])
         let totalAction = SCNAction.sequence([waitAction,group,removeAction])
         ghost.runAction(totalAction)
+        
+        let waitAnimalAction = SCNAction.wait(duration: 3)
+        let removeAnimalAction = SCNAction.removeFromParentNode()
+        runAction(SCNAction.sequence([movingGroupAction,moveDieDownAction, waitAnimalAction, removeAnimalAction]))
     }
     
     func updateMaterials() {
@@ -127,6 +130,7 @@ class Animal: SCNNode {
         let size: CGFloat = 0.1
         let animal = Animal(box: SCNBox(width: size, height: size, length: size, chamferRadius: 0))
         animal.type = .cow
+        animal.defaultVelocity = SCNVector3(0, 0, 0.002)
         animal.cowMaterials()
         animal.maxHealth = 15.0
         animal.health = animal.maxHealth
@@ -138,6 +142,7 @@ class Animal: SCNNode {
         let size: CGFloat = 0.07
         let animal = Animal(box: SCNBox(width: size, height: size, length: size, chamferRadius: 0))
         animal.type = .pig
+        animal.defaultVelocity = SCNVector3(0, 0, 0.003)
         animal.pigMaterials()
         animal.maxHealth = 10.0
         animal.health = animal.maxHealth
@@ -149,7 +154,8 @@ class Animal: SCNNode {
         let size: CGFloat = 0.03
         let animal = Animal(box: SCNBox(width: size, height: size, length: size, chamferRadius: 0))
         animal.type = .cat
-        animal.pigMaterials()
+        animal.defaultVelocity = SCNVector3(0, 0, 0.005)
+        animal.catMaterials()
         animal.maxHealth = 5.0
         animal.health = animal.maxHealth
         animal.points = 500
@@ -160,7 +166,8 @@ class Animal: SCNNode {
         let size: CGFloat = 0.01
         let animal = Animal(box: SCNBox(width: size, height: size, length: size, chamferRadius: 0))
         animal.type = .mouse
-        animal.pigMaterials()
+        animal.defaultVelocity = SCNVector3(0, 0, 0.007)
+        animal.mouseMaterials()
         animal.maxHealth = 2.0
         animal.health = animal.maxHealth
         animal.points = 1000

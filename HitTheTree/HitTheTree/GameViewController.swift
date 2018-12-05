@@ -17,18 +17,26 @@ let kGravity = SCNVector3(0, 0, -0.0002)
 
 class GameViewController: UIViewController {
     
+    var maxAnimalsCount = 10
     
     @IBOutlet var sceneView: ARSCNView!
+    
+    
+    @IBOutlet var timeLabel: UILabel!
+    @IBOutlet var pointsLabel: UILabel!
     
     //var sceneView: SCNView!
     var scene: SCNScene!
     let soundManager = SoundManager()
     
     var timer: Timer!
+    var gameTimer: Timer!
     var animals: [Animal] = []
     var planeIsDetection = false
     let grassFloor = GrassFloor()
     var totalPoints: Int = 0
+    
+    var secondsToFinish = 60
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,38 +107,94 @@ class GameViewController: UIViewController {
         //print("update game state")
         
         
-//        for animal in animals {
-//            if animal.position.z <= Float(animal.box.width/2.0 + 0.000001) {
-//                var vector = animal.position
-//                vector.z = Float(animal.box.width/2.0)
-//                animal.position = vector
-//                animal.velocity = SCNVector3(0.0, 0, 0.005)
-//            }
-//
-//            if !animal.isAlive {
-//                continue
-//            }
-//
-//            let velocity = animal.velocity + kGravity
-//            animal.velocity = velocity
-//
-//            var position = animal.position
-//            position = SCNVector3(position.x + velocity.x, position.y + velocity.y, position.z + velocity.z)
-//            animal.position = position
-//        }
+        for animal in animals {
+            
+            if !animal.isAlive {
+                continue
+            }
+            
+            if animal.position.z <= Float(animal.box.width/2.0 + 0.000001) {
+                var vector = animal.position
+                vector.z = Float(animal.box.width/2.0)
+                animal.position = vector
+                animal.velocity = animal.defaultVelocity
+            }
+
+            let velocity = animal.velocity + kGravity
+            animal.velocity = velocity
+
+            var position = animal.position
+            position = SCNVector3(position.x + velocity.x, position.y + velocity.y, position.z + velocity.z)
+            animal.position = position
+        }
     }
     
     func addAnimal() {
-        if animals.count != 0 {
+        if animals.count > maxAnimalsCount {
             return
         }
-        let pig = Animal.createCow()
-        pig.position = SCNVector3(0, 0, pig.box.width/2.0)//
-        pig.eulerAngles = SCNVector3(CGFloat.pi/2, 0, 0)
-        grassFloor.addChildNode(pig)
-        animals.append(pig)
+        let randomInt = Int.random(in: 1...4)
+        let animalType = Animal.AnimalType(rawValue: randomInt) ?? .cow
+        var animal = Animal.createCow()
+        
+        switch animalType {
+        case .cow:
+            animal = Animal.createCow()
+        case .pig:
+            animal = Animal.createPig()
+        case .cat:
+            animal = Animal.createCat()
+        case .mouse:
+            animal = Animal.createMouse()
+        }
+        
+        
+        animal.position = randomCoordinate(size: animal.box.width) //SCNVector3(0, 0, animal.box.width/2.0 * 3)//
+        animal.eulerAngles = SCNVector3(CGFloat.pi/2, 0, 0)
+        grassFloor.addChildNode(animal)
+        animals.append(animal)
     }
     
+    func randomCoordinate(size: CGFloat) -> SCNVector3 {
+        var flag: Bool = true
+        var newPosition = SCNVector3(0, 0, 0)
+        while flag {
+            let randomX = CGFloat.random(in: (-0.5+size/2.0)...(0.5-size/2.0))
+            let randomY = CGFloat.random(in: (-0.5+size/2.0)...(0.5-size/2.0))
+            let randomZ = CGFloat.random(in: size/2...2 * size)
+            newPosition = SCNVector3(randomX, randomY, randomZ)
+            flag = false
+            for animal in animals {
+                let length = sqrtf(powf((animal.position.x - newPosition.x), 2.0) + pow((animal.position.y - newPosition.y), 2.0))
+                if length < 0.3 {
+                    flag = true
+                    break
+                }
+            }
+        }
+        return newPosition
+    }
+    
+    func updateLabels() {
+        self.timeLabel.text = "\(secondsToFinish/60):\(secondsToFinish)"
+        self.pointsLabel.text = "Points: \(totalPoints)"
+    }
+    
+    func restartTimeAndPoints() {
+        self.secondsToFinish = 60
+        self.totalPoints = 0
+    }
+    
+    func decreaseSecondsToFinish() {
+        secondsToFinish -= 1
+        if secondsToFinish < 0 {
+            stopGame()
+        }
+    }
+    
+    func stopGame() {
+        
+    }
 
 }
 
@@ -143,12 +207,25 @@ extension GameViewController: ARSCNViewDelegate {
 //    }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        gameTimer?.invalidate()
+        restartTimeAndPoints()
+        DispatchQueue.main.async {
+            self.updateLabels()
+        }
+        gameTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: {[weak self] (timer) in
+            self?.decreaseSecondsToFinish()
+            DispatchQueue.main.async {
+                self?.updateLabels()
+            }
+        })
         sceneView.audioListener = scene.rootNode
         soundManager.playBackgroundMusic(node: node)
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
         grassFloor.set(planeAnchor: planeAnchor)
         node.addChildNode(grassFloor)
-        addAnimal()
+        for _ in 0..<maxAnimalsCount {
+            addAnimal()
+        }
     }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
@@ -202,11 +279,17 @@ extension GameViewController: SCNPhysicsContactDelegate {
         
         contact.nodeB.removeFromParentNode()
         
-        if let animal = contact.nodeA as? Animal {
+        if let animal = contact.nodeA as? Animal, animal.isAlive {
             animal.damage(value: 0.2)
             if animal.health == 0 {
                 soundManager.playAnimalDead(animal: animal)
                 totalPoints += animal.points
+                if let index = animals.lastIndex(of: animal) {
+                    animals.remove(at: index)
+                }
+            }
+            DispatchQueue.main.async {
+                self.updateLabels()
             }
         }
         

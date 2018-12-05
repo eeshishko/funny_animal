@@ -38,22 +38,47 @@
                                     <constraint firstAttribute="width" constant="100" id="ZbY-MV-xm3"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bz-ac-99a">
+                                <rect key="frame" x="20" y="20" width="42" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="jpJ-aQ-gMM"/>
+                                    <constraint firstAttribute="height" constant="22" id="xm3-vZ-Igu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points: 00000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZRQ-Ql-LdU">
+                                <rect key="frame" x="80" y="20" width="109" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="UUT-sH-qS7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tfN-8A-yYv" firstAttribute="bottom" secondItem="XQE-ln-QII" secondAttribute="bottom" constant="20" id="9lk-eO-DNe"/>
                             <constraint firstItem="0DG-1f-iEj" firstAttribute="trailing" secondItem="tfN-8A-yYv" secondAttribute="trailing" id="9vx-t3-ijq"/>
+                            <constraint firstItem="4bz-ac-99a" firstAttribute="leading" secondItem="tfN-8A-yYv" secondAttribute="leading" constant="20" id="Bcs-n8-C8d"/>
                             <constraint firstItem="0DG-1f-iEj" firstAttribute="leading" secondItem="tfN-8A-yYv" secondAttribute="leading" id="Hms-oN-jwb"/>
+                            <constraint firstItem="ZRQ-Ql-LdU" firstAttribute="top" secondItem="tfN-8A-yYv" secondAttribute="top" constant="20" id="J6Z-rd-Btl"/>
                             <constraint firstItem="UDP-mO-xoJ" firstAttribute="centerY" secondItem="Wvf-Gb-oik" secondAttribute="centerY" id="L5n-8L-uUQ"/>
+                            <constraint firstItem="ZRQ-Ql-LdU" firstAttribute="leading" secondItem="4bz-ac-99a" secondAttribute="trailing" constant="18" id="LNN-Jx-gYe"/>
                             <constraint firstItem="0DG-1f-iEj" firstAttribute="top" secondItem="Wvf-Gb-oik" secondAttribute="top" id="PeL-I0-2fY"/>
                             <constraint firstItem="tfN-8A-yYv" firstAttribute="trailing" secondItem="XQE-ln-QII" secondAttribute="trailing" constant="41" id="XrJ-rT-fDn"/>
                             <constraint firstItem="0DG-1f-iEj" firstAttribute="bottom" secondItem="tfN-8A-yYv" secondAttribute="bottom" id="Z4C-JC-f3X"/>
                             <constraint firstItem="UDP-mO-xoJ" firstAttribute="centerX" secondItem="Wvf-Gb-oik" secondAttribute="centerX" id="fXp-IB-h4X"/>
+                            <constraint firstItem="4bz-ac-99a" firstAttribute="top" secondItem="tfN-8A-yYv" secondAttribute="top" constant="20" id="hcG-lN-4kw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tfN-8A-yYv"/>
                     </view>
                     <connections>
+                        <outlet property="pointsLabel" destination="ZRQ-Ql-LdU" id="sIt-e4-Vra"/>
                         <outlet property="sceneView" destination="0DG-1f-iEj" id="GAZ-mK-yY5"/>
+                        <outlet property="timeLabel" destination="4bz-ac-99a" id="LRy-Km-vLW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
