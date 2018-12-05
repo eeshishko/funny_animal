@@ -30,6 +30,7 @@ final class ARBullet: SCNNode {
     var initialPosition: SCNVector3 = SCNVector3(0,0,0)
     
     var timer: Timer?
+    var damage: CGFloat = 1
 
     override init() {
         super.init()

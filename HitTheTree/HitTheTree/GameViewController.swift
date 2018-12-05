@@ -244,6 +244,13 @@ extension GameViewController: ARSCNViewDelegate {
         }
     }
     
+    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
+        grassFloor.set(planeAnchor: planeAnchor)
+    }
+    
+    
+    
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user
         
@@ -296,7 +303,7 @@ extension GameViewController: SCNPhysicsContactDelegate {
         contact.nodeB.removeFromParentNode()
         
         if let animal = contact.nodeA as? Animal, animal.isAlive {
-            animal.damage(value: 0.2)
+            animal.damage(value: 1.0)
             if animal.health == 0 {
                 soundManager.playAnimalDead(animal: animal)
                 totalPoints += animal.points
