@@ -312,7 +312,7 @@
         <!--Game Over View Controller-->
         <scene sceneID="zaL-FL-7vg">
             <objects>
-                <viewController id="9fO-nz-bD7" customClass="GameOverViewController" customModule="HitTheTree" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameOverViewControllerID" id="9fO-nz-bD7" customClass="GameOverViewController" customModule="HitTheTree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fNd-ii-3ZF">
                         <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

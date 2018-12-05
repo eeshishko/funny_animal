@@ -33,6 +33,7 @@ class Animal: SCNNode {
     init(box: SCNBox = SCNBox(width: 0.05, height: 0.05, length: 0.05, chamferRadius: 0)) {
         let ghostBox = SCNBox(width: box.width * 0.9, height: box.height * 0.9, length: box.length * 0.9, chamferRadius: box.chamferRadius * 0.9)
         ghost = Ghost(box: ghostBox)
+        ghost.eulerAngles = SCNVector3(CGFloat.pi/2, 0, 0)
         super.init()
         self.box = box
         let cubeNode = SCNNode(geometry: box)

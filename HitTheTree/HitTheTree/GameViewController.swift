@@ -92,6 +92,8 @@ class GameViewController: UIViewController {
         sceneView.scene = scene
         sceneView.scene.physicsWorld.contactDelegate = self
         //soundManager.playBackgroundMusic(node: scene.rootNode)
+        sceneView.audioListener = scene.rootNode
+        soundManager.playBackgroundMusic(node: scene.rootNode)
     }
     
     
@@ -159,6 +161,7 @@ class GameViewController: UIViewController {
         var flag: Bool = true
         var newPosition = SCNVector3(0, 0, 0)
         while flag {
+            print("randomCoordinate")
             let randomX = CGFloat.random(in: (-0.5+size/2.0)...(0.5-size/2.0))
             let randomY = CGFloat.random(in: (-0.5+size/2.0)...(0.5-size/2.0))
             let randomZ = CGFloat.random(in: size/2...2 * size)
@@ -166,7 +169,7 @@ class GameViewController: UIViewController {
             flag = false
             for animal in animals {
                 let length = sqrtf(powf((animal.position.x - newPosition.x), 2.0) + pow((animal.position.y - newPosition.y), 2.0))
-                if length < 0.3 {
+                if length < 0.12 {
                     flag = true
                     break
                 }
@@ -176,7 +179,11 @@ class GameViewController: UIViewController {
     }
     
     func updateLabels() {
-        self.timeLabel.text = "\(secondsToFinish/60):\(secondsToFinish)"
+        if secondsToFinish < 10 {
+            self.timeLabel.text = "\(secondsToFinish/60):0\(secondsToFinish)"
+        } else {
+            self.timeLabel.text = "\(secondsToFinish/60):\(secondsToFinish)"
+        }
         self.pointsLabel.text = "Points: \(totalPoints)"
     }
     
@@ -188,11 +195,22 @@ class GameViewController: UIViewController {
     func decreaseSecondsToFinish() {
         secondsToFinish -= 1
         if secondsToFinish < 0 {
+            secondsToFinish = 0
             stopGame()
         }
     }
     
     func stopGame() {
+        let storyboard = UIStoryboard(name: "Menu", bundle: nil)
+        let gameOverVc = storyboard.instantiateViewController(withIdentifier: "GameOverViewControllerID") as! GameOverViewController
+        gameOverVc.loadViewIfNeeded()
+        gameOverVc.scoreLabel.text = "\(totalPoints)"
+        gameOverVc.menuClickHandler = {[weak gameOverVc, weak self] in
+            gameOverVc?.dismiss(animated: false, completion: {
+                self?.dismiss(animated: false, completion: nil)
+            })
+        }
+        present(gameOverVc, animated: true, completion: nil)
         
     }
 
@@ -218,8 +236,6 @@ extension GameViewController: ARSCNViewDelegate {
                 self?.updateLabels()
             }
         })
-        sceneView.audioListener = scene.rootNode
-        soundManager.playBackgroundMusic(node: node)
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
         grassFloor.set(planeAnchor: planeAnchor)
         node.addChildNode(grassFloor)

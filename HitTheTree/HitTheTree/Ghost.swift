@@ -27,35 +27,15 @@ class Ghost: SCNNode {
     
     func materials() -> [SCNMaterial] {
         let material1 = SCNMaterial()
-        material1.diffuse.contents = UIColor.white
+        material1.diffuse.contents = UIImage(named: "art.scnassets/ghost/Ghost.png")
         material1.locksAmbientWithDiffuse = true
         
-//        let material2 = SCNMaterial()
-//        material2.diffuse.contents = UIColor(red: 248.0/255.0, green: 208.0/255.0, blue: 206.0/255.0, alpha: 1.0)
-//        material2.locksAmbientWithDiffuse = true
         
-        //        SCNMaterial *redMaterial                = [SCNMaterial material];
-        //        redMaterial.diffuse.contents            = [NSColor redColor];
-        //        redMaterial.locksAmbientWithDiffuse     = YES;
-        //
-        //        SCNMaterial *blueMaterial               = [SCNMaterial material];
-        //        blueMaterial.diffuse.contents           = [NSColor blueColor];
-        //        blueMaterial.locksAmbientWithDiffuse    = YES;
-        //
-        //        SCNMaterial *yellowMaterial             = [SCNMaterial material];
-        //        yellowMaterial.diffuse.contents         = [NSColor yellowColor];
-        //        yellowMaterial.locksAmbientWithDiffuse  = YES;
-        //
-        //        SCNMaterial *purpleMaterial             = [SCNMaterial material];
-        //        purpleMaterial.diffuse.contents         = [NSColor purpleColor];
-        //        purpleMaterial.locksAmbientWithDiffuse  = YES;
-        //
-        //        SCNMaterial *magentaMaterial            = [SCNMaterial material];
-        //        magentaMaterial.diffuse.contents        = [NSColor magentaColor];
-        //        magentaMaterial.locksAmbientWithDiffuse = YES;
-        //
-        //
-        return [material1, material1, material1, material1, material1, material1]
+        let material2 = SCNMaterial()
+        material2.diffuse.contents = UIImage(named: "art.scnassets/ghost/Ghost2.png")
+        material2.locksAmbientWithDiffuse = true
+        
+        return [material1, material2, material2, material2, material2, material2]
     }
     
 }
