@@ -16,7 +16,8 @@ import AudioToolbox.AudioServices
 let kGravity = SCNVector3(0, 0, -0.0002)
 
 class GameViewController: UIViewController {
-    
+	let defaultPlayerName = "Игрок 1"
+	
     var maxAnimalsCount = 10
     
     @IBOutlet var sceneView: ARSCNView!
@@ -204,10 +205,35 @@ class GameViewController: UIViewController {
     func stopGame() {
         let storyboard = UIStoryboard(name: "Menu", bundle: nil)
         let gameOverVc = storyboard.instantiateViewController(withIdentifier: "GameOverViewControllerID") as! GameOverViewController
-        gameOverVc.score = totalPoints
 		gameOverVc.delegate = self
-        present(gameOverVc, animated: true, completion: nil)
-    }
+		let alertVC = UIAlertController(title: "Введите имя",
+										message: nil,
+										preferredStyle: .alert)
+		alertVC.addTextField { (textField) in
+			textField.text = "Игрок 1"
+		}
+		
+		alertVC.addAction(UIAlertAction(title: "Готово", style: .default, handler: { (action) in
+			let textField = alertVC.textFields![0]
+			let name: String
+			if let textFieldValue = textField.text {
+				if !textFieldValue.isEmpty && !textFieldValue.trimmingCharacters(in: .whitespaces).isEmpty {
+					name = textFieldValue
+				} else {
+					name = self.defaultPlayerName
+				}
+			} else {
+				name = self.defaultPlayerName
+			}
+			
+			let result = GameResult(score: self.totalPoints, date: Date(), playerName: name)
+			
+			gameOverVc.gameResult = result
+			self.present(gameOverVc, animated: true, completion: nil)
+		}))
+		present(alertVC, animated: true, completion: nil)
+//		present(gameOverVc, animated: true, completion: nil)
+	}
     
     func startGame() {
         gameTimer?.invalidate()
@@ -229,6 +255,7 @@ class GameViewController: UIViewController {
             addAnimal()
         }
     }
+    
 }
 
 extension GameViewController: GameOverViewControllerDelegate {

@@ -13,41 +13,41 @@ protocol GameOverViewControllerDelegate: class {
 }
 
 class GameOverViewController: UIViewController {
+	var gameResult: GameResult?
 	weak var delegate: GameOverViewControllerDelegate?
-	var score: Int?
+	
 	@IBOutlet weak var scoreLabel: UILabel!
 	@IBOutlet weak var recordLabel: UILabel!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		scoreLabel.text = "\(score!)"
+		scoreLabel.text = "\(gameResult!.score)"
 		
 		let records: [GameResult]
 		recordLabel.isHidden = true
 		if let encodedData = UserDefaults.standard.object(forKey: UserDefaultKeys.records) as? Data {
 			records = NSKeyedUnarchiver.unarchiveObject(with: encodedData) as! [GameResult]
 			for rec in records {
-				if score! > rec.score {
+				if gameResult!.score > rec.score {
 					recordLabel.isHidden = false
 					break
 				}
 			}
 		}
 		
-		saveResult(score: score!)
+		saveResult()
 	}
 	
-	func saveResult(score: Int) {
-		let gameResult = GameResult(score: score, date: Date())
+	func saveResult() {
 		var records: [GameResult]
 		
 		if let encodedData = UserDefaults.standard.object(forKey: UserDefaultKeys.records) as? Data {
 			records = NSKeyedUnarchiver.unarchiveObject(with: encodedData) as! [GameResult]
-			records.append(gameResult)
+			records.append(gameResult!)
 		} else {
 			records = [GameResult]()
-			records.append(gameResult)
+			records.append(gameResult!)
 		}
 		
 		let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: records)

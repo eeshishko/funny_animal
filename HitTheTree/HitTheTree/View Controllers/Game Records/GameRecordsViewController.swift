@@ -24,6 +24,7 @@ class GameRecordsViewController: UIViewController {
 	private func loadRecords() {
 		if let encodedData = UserDefaults.standard.object(forKey: UserDefaultKeys.records) as? Data {
 			records = NSKeyedUnarchiver.unarchiveObject(with: encodedData) as! [GameResult]
+			records.sort(by: {$0.score > $1.score})
 		}
 		tableView.reloadData()
 	}
