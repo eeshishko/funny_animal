@@ -94,6 +94,7 @@ class GameViewController: UIViewController {
         //soundManager.playBackgroundMusic(node: scene.rootNode)
         sceneView.audioListener = scene.rootNode
         soundManager.playBackgroundMusic(node: scene.rootNode)
+        startGame()
     }
     
     
@@ -207,6 +208,27 @@ class GameViewController: UIViewController {
 		gameOverVc.delegate = self
         present(gameOverVc, animated: true, completion: nil)
     }
+    
+    func startGame() {
+        gameTimer?.invalidate()
+        restartTimeAndPoints()
+        DispatchQueue.main.async {
+            self.updateLabels()
+        }
+        gameTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: {[weak self] (timer) in
+            self?.decreaseSecondsToFinish()
+            DispatchQueue.main.async {
+                self?.updateLabels()
+            }
+        })
+        //guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
+        //grassFloor.set(planeAnchor: planeAnchor)
+        grassFloor.position = SCNVector3(0,-0.5,-1)
+        scene.rootNode.addChildNode(grassFloor)
+        for _ in 0..<maxAnimalsCount {
+            addAnimal()
+        }
+    }
 }
 
 extension GameViewController: GameOverViewControllerDelegate {
@@ -223,28 +245,11 @@ extension GameViewController: ARSCNViewDelegate {
 //    }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        gameTimer?.invalidate()
-        restartTimeAndPoints()
-        DispatchQueue.main.async {
-            self.updateLabels()
-        }
-        gameTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: {[weak self] (timer) in
-            self?.decreaseSecondsToFinish()
-            DispatchQueue.main.async {
-                self?.updateLabels()
-            }
-        })
-        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-        grassFloor.set(planeAnchor: planeAnchor)
-        node.addChildNode(grassFloor)
-        for _ in 0..<maxAnimalsCount {
-            addAnimal()
-        }
+        
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-        grassFloor.set(planeAnchor: planeAnchor)
+        
     }
     
     
