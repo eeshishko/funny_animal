@@ -12,9 +12,12 @@ import ARKit
 class GrassFloor: SCNNode {
     
     let plane = SCNPlane()
+    private let redPlane = SCNPlane()
+    private var redPlaneYCoordinate: CGFloat = -1.8
     
-    init(width: CGFloat = 2, height: CGFloat = 2) {
+    init(width: CGFloat = 2, height: CGFloat = 2, redPlaneYCoordinate: CGFloat = -0.8) {
         super.init()
+        self.redPlaneYCoordinate = redPlaneYCoordinate
         let image = UIImage(named: "art.scnassets/grass2.png")
         let grassMaterial = SCNMaterial()
         grassMaterial.diffuse.contentsTransform = SCNMatrix4MakeScale(8, 8, 0)
@@ -31,6 +34,8 @@ class GrassFloor: SCNNode {
         geometry = plane
         transform = SCNMatrix4MakeRotation(-Float.pi / 2, 1, 0, 0)
         setupLight()
+        
+        setupRedPlane()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -49,6 +54,19 @@ class GrassFloor: SCNNode {
         light.intensity = 100
         light.color = UIColor.white
         self.light = light
+    }
+    
+    func setupRedPlane() {
+        let node = SCNNode()
+        node.position = SCNVector3(0,redPlaneYCoordinate,0.00001)
+        redPlane.width = plane.width
+        redPlane.height = 0.005
+        
+        let material = SCNMaterial()
+        material.diffuse.contents = UIColor.red
+        redPlane.materials = [material]
+        node.geometry = redPlane
+        addChildNode(node)
     }
 
 }
