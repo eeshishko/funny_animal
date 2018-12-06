@@ -13,15 +13,20 @@ class GrassFloor: SCNNode {
     
     let plane = SCNPlane()
     
-    override init() {
+    init(width: CGFloat = 2, height: CGFloat = 2) {
         super.init()
         let image = UIImage(named: "art.scnassets/grass2.png")
         let grassMaterial = SCNMaterial()
-        //grassMaterial.diffuse.contentsTransform = SCNMatrix4MakeScale(32, 32, 0)
+        grassMaterial.diffuse.contentsTransform = SCNMatrix4MakeScale(8, 8, 0)
+        grassMaterial.diffuse.wrapS = .repeat
+        grassMaterial.diffuse.wrapT = .repeat
         grassMaterial.diffuse.contents = image
         grassMaterial.isDoubleSided = true
         
         plane.materials = [grassMaterial]
+        
+        plane.width = width
+        plane.height = height
         
         geometry = plane
         transform = SCNMatrix4MakeRotation(-Float.pi / 2, 1, 0, 0)

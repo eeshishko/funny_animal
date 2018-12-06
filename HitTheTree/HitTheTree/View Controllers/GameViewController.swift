@@ -64,6 +64,11 @@ class GameViewController: UIViewController {
         sceneView.session.run(configuration)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        sceneView.session.pause()
+    }
+    
     @IBAction func didTapShootButton(_ sender: UIButton) {
         shoot()
     }
@@ -155,20 +160,21 @@ class GameViewController: UIViewController {
         }
         
         
-        animal.position = randomCoordinate(size: animal.box.width) //SCNVector3(0, 0, animal.box.width/2.0 * 3)//
+        animal.position = randomCoordinate(animalSize: animal.box.width) //SCNVector3(0, 0, animal.box.width/2.0 * 3)//
         animal.eulerAngles = SCNVector3(CGFloat.pi/2, 0, 0)
         grassFloor.addChildNode(animal)
         animals.append(animal)
     }
     
-    func randomCoordinate(size: CGFloat) -> SCNVector3 {
+    func randomCoordinate(animalSize: CGFloat) -> SCNVector3 {
         var flag: Bool = true
         var newPosition = SCNVector3(0, 0, 0)
         while flag {
             print("randomCoordinate")
-            let randomX = CGFloat.random(in: (-0.5+size/2.0)...(0.5-size/2.0))
-            let randomY = CGFloat.random(in: (-0.5+size/2.0)...(0.5-size/2.0))
-            let randomZ = CGFloat.random(in: size/2...2 * size)
+            let width = CGFloat(grassFloor.plane.width/2.0)
+            let randomX = CGFloat.random(in: (-width+animalSize/2.0)...(width-animalSize/2.0))
+            let randomY = CGFloat.random(in: (-width+animalSize/2.0)...(width-animalSize/2.0))
+            let randomZ = CGFloat.random(in: animalSize/2...2 * animalSize)
             newPosition = SCNVector3(randomX, randomY, randomZ)
             flag = false
             for animal in animals {
@@ -258,7 +264,7 @@ class GameViewController: UIViewController {
         for _ in 0..<maxAnimalsCount {
             addAnimal()
         }
-        cloudsManager = CloudsManager(node: grassFloor)
+        cloudsManager = CloudsManager(node: grassFloor, worldWidth: Float(grassFloor.plane.width), worldLength: Float(grassFloor.plane.height))
     }
     
 }
