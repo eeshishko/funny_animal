@@ -25,6 +25,7 @@ class GameViewController: UIViewController {
     
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var pointsLabel: UILabel!
+    var cloudsManager : CloudsManager!
     
     //var sceneView: SCNView!
     var scene: SCNScene!
@@ -96,6 +97,7 @@ class GameViewController: UIViewController {
         sceneView.audioListener = scene.rootNode
         soundManager.playBackgroundMusic(node: scene.rootNode)
         startGame()
+        
     }
     
     
@@ -196,13 +198,15 @@ class GameViewController: UIViewController {
     
     func decreaseSecondsToFinish() {
         secondsToFinish -= 1
-        if secondsToFinish == 0 {
+        if secondsToFinish < 0 {
             secondsToFinish = 0
             stopGame()
         }
     }
     
     func stopGame() {
+        timer.invalidate()
+        gameTimer.invalidate()
         let storyboard = UIStoryboard(name: "Menu", bundle: nil)
         let gameOverVc = storyboard.instantiateViewController(withIdentifier: "GameOverViewControllerID") as! GameOverViewController
 		gameOverVc.delegate = self
@@ -254,6 +258,7 @@ class GameViewController: UIViewController {
         for _ in 0..<maxAnimalsCount {
             addAnimal()
         }
+        cloudsManager = CloudsManager(node: grassFloor)
     }
     
 }
@@ -337,9 +342,8 @@ extension GameViewController: SCNPhysicsContactDelegate {
             if animal.health == 0 {
                 soundManager.playAnimalDead(animal: animal)
                 totalPoints += animal.points
-                if let index = animals.lastIndex(of: animal) {
-                    animals.remove(at: index)
-                }
+                animals = animals.filter({$0.parent != nil})
+                addAnimal()
             }
             DispatchQueue.main.async {
                 self.updateLabels()

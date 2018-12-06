@@ -39,6 +39,7 @@
 		F0174FA721B74922009D1908 /* pigDead.wav in Resources */ = {isa = PBXBuildFile; fileRef = F0174FA521B74922009D1908 /* pigDead.wav */; };
 		F0174FA921B7A5B1009D1908 /* AnimalMouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0174FA821B7A5B1009D1908 /* AnimalMouse.swift */; };
 		F0174FAB21B7A5BF009D1908 /* AnimalCat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0174FAA21B7A5BF009D1908 /* AnimalCat.swift */; };
+		F0174FAD21B9BC58009D1908 /* CloudsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0174FAC21B9BC58009D1908 /* CloudsManager.swift */; };
 		F06C124D21B5CF170061C4E4 /* AnimalPig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06C124C21B5CF170061C4E4 /* AnimalPig.swift */; };
 		F06C124F21B5EAB30061C4E4 /* AnimalCow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06C124E21B5EAB30061C4E4 /* AnimalCow.swift */; };
 		F06C125121B6598D0061C4E4 /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06C125021B6598D0061C4E4 /* Animal.swift */; };
@@ -92,6 +93,7 @@
 		F0174FA521B74922009D1908 /* pigDead.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pigDead.wav; sourceTree = "<group>"; };
 		F0174FA821B7A5B1009D1908 /* AnimalMouse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalMouse.swift; sourceTree = "<group>"; };
 		F0174FAA21B7A5BF009D1908 /* AnimalCat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCat.swift; sourceTree = "<group>"; };
+		F0174FAC21B9BC58009D1908 /* CloudsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudsManager.swift; sourceTree = "<group>"; };
 		F06C124C21B5CF170061C4E4 /* AnimalPig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalPig.swift; sourceTree = "<group>"; };
 		F06C124E21B5EAB30061C4E4 /* AnimalCow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCow.swift; sourceTree = "<group>"; };
 		F06C125021B6598D0061C4E4 /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				78BB1AEF21B6F5FB0052C19F /* Ghost.swift */,
 				F06C12C821B70CD80061C4E4 /* SoundManager.swift */,
 				F0174FA221B72A25009D1908 /* DeathAction.swift */,
+				F0174FAC21B9BC58009D1908 /* CloudsManager.swift */,
 				7885630721987180002D47FE /* Assets.xcassets */,
 				7885630921987180002D47FE /* LaunchScreen.storyboard */,
 				7885630C21987180002D47FE /* Info.plist */,
@@ -347,6 +350,7 @@
 				78BB1AE821B6BAC70052C19F /* HealthBar.swift in Sources */,
 				F06C124D21B5CF170061C4E4 /* AnimalPig.swift in Sources */,
 				E0DA942221B7378E00CE21FC /* SettingsViewController.swift in Sources */,
+				F0174FAD21B9BC58009D1908 /* CloudsManager.swift in Sources */,
 				E0DA942021B7378E00CE21FC /* GameOverViewController.swift in Sources */,
 				F06C124F21B5EAB30061C4E4 /* AnimalCow.swift in Sources */,
 				788563032198717F002D47FE /* GameViewController.swift in Sources */,
