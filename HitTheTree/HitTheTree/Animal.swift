@@ -127,49 +127,53 @@ class Animal: SCNNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    static func createCow() -> Animal {
+    private static func health(level: Int, maxHealth: CGFloat) -> CGFloat {
+        return maxHealth + CGFloat(level) * 0.2
+    }
+    
+    static func createCow(level: Int = 0) -> Animal {
         let size: CGFloat = 0.1
         let animal = Animal(box: SCNBox(width: size, height: size, length: size, chamferRadius: 0))
         animal.type = .cow
-        animal.defaultVelocity = SCNVector3(0, -0.0005, 0.002)
+        animal.defaultVelocity = SCNVector3(0, -0.001, 0.002)
         animal.cowMaterials()
-        animal.maxHealth = 15.0
+        animal.maxHealth = health(level: level, maxHealth: 15)
         animal.health = animal.maxHealth
         animal.points = 100
         return animal
     }
     
-    static func createPig() -> Animal {
+    static func createPig(level: Int = 0) -> Animal {
         let size: CGFloat = 0.07
         let animal = Animal(box: SCNBox(width: size, height: size, length: size, chamferRadius: 0))
         animal.type = .pig
         animal.defaultVelocity = SCNVector3(0, -0.001, 0.003)
         animal.pigMaterials()
-        animal.maxHealth = 10.0
+        animal.maxHealth = health(level: level, maxHealth: 10)
         animal.health = animal.maxHealth
         animal.points = 200
         return animal
     }
     
-    static func createCat() -> Animal {
+    static func createCat(level: Int = 0) -> Animal {
         let size: CGFloat = 0.03
         let animal = Animal(box: SCNBox(width: size, height: size, length: size, chamferRadius: 0))
         animal.type = .cat
-        animal.defaultVelocity = SCNVector3(0, -0.002, 0.005)
+        animal.defaultVelocity = SCNVector3(0, -0.001, 0.005)
         animal.catMaterials()
-        animal.maxHealth = 5.0
+        animal.maxHealth = health(level: level, maxHealth: 5)
         animal.health = animal.maxHealth
         animal.points = 500
         return animal
     }
     
-    static func createMouse() -> Animal {
+    static func createMouse(level: Int = 0) -> Animal {
         let size: CGFloat = 0.01
         let animal = Animal(box: SCNBox(width: size, height: size, length: size, chamferRadius: 0))
         animal.type = .mouse
-        animal.defaultVelocity = SCNVector3(0, -0.003, 0.007)
+        animal.defaultVelocity = SCNVector3(0, -0.001, 0.007)
         animal.mouseMaterials()
-        animal.maxHealth = 2.0
+        animal.maxHealth = health(level: level, maxHealth: 2.0)
         animal.health = animal.maxHealth
         animal.points = 1000
         return animal

@@ -38,9 +38,14 @@ class GameViewController: UIViewController {
     let grassFloor = GrassFloor()
     var totalPoints: Int = 0
     
-    var secondsToFinish = 60
+    var totalGameTimeSeconds = 0
     
     var animalXCoordinates: [CGFloat] = []
+    
+    var lastAnimalAddingDate = Date()
+    
+    let animalsWaves : [Animal.AnimalType] = [.cow, .cow, .cow, .cow, .pig, .pig, .pig, .cat, .cat, .mouse]
+    var totalCountHasAddedAnimals: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -158,80 +163,90 @@ class GameViewController: UIViewController {
                 break
             }
         }
+        addAnimal()
     }
     
     func playAnimationRichingRedPlane(animal: Animal, completion: (() -> Void)? ) {
-        
+        completion?()
     }
     
     func addAnimal() {
-        if animals.count > maxAnimalsCount {
-            return
+        if animals.count < maxAnimalsCount {
+            let addingCount = maxAnimalsCount - animals.count
+            
+            for _ in 0..<addingCount {
+                //тут создаем животное
+                createAnimal()
+            }
+            lastAnimalAddingDate = Date()
+        } else {
+            if Date().timeIntervalSince1970 - lastAnimalAddingDate.timeIntervalSince1970 > 5 {
+                lastAnimalAddingDate = Date()
+                createAnimal()
+            }
         }
-        let randomInt = Int.random(in: 1...4)
-        let animalType = Animal.AnimalType(rawValue: randomInt) ?? .cow
-        var animal = Animal.createCow()
         
-        switch animalType {
+    }
+    
+    func createAnimal() {
+        let type = animalsWaves[totalCountHasAddedAnimals % animalsWaves.count]
+        let level = totalCountHasAddedAnimals / animalsWaves.count
+        var animal = Animal.createCow(level: level)
+        switch type {
         case .cow:
-            animal = Animal.createCow()
+            animal = Animal.createCow(level: level)
         case .pig:
-            animal = Animal.createPig()
+            animal = Animal.createPig(level: level)
         case .cat:
-            animal = Animal.createCat()
+            animal = Animal.createCat(level: level)
         case .mouse:
-            animal = Animal.createMouse()
+            animal = Animal.createMouse(level: level)
         }
-        
         
         animal.position = randomCoordinate(animalSize: animal.box.width) //SCNVector3(0, 0, animal.box.width/2.0 * 3)//
         animal.eulerAngles = SCNVector3(CGFloat.pi/2, 0, 0)
         grassFloor.addChildNode(animal)
         animals.append(animal)
+        totalCountHasAddedAnimals += 1
     }
     
     func randomCoordinate(animalSize: CGFloat) -> SCNVector3 {
-        var flag: Bool = true
-        var newPosition = SCNVector3(0, 0, 0)
+        var flag = true
+        var pos = SCNVector3(0, 0, 0)
         while flag {
-            print("randomCoordinate")
-            let width = CGFloat(grassFloor.plane.width/2.0)
-            let randomX = CGFloat.random(in: (-width+animalSize/2.0)...(width-animalSize/2.0))
-            let randomY = CGFloat.random(in: (-width+animalSize/2.0)...(width-animalSize/2.0))
-            let randomZ = CGFloat.random(in: animalSize/2...2 * animalSize)
-            newPosition = SCNVector3(randomX, randomY, randomZ)
             flag = false
-            for animal in animals {
-                let length = sqrtf(powf((animal.position.x - newPosition.x), 2.0) + pow((animal.position.y - newPosition.y), 2.0))
-                if length < 0.12 {
-                    flag = true
-                    break
+            let rand = Int.random(in: 0..<animalXCoordinates.count)
+            let width = CGFloat(grassFloor.plane.width/2.0)
+            let randomX = animalXCoordinates[rand]
+            let randomY = width/2.0 - CGFloat.random(in: -0.1...0.1)
+            let randomZ = CGFloat.random(in: animalSize/2...2 * animalSize)
+            
+            pos = SCNVector3(randomX, randomY, randomZ)
+            if animals.count < animalXCoordinates.count {
+                for animal in animals {
+                    if animal.position.x == pos.x {
+                        flag = true
+                        break
+                    }
                 }
             }
+            
         }
-        return newPosition
+        return pos
     }
     
     func updateLabels() {
-        if secondsToFinish < 10 {
-            self.timeLabel.text = "\(secondsToFinish/60):0\(secondsToFinish)"
+        if totalGameTimeSeconds < 10 {
+            self.timeLabel.text = "\(totalGameTimeSeconds/60):0\(totalGameTimeSeconds)"
         } else {
-            self.timeLabel.text = "\(secondsToFinish/60):\(secondsToFinish)"
+            self.timeLabel.text = "\(totalGameTimeSeconds/60):\(totalGameTimeSeconds)"
         }
         self.pointsLabel.text = "Points: \(totalPoints)"
     }
     
     func restartTimeAndPoints() {
-        self.secondsToFinish = 60
+        self.totalGameTimeSeconds = 0
         self.totalPoints = 0
-    }
-    
-    func decreaseSecondsToFinish() {
-        secondsToFinish -= 1
-        if secondsToFinish < 0 {
-            secondsToFinish = 0
-            stopGame()
-        }
     }
     
     func stopGame() {
@@ -276,7 +291,7 @@ class GameViewController: UIViewController {
             self.updateLabels()
         }
         gameTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: {[weak self] (timer) in
-            self?.decreaseSecondsToFinish()
+            self?.totalGameTimeSeconds += 1
             DispatchQueue.main.async {
                 self?.updateLabels()
             }
@@ -285,9 +300,7 @@ class GameViewController: UIViewController {
         //grassFloor.set(planeAnchor: planeAnchor)
         grassFloor.position = SCNVector3(0,-0.5,-1)
         scene.rootNode.addChildNode(grassFloor)
-        for _ in 0..<maxAnimalsCount {
-            addAnimal()
-        }
+        addAnimal()
         cloudsManager = CloudsManager(node: grassFloor, worldWidth: Float(grassFloor.plane.width), worldLength: Float(grassFloor.plane.height))
     }
     
@@ -368,12 +381,11 @@ extension GameViewController: SCNPhysicsContactDelegate {
         contact.nodeB.removeFromParentNode()
         
         if let animal = contact.nodeA as? Animal, animal.isAlive {
-            animal.damage(value: 1.0)
+            animal.damage(value: 4.0)
             if animal.health == 0 {
                 soundManager.playAnimalDead(animal: animal)
                 totalPoints += animal.points
                 animals = animals.filter({$0.parent != nil})
-                addAnimal()
             }
             DispatchQueue.main.async {
                 self.updateLabels()
