@@ -131,7 +131,7 @@ class Animal: SCNNode {
         let size: CGFloat = 0.1
         let animal = Animal(box: SCNBox(width: size, height: size, length: size, chamferRadius: 0))
         animal.type = .cow
-        animal.defaultVelocity = SCNVector3(0, 0, 0.002)
+        animal.defaultVelocity = SCNVector3(0, -0.0005, 0.002)
         animal.cowMaterials()
         animal.maxHealth = 15.0
         animal.health = animal.maxHealth
@@ -143,7 +143,7 @@ class Animal: SCNNode {
         let size: CGFloat = 0.07
         let animal = Animal(box: SCNBox(width: size, height: size, length: size, chamferRadius: 0))
         animal.type = .pig
-        animal.defaultVelocity = SCNVector3(0, 0, 0.003)
+        animal.defaultVelocity = SCNVector3(0, -0.001, 0.003)
         animal.pigMaterials()
         animal.maxHealth = 10.0
         animal.health = animal.maxHealth
@@ -155,7 +155,7 @@ class Animal: SCNNode {
         let size: CGFloat = 0.03
         let animal = Animal(box: SCNBox(width: size, height: size, length: size, chamferRadius: 0))
         animal.type = .cat
-        animal.defaultVelocity = SCNVector3(0, 0, 0.005)
+        animal.defaultVelocity = SCNVector3(0, -0.002, 0.005)
         animal.catMaterials()
         animal.maxHealth = 5.0
         animal.health = animal.maxHealth
@@ -167,7 +167,7 @@ class Animal: SCNNode {
         let size: CGFloat = 0.01
         let animal = Animal(box: SCNBox(width: size, height: size, length: size, chamferRadius: 0))
         animal.type = .mouse
-        animal.defaultVelocity = SCNVector3(0, 0, 0.007)
+        animal.defaultVelocity = SCNVector3(0, -0.003, 0.007)
         animal.mouseMaterials()
         animal.maxHealth = 2.0
         animal.health = animal.maxHealth

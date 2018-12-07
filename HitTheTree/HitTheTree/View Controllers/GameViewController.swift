@@ -39,6 +39,8 @@ class GameViewController: UIViewController {
     var totalPoints: Int = 0
     
     var secondsToFinish = 60
+    
+    var animalXCoordinates: [CGFloat] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +52,7 @@ class GameViewController: UIViewController {
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
         
+        setupAnimalXCoordinates()
         setupScene()
     }
     
@@ -92,6 +95,15 @@ class GameViewController: UIViewController {
         AudioServicesPlaySystemSound(peek)
         
         soundManager.playShootSound(node: sceneView.scene.rootNode)
+    }
+    
+    func setupAnimalXCoordinates() {
+        animalXCoordinates.removeAll()
+        let step : CGFloat = 0.2
+        let startX : CGFloat = -grassFloor.plane.width/2.0 + 0.1
+        for i in 0..<Int(grassFloor.plane.width/step) {
+            animalXCoordinates.append(CGFloat(i) * step + startX)
+        }
     }
     
     func setupScene() {
@@ -137,7 +149,19 @@ class GameViewController: UIViewController {
             var position = animal.position
             position = SCNVector3(position.x + velocity.x, position.y + velocity.y, position.z + velocity.z)
             animal.position = position
+            
+            if animal.position.y <= Float(grassFloor.redPlaneYCoordinate) {
+                timer.invalidate()
+                playAnimationRichingRedPlane(animal: animal) {[weak self] in
+                    self?.stopGame()
+                }
+                break
+            }
         }
+    }
+    
+    func playAnimationRichingRedPlane(animal: Animal, completion: (() -> Void)? ) {
+        
     }
     
     func addAnimal() {

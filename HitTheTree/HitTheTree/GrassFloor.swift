@@ -13,7 +13,7 @@ class GrassFloor: SCNNode {
     
     let plane = SCNPlane()
     private let redPlane = SCNPlane()
-    private var redPlaneYCoordinate: CGFloat = -1.8
+    private(set) var redPlaneYCoordinate: CGFloat = -1.8
     
     init(width: CGFloat = 2, height: CGFloat = 2, redPlaneYCoordinate: CGFloat = -0.8) {
         super.init()
