@@ -233,7 +233,7 @@
 
 Для того, чтобы играть, необходимо навести камеру на плоскую поверхность, где будет распологаться газон.
 
-Задача: за 30 секунд уничтожить как можно больше бешеных животных. </string>
+Задача: не позволить животным пересечь красную линию </string>
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="24" name="MarkerFelt-Thin"/>
