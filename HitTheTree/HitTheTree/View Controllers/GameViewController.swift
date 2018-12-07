@@ -76,10 +76,10 @@ class GameViewController: UIViewController {
         super.viewDidDisappear(animated)
         sceneView.session.pause()
     }
-    
-    @IBAction func didTapShootButton(_ sender: UIButton) {
-        shoot()
-    }
+	
+	@IBAction func tapScreen(_ sender: UITapGestureRecognizer) {
+		shoot()
+	}
     
     private func shoot() {
         let arBullet = ARBullet()

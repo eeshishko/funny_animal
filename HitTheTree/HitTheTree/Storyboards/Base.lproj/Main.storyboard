@@ -19,18 +19,11 @@
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0DG-1f-iEj">
                                 <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
-                            </arscnView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XQE-ln-QII">
-                                <rect key="frame" x="570" y="299" width="56" height="56"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="56" id="6aA-4w-4v8"/>
-                                    <constraint firstAttribute="height" constant="56" id="dJf-Mp-2or"/>
-                                </constraints>
-                                <state key="normal" image="shootButton"/>
+                                <gestureRecognizers/>
                                 <connections>
-                                    <action selector="didTapShootButton:" destination="BV1-FR-VrT" eventType="touchUpInside" id="qOU-kg-gTf"/>
+                                    <outletCollection property="gestureRecognizers" destination="ap8-wx-ZlR" appends="YES" id="Di4-Yr-9cJ"/>
                                 </connections>
-                            </button>
+                            </arscnView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="prizel" translatesAutoresizingMaskIntoConstraints="NO" id="UDP-mO-xoJ">
                                 <rect key="frame" x="283.5" y="137.5" width="100" height="100"/>
                                 <constraints>
@@ -60,7 +53,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="tfN-8A-yYv" firstAttribute="bottom" secondItem="XQE-ln-QII" secondAttribute="bottom" constant="20" id="9lk-eO-DNe"/>
                             <constraint firstItem="0DG-1f-iEj" firstAttribute="trailing" secondItem="tfN-8A-yYv" secondAttribute="trailing" id="9vx-t3-ijq"/>
                             <constraint firstItem="4bz-ac-99a" firstAttribute="leading" secondItem="tfN-8A-yYv" secondAttribute="leading" constant="20" id="Bcs-n8-C8d"/>
                             <constraint firstItem="0DG-1f-iEj" firstAttribute="leading" secondItem="tfN-8A-yYv" secondAttribute="leading" id="Hms-oN-jwb"/>
@@ -68,7 +60,6 @@
                             <constraint firstItem="UDP-mO-xoJ" firstAttribute="centerY" secondItem="Wvf-Gb-oik" secondAttribute="centerY" id="L5n-8L-uUQ"/>
                             <constraint firstItem="ZRQ-Ql-LdU" firstAttribute="leading" secondItem="4bz-ac-99a" secondAttribute="trailing" constant="18" id="LNN-Jx-gYe"/>
                             <constraint firstItem="0DG-1f-iEj" firstAttribute="top" secondItem="Wvf-Gb-oik" secondAttribute="top" id="PeL-I0-2fY"/>
-                            <constraint firstItem="tfN-8A-yYv" firstAttribute="trailing" secondItem="XQE-ln-QII" secondAttribute="trailing" constant="41" id="XrJ-rT-fDn"/>
                             <constraint firstItem="0DG-1f-iEj" firstAttribute="bottom" secondItem="tfN-8A-yYv" secondAttribute="bottom" id="Z4C-JC-f3X"/>
                             <constraint firstItem="UDP-mO-xoJ" firstAttribute="centerX" secondItem="Wvf-Gb-oik" secondAttribute="centerX" id="fXp-IB-h4X"/>
                             <constraint firstItem="4bz-ac-99a" firstAttribute="top" secondItem="tfN-8A-yYv" secondAttribute="top" constant="20" id="hcG-lN-4kw"/>
@@ -82,11 +73,15 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ap8-wx-ZlR">
+                    <connections>
+                        <action selector="tapScreen:" destination="BV1-FR-VrT" id="uMp-BJ-A3o"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
         </scene>
     </scenes>
     <resources>
         <image name="prizel" width="288" height="288"/>
-        <image name="shootButton" width="439" height="439"/>
     </resources>
 </document>
