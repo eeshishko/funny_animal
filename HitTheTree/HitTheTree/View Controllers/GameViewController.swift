@@ -250,6 +250,7 @@ class GameViewController: UIViewController {
     }
     
     func stopGame() {
+        soundManager.stopBackgroundMusic(node: scene.rootNode)
         timer.invalidate()
         gameTimer.invalidate()
         let storyboard = UIStoryboard(name: "Menu", bundle: nil)

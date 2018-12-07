@@ -55,6 +55,10 @@ class SoundManager: NSObject {
         node.addAudioPlayer(musicPlayer)
     }
     
+    func stopBackgroundMusic(node: SCNNode) {
+        node.removeAllAudioPlayers()
+    }
+    
     func playHitSound(node: SCNNode) {
         let hitSound = sounds["hit"]!
         node.runAction(SCNAction.playAudio(hitSound, waitForCompletion: true))
