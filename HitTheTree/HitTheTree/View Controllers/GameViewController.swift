@@ -113,6 +113,7 @@ class GameViewController: UIViewController {
     
     func setupScene() {
         scene = SCNScene() //named: "art.scnassets/MainScene.scn")
+        sceneView.autoenablesDefaultLighting = false
         sceneView.scene = scene
         sceneView.scene.physicsWorld.contactDelegate = self
         //soundManager.playBackgroundMusic(node: scene.rootNode)

@@ -36,6 +36,7 @@ class GrassFloor: SCNNode {
         setupLight()
         
         setupRedPlane()
+        addTrees()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -49,11 +50,14 @@ class GrassFloor: SCNNode {
     }
     
     func setupLight() {
+        let lightNode = SCNNode()
         let light = SCNLight()
-        light.type = .ambient
-        light.intensity = 100
+        light.type = .omni
+        light.intensity = 1000
         light.color = UIColor.white
-        self.light = light
+        lightNode.light = light
+        lightNode.position = SCNVector3(0, -plane.height * 1.1, 0.8)
+        addChildNode(lightNode)
     }
     
     func setupRedPlane() {
@@ -66,6 +70,15 @@ class GrassFloor: SCNNode {
         material.diffuse.contents = UIColor.red
         redPlane.materials = [material]
         node.geometry = redPlane
+        addChildNode(node)
+    }
+    
+    func addTrees() {
+        let scene = SCNScene(named: "art.scnassets/pine_node.scn")
+        let pine = scene?.rootNode.childNode(withName: "pine_root", recursively: false) ?? SCNNode()
+        let node = SCNNode()
+        pine.position = SCNVector3(0,0,0.2)
+        node.addChildNode(pine)
         addChildNode(node)
     }
 

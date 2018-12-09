@@ -45,6 +45,11 @@
 		F06C124F21B5EAB30061C4E4 /* AnimalCow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06C124E21B5EAB30061C4E4 /* AnimalCow.swift */; };
 		F06C125121B6598D0061C4E4 /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06C125021B6598D0061C4E4 /* Animal.swift */; };
 		F06C12C921B70CD80061C4E4 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06C12C821B70CD80061C4E4 /* SoundManager.swift */; };
+		F08265C921BC4CFE007E6875 /* RockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08265C821BC4CFE007E6875 /* RockManager.swift */; };
+		F08265CB21BC4D0B007E6875 /* TreesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08265CA21BC4D0B007E6875 /* TreesManager.swift */; };
+		F08265CD21BC4D18007E6875 /* NewCloudsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08265CC21BC4D18007E6875 /* NewCloudsManager.swift */; };
+		F08265CF21BC4D40007E6875 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08265CE21BC4D40007E6875 /* MainScene.swift */; };
+		F08265D121BC4D5F007E6875 /* NewGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08265D021BC4D5F007E6875 /* NewGameController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +105,11 @@
 		F06C124E21B5EAB30061C4E4 /* AnimalCow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCow.swift; sourceTree = "<group>"; };
 		F06C125021B6598D0061C4E4 /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
 		F06C12C821B70CD80061C4E4 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		F08265C821BC4CFE007E6875 /* RockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockManager.swift; sourceTree = "<group>"; };
+		F08265CA21BC4D0B007E6875 /* TreesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreesManager.swift; sourceTree = "<group>"; };
+		F08265CC21BC4D18007E6875 /* NewCloudsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCloudsManager.swift; sourceTree = "<group>"; };
+		F08265CE21BC4D40007E6875 /* MainScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
+		F08265D021BC4D5F007E6875 /* NewGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +173,7 @@
 				F0174FA221B72A25009D1908 /* DeathAction.swift */,
 				F0174FAC21B9BC58009D1908 /* CloudsManager.swift */,
 				F0174FAE21B9EF21009D1908 /* AnimalWavesMAnager.swift */,
+				F08265C721BC4CDA007E6875 /* NewGame */,
 				7885630721987180002D47FE /* Assets.xcassets */,
 				7885630921987180002D47FE /* LaunchScreen.storyboard */,
 				7885630C21987180002D47FE /* Info.plist */,
@@ -238,6 +249,18 @@
 				F0174FA521B74922009D1908 /* pigDead.wav */,
 			);
 			path = sounds;
+			sourceTree = "<group>";
+		};
+		F08265C721BC4CDA007E6875 /* NewGame */ = {
+			isa = PBXGroup;
+			children = (
+				F08265C821BC4CFE007E6875 /* RockManager.swift */,
+				F08265CA21BC4D0B007E6875 /* TreesManager.swift */,
+				F08265CC21BC4D18007E6875 /* NewCloudsManager.swift */,
+				F08265CE21BC4D40007E6875 /* MainScene.swift */,
+				F08265D021BC4D5F007E6875 /* NewGameController.swift */,
+			);
+			path = NewGame;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,6 +373,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F08265CD21BC4D18007E6875 /* NewCloudsManager.swift in Sources */,
+				F08265CF21BC4D40007E6875 /* MainScene.swift in Sources */,
 				78BB1AE821B6BAC70052C19F /* HealthBar.swift in Sources */,
 				F06C124D21B5CF170061C4E4 /* AnimalPig.swift in Sources */,
 				F0174FAF21B9EF21009D1908 /* AnimalWavesMAnager.swift in Sources */,
@@ -359,6 +384,8 @@
 				F06C124F21B5EAB30061C4E4 /* AnimalCow.swift in Sources */,
 				788563032198717F002D47FE /* GameViewController.swift in Sources */,
 				E0DA941D21B7378E00CE21FC /* GameRecordsViewController.swift in Sources */,
+				F08265CB21BC4D0B007E6875 /* TreesManager.swift in Sources */,
+				F08265D121BC4D5F007E6875 /* NewGameController.swift in Sources */,
 				78BB1AF021B6F5FB0052C19F /* Ghost.swift in Sources */,
 				F06C12C921B70CD80061C4E4 /* SoundManager.swift in Sources */,
 				78BB1AEA21B6D1FE0052C19F /* ARBullet.swift in Sources */,
@@ -372,6 +399,7 @@
 				F0174FAB21B7A5BF009D1908 /* AnimalCat.swift in Sources */,
 				F06C125121B6598D0061C4E4 /* Animal.swift in Sources */,
 				78BB1AEC21B6D2360052C19F /* CollisionCategory.swift in Sources */,
+				F08265C921BC4CFE007E6875 /* RockManager.swift in Sources */,
 				F0174FA921B7A5B1009D1908 /* AnimalMouse.swift in Sources */,
 				E0DA941C21B7378E00CE21FC /* RulesViewController.swift in Sources */,
 				E0DA941221B7378300CE21FC /* GameResult.swift in Sources */,
@@ -537,13 +565,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B5MHTW4TA8;
+				DEVELOPMENT_TEAM = 9UNTWSC5AR;
 				INFOPLIST_FILE = HitTheTree/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ru.sberbank.FarmInvasion;
+				PRODUCT_BUNDLE_IDENTIFIER = ru1.sberbank.FarmInvasion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -555,13 +583,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B5MHTW4TA8;
+				DEVELOPMENT_TEAM = 9UNTWSC5AR;
 				INFOPLIST_FILE = HitTheTree/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ru.sberbank.FarmInvasion;
+				PRODUCT_BUNDLE_IDENTIFIER = ru1.sberbank.FarmInvasion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

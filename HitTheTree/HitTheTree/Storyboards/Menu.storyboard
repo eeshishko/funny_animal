@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c3w-OL-w3y">
     <device id="ipad11_0rounded" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -383,6 +383,62 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PrJ-I2-Mbs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2586" y="140"/>
+        </scene>
+        <!--New Game Controller-->
+        <scene sceneID="aQI-ao-ALZ">
+            <objects>
+                <viewController id="c3w-OL-w3y" customClass="NewGameController" customModule="HitTheTree" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Oab-qK-nUz">
+                        <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NqA-1R-dzL">
+                                <rect key="frame" x="20" y="44" width="42" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="JbB-NM-ZoM"/>
+                                    <constraint firstAttribute="width" constant="42" id="RRh-lc-iPh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points: 00000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVZ-hT-0za">
+                                <rect key="frame" x="80" y="44" width="109" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="wco-a8-DSO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aaM-L7-QRq">
+                                <rect key="frame" x="0.0" y="24" width="1194" height="790"/>
+                            </sceneKitView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="aaM-L7-QRq" firstAttribute="leading" secondItem="D3h-Zx-aLE" secondAttribute="leading" id="8mx-cf-Lku"/>
+                            <constraint firstItem="aaM-L7-QRq" firstAttribute="top" secondItem="D3h-Zx-aLE" secondAttribute="top" id="9lo-CY-dBG"/>
+                            <constraint firstItem="D3h-Zx-aLE" firstAttribute="trailing" secondItem="aaM-L7-QRq" secondAttribute="trailing" id="FDa-Qn-P5Z"/>
+                            <constraint firstItem="NqA-1R-dzL" firstAttribute="leading" secondItem="D3h-Zx-aLE" secondAttribute="leading" constant="20" id="IJ9-Dx-XZO"/>
+                            <constraint firstItem="gVZ-hT-0za" firstAttribute="leading" secondItem="NqA-1R-dzL" secondAttribute="trailing" constant="18" id="Mty-5Z-uY6"/>
+                            <constraint firstItem="D3h-Zx-aLE" firstAttribute="bottom" secondItem="aaM-L7-QRq" secondAttribute="bottom" id="bJ4-Ho-bbN"/>
+                            <constraint firstItem="gVZ-hT-0za" firstAttribute="top" secondItem="D3h-Zx-aLE" secondAttribute="top" constant="20" id="s5W-AS-LDj"/>
+                            <constraint firstItem="NqA-1R-dzL" firstAttribute="top" secondItem="D3h-Zx-aLE" secondAttribute="top" constant="20" id="xzM-xG-LjS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="D3h-Zx-aLE"/>
+                    </view>
+                    <connections>
+                        <outlet property="sceneView" destination="aaM-L7-QRq" id="gXq-R7-W6H"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uRV-MP-RtP" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="JUb-Xr-Bas">
+                    <connections>
+                        <action selector="tapScreen:" destination="c3w-OL-w3y" id="kqa-Wp-oPv"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
         </scene>
     </scenes>
     <resources>
