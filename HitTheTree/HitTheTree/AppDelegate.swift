@@ -8,6 +8,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,7 +20,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		IQKeyboardManager.sharedManager().enable = true
 		IQKeyboardManager.sharedManager().enableAutoToolbar = false
 		IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
-		
+        
+		FirebaseApp.configure()
+        LeaderBoardManager.manager.update(playerName: "Marat_Marat") { (error) in
+            
+        }
+        
         return true
     }
 
