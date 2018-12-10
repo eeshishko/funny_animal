@@ -19,7 +19,8 @@ class GameViewController: UIViewController {
 	let defaultPlayerName = "Игрок 1"
 	
     var maxAnimalsCount = 10
-    
+	let minimalRespawnCooldown = 3
+	
     @IBOutlet var sceneView: ARSCNView!
     
     
@@ -180,7 +181,7 @@ class GameViewController: UIViewController {
             }
             lastAnimalAddingDate = Date()
         } else {
-            if Date().timeIntervalSince1970 - lastAnimalAddingDate.timeIntervalSince1970 > 5 {
+			if Int(Date().timeIntervalSince1970 - lastAnimalAddingDate.timeIntervalSince1970) > minimalRespawnCooldown {
                 lastAnimalAddingDate = Date()
                 createAnimal()
             }

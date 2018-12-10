@@ -307,7 +307,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zsy-iH-0oE">
-                                <rect key="frame" x="16" y="82" width="1162" height="732"/>
+                                <rect key="frame" x="16" y="82" width="1162" height="632"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Farm Invasion">
@@ -332,16 +332,40 @@
                                 </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTO-9f-WPr">
+                                <rect key="frame" x="40" y="714" width="1114" height="90"/>
+                                <color key="backgroundColor" red="0.0" green="0.47058823529999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="04o-YH-vEr"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="90" id="4vo-VU-daW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
+                                <state key="normal" title="Оценить нашу игру!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="saveName:" destination="kkC-k6-4vD" eventType="touchUpInside" id="23t-Vh-Orn"/>
+                                    <segue destination="pcb-Bl-uap" kind="show" id="5HH-BC-cHj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Zsy-iH-0oE" firstAttribute="top" secondItem="jHc-Ki-F32" secondAttribute="bottom" constant="8" id="3hU-Gt-RQd"/>
                             <constraint firstItem="jHc-Ki-F32" firstAttribute="top" secondItem="WXW-1Z-i2Z" secondAttribute="top" constant="20" id="5dN-Zp-5HR"/>
+                            <constraint firstItem="OTO-9f-WPr" firstAttribute="top" secondItem="Zsy-iH-0oE" secondAttribute="bottom" id="BMv-XC-5hq"/>
                             <constraint firstItem="WXW-1Z-i2Z" firstAttribute="trailing" secondItem="Zsy-iH-0oE" secondAttribute="trailing" constant="16" id="C8z-Fc-1ow"/>
+                            <constraint firstItem="OTO-9f-WPr" firstAttribute="leading" secondItem="WXW-1Z-i2Z" secondAttribute="leading" constant="40" id="Hn0-v4-63O"/>
                             <constraint firstItem="uDP-rC-TOf" firstAttribute="leading" secondItem="WXW-1Z-i2Z" secondAttribute="leading" constant="16" id="Nkf-cx-CLJ"/>
                             <constraint firstItem="jHc-Ki-F32" firstAttribute="centerX" secondItem="WXW-1Z-i2Z" secondAttribute="centerX" id="PXb-G0-osY"/>
                             <constraint firstItem="Zsy-iH-0oE" firstAttribute="leading" secondItem="WXW-1Z-i2Z" secondAttribute="leading" constant="16" id="Vo8-1v-oEg"/>
-                            <constraint firstItem="WXW-1Z-i2Z" firstAttribute="bottom" secondItem="Zsy-iH-0oE" secondAttribute="bottom" id="kfV-1P-U1s"/>
+                            <constraint firstItem="WXW-1Z-i2Z" firstAttribute="bottom" secondItem="Zsy-iH-0oE" secondAttribute="bottom" constant="100" id="kfV-1P-U1s"/>
+                            <constraint firstItem="WXW-1Z-i2Z" firstAttribute="trailing" secondItem="OTO-9f-WPr" secondAttribute="trailing" constant="40" id="qVf-IV-gSM"/>
                             <constraint firstItem="uDP-rC-TOf" firstAttribute="top" secondItem="WXW-1Z-i2Z" secondAttribute="top" constant="8" id="sT4-M4-9D3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WXW-1Z-i2Z"/>
@@ -473,6 +497,63 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PrJ-I2-Mbs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2586" y="140"/>
+        </scene>
+        <!--Rate Game View Controller-->
+        <scene sceneID="1P4-Ec-sqe">
+            <objects>
+                <viewController id="pcb-Bl-uap" customClass="RateGameViewController" customModule="HitTheTree" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cQb-iR-cFu">
+                        <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Оцени нашу игру!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeE-Pc-MbN">
+                                <rect key="frame" x="16" y="339" width="1162" height="30"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8HJ-gN-MZg" customClass="CosmosView" customModule="Cosmos">
+                                <rect key="frame" x="537" y="409" width="120" height="20"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hem-MY-TGm">
+                                <rect key="frame" x="16" y="30" width="40" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="iVy-Nk-Uhr"/>
+                                    <constraint firstAttribute="width" constant="40" id="nhZ-Ql-ntH"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="close"/>
+                                <connections>
+                                    <action selector="close:" destination="pcb-Bl-uap" eventType="touchUpInside" id="aoF-cP-rHX"/>
+                                    <action selector="close:" destination="ztA-aJ-uqF" eventType="touchUpInside" id="wp7-a1-gm5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QeE-Pc-MbN" firstAttribute="leading" secondItem="hVh-Z9-3BG" secondAttribute="leading" constant="16" id="H6c-Z0-lLg"/>
+                            <constraint firstItem="Hem-MY-TGm" firstAttribute="top" secondItem="hVh-Z9-3BG" secondAttribute="top" constant="6" id="H6j-2g-HYG"/>
+                            <constraint firstItem="hVh-Z9-3BG" firstAttribute="trailing" secondItem="QeE-Pc-MbN" secondAttribute="trailing" constant="16" id="Lzw-5R-zHf"/>
+                            <constraint firstItem="8HJ-gN-MZg" firstAttribute="centerX" secondItem="hVh-Z9-3BG" secondAttribute="centerX" id="a86-Ip-WUO"/>
+                            <constraint firstItem="8HJ-gN-MZg" firstAttribute="centerY" secondItem="hVh-Z9-3BG" secondAttribute="centerY" id="iE6-Sh-rHG"/>
+                            <constraint firstItem="8HJ-gN-MZg" firstAttribute="top" secondItem="QeE-Pc-MbN" secondAttribute="bottom" constant="40" id="n0y-aj-OcT"/>
+                            <constraint firstItem="QeE-Pc-MbN" firstAttribute="centerX" secondItem="hVh-Z9-3BG" secondAttribute="centerX" id="sxS-0I-b5Z"/>
+                            <constraint firstItem="Hem-MY-TGm" firstAttribute="leading" secondItem="hVh-Z9-3BG" secondAttribute="leading" constant="16" id="xef-mp-euG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hVh-Z9-3BG"/>
+                    </view>
+                    <connections>
+                        <outlet property="cosmosView" destination="8HJ-gN-MZg" id="oeE-fh-0Le"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tfj-dv-eEE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1090" y="1659"/>
         </scene>
     </scenes>
     <resources>

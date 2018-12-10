@@ -9,11 +9,11 @@
 import SceneKit
 
 class Animal: SCNNode {
-    
     enum AnimalType: Int {
         case cow = 1, pig, cat, mouse
     }
 
+	fileprivate static let YSpeedValue: CGFloat = -0.0009
     fileprivate(set) var defaultVelocity : SCNVector3 = SCNVector3(x: 0, y: 0, z: 0)
     var velocity : SCNVector3 = SCNVector3(x: 0, y: 0, z: 0)
     fileprivate var maxHealth: CGFloat = 5.0
@@ -130,12 +130,16 @@ class Animal: SCNNode {
     private static func health(level: Int, maxHealth: CGFloat) -> CGFloat {
         return maxHealth + CGFloat(level) * 0.2
     }
+	
+	private static func YSpeed(level: Int) -> CGFloat {
+		return YSpeedValue - CGFloat(level) * 0.0002
+	}
     
     static func createCow(level: Int = 0) -> Animal {
         let size: CGFloat = 0.1
         let animal = Animal(box: SCNBox(width: size, height: size, length: size, chamferRadius: 0))
         animal.type = .cow
-        animal.defaultVelocity = SCNVector3(0, -0.001, 0.002)
+        animal.defaultVelocity = SCNVector3(0, YSpeed(level: level), 0.002)
         animal.cowMaterials()
         animal.maxHealth = health(level: level, maxHealth: 15)
         animal.health = animal.maxHealth
@@ -147,7 +151,7 @@ class Animal: SCNNode {
         let size: CGFloat = 0.07
         let animal = Animal(box: SCNBox(width: size, height: size, length: size, chamferRadius: 0))
         animal.type = .pig
-        animal.defaultVelocity = SCNVector3(0, -0.001, 0.003)
+        animal.defaultVelocity = SCNVector3(0, YSpeed(level: level), 0.003)
         animal.pigMaterials()
         animal.maxHealth = health(level: level, maxHealth: 10)
         animal.health = animal.maxHealth
@@ -156,10 +160,10 @@ class Animal: SCNNode {
     }
     
     static func createCat(level: Int = 0) -> Animal {
-        let size: CGFloat = 0.03
+        let size: CGFloat = 0.05
         let animal = Animal(box: SCNBox(width: size, height: size, length: size, chamferRadius: 0))
         animal.type = .cat
-        animal.defaultVelocity = SCNVector3(0, -0.001, 0.005)
+        animal.defaultVelocity = SCNVector3(0, YSpeed(level: level), 0.005)
         animal.catMaterials()
         animal.maxHealth = health(level: level, maxHealth: 5)
         animal.health = animal.maxHealth
@@ -168,10 +172,10 @@ class Animal: SCNNode {
     }
     
     static func createMouse(level: Int = 0) -> Animal {
-        let size: CGFloat = 0.01
+        let size: CGFloat = 0.03
         let animal = Animal(box: SCNBox(width: size, height: size, length: size, chamferRadius: 0))
         animal.type = .mouse
-        animal.defaultVelocity = SCNVector3(0, -0.001, 0.007)
+        animal.defaultVelocity = SCNVector3(0, YSpeed(level: level), 0.007)
         animal.mouseMaterials()
         animal.maxHealth = health(level: level, maxHealth: 2.0)
         animal.health = animal.maxHealth

@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		631FD694B2DD2EF6DB38D48D /* Pods_HitTheTree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA2D266DB2E4835D1BAEBBA /* Pods_HitTheTree.framework */; };
-		787D468721BED47A00DD474F /* LeaderBoardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787D468621BED47A00DD474F /* LeaderBoardManager.swift */; };
-		787D468921BEDC5300DD474F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 787D468821BEDC5300DD474F /* GoogleService-Info.plist */; };
 		788562FF2198717F002D47FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788562FE2198717F002D47FE /* AppDelegate.swift */; };
 		788563032198717F002D47FE /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788563022198717F002D47FE /* GameViewController.swift */; };
 		788563062198717F002D47FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 788563042198717F002D47FE /* Main.storyboard */; };
@@ -24,6 +22,7 @@
 		78BB1AEE21B6EA700052C19F /* SCNVector3Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BB1AED21B6EA700052C19F /* SCNVector3Extension.swift */; };
 		78BB1AF021B6F5FB0052C19F /* Ghost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BB1AEF21B6F5FB0052C19F /* Ghost.swift */; };
 		E054187221BEC39500BD7530 /* ChangeNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054187121BEC39500BD7530 /* ChangeNameViewController.swift */; };
+		E054187421BEE7AA00BD7530 /* RateGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054187321BEE7AA00BD7530 /* RateGameViewController.swift */; };
 		E0DA940F21B7376D00CE21FC /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA940E21B7376D00CE21FC /* UserDefaultsKeys.swift */; };
 		E0DA941221B7378300CE21FC /* GameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA941121B7378300CE21FC /* GameResult.swift */; };
 		E0DA941C21B7378E00CE21FC /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA941421B7378E00CE21FC /* RulesViewController.swift */; };
@@ -64,8 +63,6 @@
 /* Begin PBXFileReference section */
 		1CA2D266DB2E4835D1BAEBBA /* Pods_HitTheTree.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HitTheTree.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F126C41A457B5E4C2323250 /* Pods_HitTheTreeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HitTheTreeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		787D468621BED47A00DD474F /* LeaderBoardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardManager.swift; sourceTree = "<group>"; };
-		787D468821BEDC5300DD474F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		788562FB2198717F002D47FE /* HitTheTree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HitTheTree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		788562FE2198717F002D47FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		788563022198717F002D47FE /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +82,7 @@
 		78BB1AEF21B6F5FB0052C19F /* Ghost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ghost.swift; sourceTree = "<group>"; };
 		A3EF9B02FA1E35611979E79F /* Pods-HitTheTree.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HitTheTree.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HitTheTree/Pods-HitTheTree.debug.xcconfig"; sourceTree = "<group>"; };
 		E054187121BEC39500BD7530 /* ChangeNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNameViewController.swift; sourceTree = "<group>"; };
+		E054187321BEE7AA00BD7530 /* RateGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateGameViewController.swift; sourceTree = "<group>"; };
 		E0DA940E21B7376D00CE21FC /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		E0DA941121B7378300CE21FC /* GameResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameResult.swift; sourceTree = "<group>"; };
 		E0DA941421B7378E00CE21FC /* RulesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
@@ -164,7 +162,6 @@
 		788562FD2198717F002D47FE /* HitTheTree */ = {
 			isa = PBXGroup;
 			children = (
-				787D468821BEDC5300DD474F /* GoogleService-Info.plist */,
 				E0DA942321B7379200CE21FC /* Storyboards */,
 				E0DA941321B7378E00CE21FC /* View Controllers */,
 				E0DA941021B7378300CE21FC /* Model */,
@@ -187,7 +184,6 @@
 				F0174FA221B72A25009D1908 /* DeathAction.swift */,
 				F0174FAC21B9BC58009D1908 /* CloudsManager.swift */,
 				F0174FAE21B9EF21009D1908 /* AnimalWavesMAnager.swift */,
-				787D468621BED47A00DD474F /* LeaderBoardManager.swift */,
 				7885630721987180002D47FE /* Assets.xcassets */,
 				7885630921987180002D47FE /* LaunchScreen.storyboard */,
 				7885630C21987180002D47FE /* Info.plist */,
@@ -239,6 +235,7 @@
 				E0DA941A21B7378E00CE21FC /* MenuViewController.swift */,
 				E0DA941B21B7378E00CE21FC /* SettingsViewController.swift */,
 				E054187121BEC39500BD7530 /* ChangeNameViewController.swift */,
+				E054187321BEE7AA00BD7530 /* RateGameViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -358,7 +355,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				787D468921BEDC5300DD474F /* GoogleService-Info.plist in Resources */,
 				E0DA941F21B7378E00CE21FC /* GameRecordTableViewCell.xib in Resources */,
 				7885630B21987180002D47FE /* LaunchScreen.storyboard in Resources */,
 				F0174F9A21B71233009D1908 /* background.mp3 in Resources */,
@@ -389,19 +385,19 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-HitTheTree/Pods-HitTheTree-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -413,11 +409,15 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputFileListPaths = (
+			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-HitTheTree-checkManifestLockResult.txt",
 			);
@@ -441,9 +441,9 @@
 				E0DA942021B7378E00CE21FC /* GameOverViewController.swift in Sources */,
 				F06C124F21B5EAB30061C4E4 /* AnimalCow.swift in Sources */,
 				788563032198717F002D47FE /* GameViewController.swift in Sources */,
+				E054187421BEE7AA00BD7530 /* RateGameViewController.swift in Sources */,
 				E0DA941D21B7378E00CE21FC /* GameRecordsViewController.swift in Sources */,
 				78BB1AF021B6F5FB0052C19F /* Ghost.swift in Sources */,
-				787D468721BED47A00DD474F /* LeaderBoardManager.swift in Sources */,
 				F06C12C921B70CD80061C4E4 /* SoundManager.swift in Sources */,
 				78BB1AEA21B6D1FE0052C19F /* ARBullet.swift in Sources */,
 				E0DA941E21B7378E00CE21FC /* GameRecordTableViewCell.swift in Sources */,
@@ -629,7 +629,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ru.sberbank.FarmInvasion;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.eeshishko.FarmInvasion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -648,7 +648,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ru.sberbank.FarmInvasion;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.eeshishko.FarmInvasion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
