@@ -9,6 +9,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 import Firebase
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,10 +22,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		IQKeyboardManager.sharedManager().enableAutoToolbar = false
 		IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
         
-		FirebaseApp.configure()
-        LeaderBoardManager.manager.update(playerName: "Marat_Marat") { (error) in
-            
+		//FirebaseApp.configure()
+        
+        let configuration = ParseClientConfiguration {
+            $0.applicationId = "DklpyPDVXTIrH8ZAUczRGAuxNlNqRICIRQ78HGXD"
+            $0.clientKey = "LmqFhWMjBxKeiXICTmwDI3Nr3ofC7oyTXTxpjC3q"
+            $0.server = "https://parseapi.back4app.com"
         }
+        Parse.initialize(with: configuration)
+        saveInstallationObject()
         
         return true
     }
@@ -51,6 +57,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func saveInstallationObject(){
+        if let installation = PFInstallation.current(){
+            installation.saveInBackground {
+                (success: Bool, error: Error?) in
+                if (success) {
+                    print("You have successfully connected your app to Back4App!")
+                } else {
+                    if let myError = error{
+                        print(myError.localizedDescription)
+                    }else{
+                        print("Uknown error")
+                    }
+                }
+            }
+        }
+    }
+    
 
 }
 

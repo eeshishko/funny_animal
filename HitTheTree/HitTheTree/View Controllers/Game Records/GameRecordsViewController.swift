@@ -26,10 +26,14 @@ class GameRecordsViewController: UIViewController {
 	}
 	
 	private func loadRecords() {
-		if let encodedData = UserDefaults.standard.object(forKey: UserDefaultKeys.records) as? Data {
-			records = NSKeyedUnarchiver.unarchiveObject(with: encodedData) as! [GameResult]
-			records.sort(by: {$0.score > $1.score})
-		}
+        LeaderBoardManager.manager.getResults {[weak self] (results, error) in
+            self?.records = results.filter({$0.score > 0}).sorted(by: {$0.score > $1.score})
+            self?.tableView.reloadData()
+        }
+//        if let encodedData = UserDefaults.standard.object(forKey: UserDefaultKeys.records) as? Data {
+//            records = NSKeyedUnarchiver.unarchiveObject(with: encodedData) as! [GameResult]
+//            records.sort(by: {$0.score > $1.score})
+//        }
 		tableView.reloadData()
 	}
 	

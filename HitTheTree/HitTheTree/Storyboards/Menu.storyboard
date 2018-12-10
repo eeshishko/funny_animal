@@ -74,6 +74,7 @@
                     </view>
                     <connections>
                         <outlet property="nameTextField" destination="oCA-RX-Mjf" id="vfT-PE-He1"/>
+                        <outlet property="saveButton" destination="ZAG-jT-g5j" id="Y7e-Zn-Vit"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="poW-ES-OAT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -349,7 +350,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="saveName:" destination="kkC-k6-4vD" eventType="touchUpInside" id="23t-Vh-Orn"/>
                                     <segue destination="pcb-Bl-uap" kind="show" id="5HH-BC-cHj"/>
                                 </connections>
                             </button>
@@ -490,6 +490,7 @@
                     </view>
                     <connections>
                         <outlet property="gameOverLabel" destination="R2q-Kc-5ww" id="H12-pl-yKn"/>
+                        <outlet property="menuButton" destination="QeO-Rl-gHV" id="pV2-Z0-lPJ"/>
                         <outlet property="recordLabel" destination="vqe-sn-RUk" id="e7l-Ni-MZy"/>
                         <outlet property="scoreLabel" destination="95m-ae-fxe" id="g7z-nh-ebZ"/>
                     </connections>
@@ -506,13 +507,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Оцени нашу игру!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeE-Pc-MbN">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Оцени нашу игру!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeE-Pc-MbN">
                                 <rect key="frame" x="16" y="339" width="1162" height="30"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="27"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8HJ-gN-MZg" customClass="CosmosView" customModule="Cosmos">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8HJ-gN-MZg" customClass="CosmosView" customModule="Cosmos">
                                 <rect key="frame" x="537" y="409" width="120" height="20"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>

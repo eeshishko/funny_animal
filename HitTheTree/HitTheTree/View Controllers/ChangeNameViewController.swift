@@ -10,10 +10,10 @@ import UIKit
 
 class ChangeNameViewController: UIViewController {
 	@IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var saveButton: UIButton!
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-
 		nameTextField.delegate = self
 		if let textFieldValue = UserDefaults.standard.string(forKey: UserDefaultKeys.playerName) {
 			nameTextField.text = textFieldValue
@@ -34,12 +34,22 @@ class ChangeNameViewController: UIViewController {
 			present(alert, animated: true, completion: nil)
 			return
 		}
-		
-		let userDefaults = UserDefaults.standard
-		userDefaults.set(textFieldValue, forKey: UserDefaultKeys.playerName)
-		userDefaults.synchronize()
-		
-		dismiss(animated: true, completion: nil)
+        
+        saveButton.isEnabled = false
+        LeaderBoardManager.manager.update(playerName: textFieldValue) {[weak self] (error) in
+            self?.saveButton.isEnabled = true
+            if let _ = error {
+                let alert = UIAlertController(title: "Ошибка", message: "Что-то на сервере пошло не так. Повторите отправку!", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self?.present(alert, animated: true, completion: nil)
+            } else {
+                let userDefaults = UserDefaults.standard
+                userDefaults.set(textFieldValue, forKey: UserDefaultKeys.playerName)
+                userDefaults.synchronize()
+                
+                self?.dismiss(animated: true, completion: nil)
+            }
+        }
 	}
 }
 
