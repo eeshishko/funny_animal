@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		631FD694B2DD2EF6DB38D48D /* Pods_HitTheTree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA2D266DB2E4835D1BAEBBA /* Pods_HitTheTree.framework */; };
 		788562FF2198717F002D47FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788562FE2198717F002D47FE /* AppDelegate.swift */; };
 		788563032198717F002D47FE /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788563022198717F002D47FE /* GameViewController.swift */; };
 		788563062198717F002D47FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 788563042198717F002D47FE /* Main.storyboard */; };
@@ -59,6 +60,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1CA2D266DB2E4835D1BAEBBA /* Pods_HitTheTree.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HitTheTree.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F126C41A457B5E4C2323250 /* Pods_HitTheTreeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HitTheTreeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		788562FB2198717F002D47FE /* HitTheTree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HitTheTree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		788562FE2198717F002D47FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		788563022198717F002D47FE /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +79,7 @@
 		78BB1AEB21B6D2350052C19F /* CollisionCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollisionCategory.swift; sourceTree = "<group>"; };
 		78BB1AED21B6EA700052C19F /* SCNVector3Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNVector3Extension.swift; sourceTree = "<group>"; };
 		78BB1AEF21B6F5FB0052C19F /* Ghost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ghost.swift; sourceTree = "<group>"; };
+		A3EF9B02FA1E35611979E79F /* Pods-HitTheTree.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HitTheTree.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HitTheTree/Pods-HitTheTree.debug.xcconfig"; sourceTree = "<group>"; };
 		E054187121BEC39500BD7530 /* ChangeNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNameViewController.swift; sourceTree = "<group>"; };
 		E0DA940E21B7376D00CE21FC /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		E0DA941121B7378300CE21FC /* GameResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameResult.swift; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 		F06C124E21B5EAB30061C4E4 /* AnimalCow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCow.swift; sourceTree = "<group>"; };
 		F06C125021B6598D0061C4E4 /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
 		F06C12C821B70CD80061C4E4 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		F3B4D26127C328619FEA3DD0 /* Pods-HitTheTree.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HitTheTree.release.xcconfig"; path = "Pods/Target Support Files/Pods-HitTheTree/Pods-HitTheTree.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				631FD694B2DD2EF6DB38D48D /* Pods_HitTheTree.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,12 +128,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DE7EE4B721E5D728CC9EC45 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A3EF9B02FA1E35611979E79F /* Pods-HitTheTree.debug.xcconfig */,
+				F3B4D26127C328619FEA3DD0 /* Pods-HitTheTree.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		788562F22198717F002D47FE = {
 			isa = PBXGroup;
 			children = (
 				788562FD2198717F002D47FE /* HitTheTree */,
 				7885631421987181002D47FE /* HitTheTreeTests */,
 				788562FC2198717F002D47FE /* Products */,
+				0DE7EE4B721E5D728CC9EC45 /* Pods */,
+				BC9F50163F25580280F9D9E1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -179,6 +196,15 @@
 				7885631721987181002D47FE /* Info.plist */,
 			);
 			path = HitTheTreeTests;
+			sourceTree = "<group>";
+		};
+		BC9F50163F25580280F9D9E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1CA2D266DB2E4835D1BAEBBA /* Pods_HitTheTree.framework */,
+				2F126C41A457B5E4C2323250 /* Pods_HitTheTreeTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		E0DA940D21B7375E00CE21FC /* Common */ = {
@@ -250,9 +276,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7885631A21987181002D47FE /* Build configuration list for PBXNativeTarget "HitTheTree" */;
 			buildPhases = (
+				6DF099847E9A70FBFD15484A /* [CP] Check Pods Manifest.lock */,
 				788562F72198717F002D47FE /* Sources */,
 				788562F82198717F002D47FE /* Frameworks */,
 				788562F92198717F002D47FE /* Resources */,
+				4D3723D68CA3F556AD9C44E6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -347,6 +375,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4D3723D68CA3F556AD9C44E6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HitTheTree/Pods-HitTheTree-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HitTheTree/Pods-HitTheTree-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6DF099847E9A70FBFD15484A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HitTheTree-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		788562F72198717F002D47FE /* Sources */ = {
@@ -538,16 +613,17 @@
 		};
 		7885631B21987181002D47FE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3EF9B02FA1E35611979E79F /* Pods-HitTheTree.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B5MHTW4TA8;
+				DEVELOPMENT_TEAM = 6T42T57GF6;
 				INFOPLIST_FILE = HitTheTree/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ru.sberbank.FarmInvasion;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.eeshishko.FarmInvasion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -556,16 +632,17 @@
 		};
 		7885631C21987181002D47FE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3B4D26127C328619FEA3DD0 /* Pods-HitTheTree.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B5MHTW4TA8;
+				DEVELOPMENT_TEAM = 6T42T57GF6;
 				INFOPLIST_FILE = HitTheTree/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ru.sberbank.FarmInvasion;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.eeshishko.FarmInvasion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

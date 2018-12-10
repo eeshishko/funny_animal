@@ -18,12 +18,13 @@ class GameOverViewController: UIViewController {
 	
 	@IBOutlet weak var scoreLabel: UILabel!
 	@IBOutlet weak var recordLabel: UILabel!
+	@IBOutlet weak var gameOverLabel: UILabel!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		scoreLabel.text = "\(gameResult!.score)"
-		
+		gameOverLabel.text = "Время вышло, \(gameResult!.playerName)"
 		let records: [GameResult]
 		recordLabel.isHidden = true
 		if let encodedData = UserDefaults.standard.object(forKey: UserDefaultKeys.records) as? Data {

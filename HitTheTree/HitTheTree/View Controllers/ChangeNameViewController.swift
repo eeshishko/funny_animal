@@ -14,18 +14,23 @@ class ChangeNameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+		nameTextField.delegate = self
+		if let textFieldValue = UserDefaults.standard.string(forKey: UserDefaultKeys.playerName) {
+			nameTextField.text = textFieldValue
+		}
     }
     
 	@IBAction func saveName(_ sender: Any) {
 		guard let textFieldValue = nameTextField.text else {
 			let alert = UIAlertController(title: "Ошибка", message: "Введите корректное имя", preferredStyle: .alert)
+			alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
 			present(alert, animated: true, completion: nil)
 			return
 		}
 		
 		guard !textFieldValue.isEmpty && !textFieldValue.trimmingCharacters(in: .whitespaces).isEmpty else {
 			let alert = UIAlertController(title: "Ошибка", message: "Введите корректное имя", preferredStyle: .alert)
+			alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
 			present(alert, animated: true, completion: nil)
 			return
 		}
@@ -36,15 +41,12 @@ class ChangeNameViewController: UIViewController {
 		
 		dismiss(animated: true, completion: nil)
 	}
-	
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+extension ChangeNameViewController: UITextFieldDelegate {
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		saveName(textField)
+		
+		return true
+	}
 }

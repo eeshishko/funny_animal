@@ -248,10 +248,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Рекорды" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KY3-ba-iop">
-                                <rect key="frame" x="527" y="44" width="140" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="Vpt-IH-lQB"/>
-                                </constraints>
+                                <rect key="frame" x="72" y="44" width="1050" height="30"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="27"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -262,11 +259,12 @@
                             <constraint firstItem="afx-Cg-Dqb" firstAttribute="top" secondItem="KY3-ba-iop" secondAttribute="bottom" constant="10" id="0tj-EO-lnr"/>
                             <constraint firstItem="C75-PH-TZg" firstAttribute="bottom" secondItem="afx-Cg-Dqb" secondAttribute="bottom" id="H1g-P6-Tlv"/>
                             <constraint firstItem="KY3-ba-iop" firstAttribute="top" secondItem="C75-PH-TZg" secondAttribute="top" constant="20" id="HOl-9n-FaI"/>
+                            <constraint firstItem="C75-PH-TZg" firstAttribute="trailing" secondItem="KY3-ba-iop" secondAttribute="trailing" constant="72" id="Pms-QA-DWW"/>
                             <constraint firstItem="glA-uN-Oqj" firstAttribute="leading" secondItem="C75-PH-TZg" secondAttribute="leading" constant="16" id="TjJ-gO-4Pc"/>
                             <constraint firstItem="glA-uN-Oqj" firstAttribute="top" secondItem="C75-PH-TZg" secondAttribute="top" constant="8" id="Xhi-Ix-h8n"/>
                             <constraint firstItem="C75-PH-TZg" firstAttribute="trailing" secondItem="afx-Cg-Dqb" secondAttribute="trailing" id="Zw9-WR-afE"/>
                             <constraint firstItem="afx-Cg-Dqb" firstAttribute="leading" secondItem="C75-PH-TZg" secondAttribute="leading" id="a2f-xS-JsI"/>
-                            <constraint firstItem="KY3-ba-iop" firstAttribute="centerX" secondItem="C75-PH-TZg" secondAttribute="centerX" id="x18-XG-HS3"/>
+                            <constraint firstItem="KY3-ba-iop" firstAttribute="leading" secondItem="glA-uN-Oqj" secondAttribute="trailing" constant="16" id="fb7-0c-b0u"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="C75-PH-TZg"/>
                     </view>
@@ -411,7 +409,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eVN-yU-XZz">
                                 <rect key="frame" x="530" y="40" width="134" height="152"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Время вышло" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2q-Kc-5ww">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Время вышло" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2q-Kc-5ww">
                                         <rect key="frame" x="0.0" y="0.0" width="134" height="26.5"/>
                                         <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -467,6 +465,7 @@
                         <viewLayoutGuide key="safeArea" id="uic-wK-pML"/>
                     </view>
                     <connections>
+                        <outlet property="gameOverLabel" destination="R2q-Kc-5ww" id="H12-pl-yKn"/>
                         <outlet property="recordLabel" destination="vqe-sn-RUk" id="e7l-Ni-MZy"/>
                         <outlet property="scoreLabel" destination="95m-ae-fxe" id="g7z-nh-ebZ"/>
                     </connections>

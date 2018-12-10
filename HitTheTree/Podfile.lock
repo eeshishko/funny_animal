@@ -1,0 +1,16 @@
+PODS:
+  - IQKeyboardManagerSwift (5.0.8)
+
+DEPENDENCIES:
+  - IQKeyboardManagerSwift
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - IQKeyboardManagerSwift
+
+SPEC CHECKSUMS:
+  IQKeyboardManagerSwift: 2e7dc7f98c111458c1ea2b373f893e8cf95e2b97
+
+PODFILE CHECKSUM: 07d173b4333ac73324897a25192d69c613f77e71
+
+COCOAPODS: 1.5.3

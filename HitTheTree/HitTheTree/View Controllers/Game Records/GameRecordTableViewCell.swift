@@ -9,7 +9,6 @@
 import UIKit
 
 class GameRecordTableViewCell: UITableViewCell {
-	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var scoreLabel: UILabel!
 	@IBOutlet weak var dateLabel: UILabel!
 	
@@ -21,6 +20,5 @@ class GameRecordTableViewCell: UITableViewCell {
 	func configure(with gameResult: GameResult) {
 		scoreLabel.text = "\(gameResult.score)"
 		dateLabel.text = "\(gameResult.date)"
-		nameLabel.text = "\(gameResult.playerName)"
 	}
 }
