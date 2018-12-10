@@ -9,7 +9,6 @@
 import SceneKit
 
 class Animal: SCNNode {
-    
     enum AnimalType: Int {
         case cow = 1, pig, cat, mouse
     }
