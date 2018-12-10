@@ -13,7 +13,12 @@ class GameResult: NSObject, NSCoding {
 	let date: Date
 	let playerName: String
 	
-	init(score: Int, date: Date, playerName: String) {
+	convenience init(score: Int, date: Date) {
+		let playerName = UserDefaults.standard.string(forKey: UserDefaultKeys.playerName)!
+		self.init(score: score, date: date, playerName: playerName)
+	}
+	
+	private init(score: Int, date: Date, playerName: String) {
 		self.score = score
 		self.date = date
 		self.playerName = playerName

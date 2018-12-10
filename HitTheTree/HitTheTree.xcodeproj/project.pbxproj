@@ -20,6 +20,7 @@
 		78BB1AEC21B6D2360052C19F /* CollisionCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BB1AEB21B6D2350052C19F /* CollisionCategory.swift */; };
 		78BB1AEE21B6EA700052C19F /* SCNVector3Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BB1AED21B6EA700052C19F /* SCNVector3Extension.swift */; };
 		78BB1AF021B6F5FB0052C19F /* Ghost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BB1AEF21B6F5FB0052C19F /* Ghost.swift */; };
+		E054187221BEC39500BD7530 /* ChangeNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054187121BEC39500BD7530 /* ChangeNameViewController.swift */; };
 		E0DA940F21B7376D00CE21FC /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA940E21B7376D00CE21FC /* UserDefaultsKeys.swift */; };
 		E0DA941221B7378300CE21FC /* GameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA941121B7378300CE21FC /* GameResult.swift */; };
 		E0DA941C21B7378E00CE21FC /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA941421B7378E00CE21FC /* RulesViewController.swift */; };
@@ -75,6 +76,7 @@
 		78BB1AEB21B6D2350052C19F /* CollisionCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollisionCategory.swift; sourceTree = "<group>"; };
 		78BB1AED21B6EA700052C19F /* SCNVector3Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNVector3Extension.swift; sourceTree = "<group>"; };
 		78BB1AEF21B6F5FB0052C19F /* Ghost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ghost.swift; sourceTree = "<group>"; };
+		E054187121BEC39500BD7530 /* ChangeNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNameViewController.swift; sourceTree = "<group>"; };
 		E0DA940E21B7376D00CE21FC /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		E0DA941121B7378300CE21FC /* GameResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameResult.swift; sourceTree = "<group>"; };
 		E0DA941421B7378E00CE21FC /* RulesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				E0DA941921B7378E00CE21FC /* GameOverViewController.swift */,
 				E0DA941A21B7378E00CE21FC /* MenuViewController.swift */,
 				E0DA941B21B7378E00CE21FC /* SettingsViewController.swift */,
+				E054187121BEC39500BD7530 /* ChangeNameViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				E0DA941E21B7378E00CE21FC /* GameRecordTableViewCell.swift in Sources */,
 				78BB1AEE21B6EA700052C19F /* SCNVector3Extension.swift in Sources */,
 				E0DA942121B7378E00CE21FC /* MenuViewController.swift in Sources */,
+				E054187221BEC39500BD7530 /* ChangeNameViewController.swift in Sources */,
 				E0DA940F21B7376D00CE21FC /* UserDefaultsKeys.swift in Sources */,
 				F0174FA321B72A25009D1908 /* DeathAction.swift in Sources */,
 				78BB1AE621B68E240052C19F /* GrassFloor.swift in Sources */,

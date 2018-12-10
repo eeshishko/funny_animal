@@ -253,36 +253,16 @@ class GameViewController: UIViewController {
         soundManager.stopBackgroundMusic(node: scene.rootNode)
         timer.invalidate()
         gameTimer.invalidate()
+		
         let storyboard = UIStoryboard(name: "Menu", bundle: nil)
         let gameOverVc = storyboard.instantiateViewController(withIdentifier: "GameOverViewControllerID") as! GameOverViewController
-		gameOverVc.delegate = self
-		let alertVC = UIAlertController(title: "Введите имя",
-										message: nil,
-										preferredStyle: .alert)
-		alertVC.addTextField { (textField) in
-			textField.text = "Игрок 1"
-		}
 		
-		alertVC.addAction(UIAlertAction(title: "Готово", style: .default, handler: { (action) in
-			let textField = alertVC.textFields![0]
-			let name: String
-			if let textFieldValue = textField.text {
-				if !textFieldValue.isEmpty && !textFieldValue.trimmingCharacters(in: .whitespaces).isEmpty {
-					name = textFieldValue
-				} else {
-					name = self.defaultPlayerName
-				}
-			} else {
-				name = self.defaultPlayerName
-			}
-			
-			let result = GameResult(score: self.totalPoints, date: Date(), playerName: name)
-			
-			gameOverVc.gameResult = result
-			self.present(gameOverVc, animated: true, completion: nil)
-		}))
-		present(alertVC, animated: true, completion: nil)
-//		present(gameOverVc, animated: true, completion: nil)
+		gameOverVc.delegate = self
+		
+		let result = GameResult(score: self.totalPoints, date: Date())
+		gameOverVc.gameResult = result
+		
+		present(gameOverVc, animated: true, completion: nil)
 	}
     
     func startGame() {

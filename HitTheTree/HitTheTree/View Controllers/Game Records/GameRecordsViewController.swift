@@ -9,6 +9,7 @@
 import UIKit
 
 class GameRecordsViewController: UIViewController {
+	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var tableView: UITableView!
 	
 	var records: [GameResult] = [GameResult]()
@@ -16,6 +17,9 @@ class GameRecordsViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		let playerName = "Gamer11111"
+		titleLabel.text = "Рекорды \"\(playerName)\""
 		
 		setupTableView()
 		loadRecords()
