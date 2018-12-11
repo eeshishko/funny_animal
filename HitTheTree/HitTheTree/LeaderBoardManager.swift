@@ -143,6 +143,7 @@ class LeaderBoardManager: NSObject {
         finishGameCount += 1
         userDefaults.set(finishGameCount, forKey: UserDefaultKeys.finishGameCount)
         userDefaults.synchronize()
+        updateDurationGame(duration: withDuration)
     }
     
     fileprivate func updateDurationGame(duration: Int) {

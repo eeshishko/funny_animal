@@ -237,10 +237,12 @@ class GameViewController: UIViewController {
     }
     
     func updateLabels() {
+        let minutes: Int = totalGameTimeSeconds/60
+        let seconds: Int = minutes > 0 ? totalGameTimeSeconds % minutes : totalGameTimeSeconds
         if totalGameTimeSeconds < 10 {
-            self.timeLabel.text = "\(totalGameTimeSeconds/60):0\(totalGameTimeSeconds)"
+            self.timeLabel.text = "\(minutes):0\(seconds)"
         } else {
-            self.timeLabel.text = "\(totalGameTimeSeconds/60):\(totalGameTimeSeconds)"
+            self.timeLabel.text = "\(minutes):\(seconds)"
         }
         self.pointsLabel.text = "Points: \(totalPoints)"
     }
