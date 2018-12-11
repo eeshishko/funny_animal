@@ -14,6 +14,7 @@ protocol GameOverViewControllerDelegate: class {
 
 class GameOverViewController: UIViewController {
 	var gameResult = GameResult(score: 0, date: Date())
+    var gameDuration: Int = 0
 	weak var delegate: GameOverViewControllerDelegate?
 	
 	@IBOutlet weak var scoreLabel: UILabel!
@@ -38,6 +39,7 @@ class GameOverViewController: UIViewController {
 //                }
 //            }
 //        }
+        
         LeaderBoardManager.manager.getResults {[weak self] (results, error) in
             guard let `self` = self else {
                 return

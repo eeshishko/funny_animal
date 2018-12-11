@@ -259,11 +259,14 @@ class GameViewController: UIViewController {
         let gameOverVc = storyboard.instantiateViewController(withIdentifier: "GameOverViewControllerID") as! GameOverViewController
 		
 		gameOverVc.delegate = self
+        gameOverVc.gameDuration = totalGameTimeSeconds
 		
 		let result = GameResult(score: self.totalPoints, date: Date())
 		gameOverVc.gameResult = result
 		
 		present(gameOverVc, animated: true, completion: nil)
+        
+        LeaderBoardManager.manager.finishGame(withDuration: totalGameTimeSeconds)
 	}
     
     func startGame() {

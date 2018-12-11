@@ -135,43 +135,66 @@ class LeaderBoardManager: NSObject {
         launchCount += 1
         userDefaults.set(launchCount, forKey: UserDefaultKeys.launchCount)
         userDefaults.synchronize()
-        if launchCount < 1 {
-            return
-        }
-        
-        
-        
+    }
+    
+    func finishGame(withDuration: Int) {
+        let userDefaults = UserDefaults.standard
+        var finishGameCount = userDefaults.integer(forKey: UserDefaultKeys.finishGameCount)
+        finishGameCount += 1
+        userDefaults.set(finishGameCount, forKey: UserDefaultKeys.finishGameCount)
+        userDefaults.synchronize()
+    }
+    
+    fileprivate func updateDurationGame(duration: Int) {
+        let userDefaults = UserDefaults.standard
+        var gameDuration = userDefaults.integer(forKey: UserDefaultKeys.gameDuration)
+        gameDuration += duration
+        userDefaults.set(gameDuration, forKey: UserDefaultKeys.gameDuration)
+        userDefaults.synchronize()
     }
     
     fileprivate func sendLaunchCount() {
         let userDefaults = UserDefaults.standard
         let launchCount = userDefaults.integer(forKey: UserDefaultKeys.launchCount)
-        if launchCount < 1 {
-            return
-        }
-        
-        let query = PFQuery(className:"Game_User")
-        query.whereKey("guid", equalTo:vendorId)
-        query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
-            if let error = error {
-                // Log details of the failure
-                print(error.localizedDescription)
-            } else if let objects = objects {
-                let laucnhCountKey = "launch_count"
-                for gameScore in objects {
-                    let count = (gameScore[laucnhCountKey] as? Int) ?? 0
-                    gameScore[laucnhCountKey] = launchCount + count
-                    gameScore.saveInBackground {
-                        (success: Bool, error: Error?) in
-                        if success {
-                            userDefaults.set(0, forKey: UserDefaultKeys.launchCount)
-                        } else {
-                            userDefaults.set(launchCount, forKey: UserDefaultKeys.launchCount)
+        let finishGameCount = userDefaults.integer(forKey: UserDefaultKeys.finishGameCount)
+        let gameDuration = userDefaults.integer(forKey: UserDefaultKeys.gameDuration)
+        if launchCount > 0 || finishGameCount > 0 || gameDuration > 0 {
+            
+            
+            let query = PFQuery(className:"Game_User")
+            query.whereKey("guid", equalTo:vendorId)
+            query.findObjectsInBackground { (objects: [PFObject]?, error: Error?) in
+                if let error = error {
+                    // Log details of the failure
+                    print(error.localizedDescription)
+                } else if let objects = objects {
+                    let laucnhCountKey = "launch_count"
+                    let finishGameCountKey = "finish_game_count"
+                    let gameDurationKey = "game_duration"
+                    for gameScore in objects {
+                        let serverLaunchCount = (gameScore[laucnhCountKey] as? Int) ?? 0
+                        let serverFinishGameCount = (gameScore[finishGameCountKey] as? Int) ?? 0
+                        let serverGameDuration = (gameScore[gameDurationKey] as? Int) ?? 0
+                        gameScore[laucnhCountKey] = launchCount + serverLaunchCount
+                        gameScore[finishGameCountKey] = finishGameCount + serverFinishGameCount
+                        gameScore[gameDurationKey] = gameDuration + serverGameDuration
+                        gameScore.saveInBackground {
+                            (success: Bool, error: Error?) in
+                            if success {
+                                userDefaults.set(0, forKey: UserDefaultKeys.launchCount)
+                                userDefaults.set(0, forKey: UserDefaultKeys.finishGameCount)
+                                userDefaults.set(0, forKey: UserDefaultKeys.gameDuration)
+                            } else {
+                                userDefaults.set(launchCount, forKey: UserDefaultKeys.launchCount)
+                                userDefaults.set(finishGameCount, forKey: UserDefaultKeys.finishGameCount)
+                                userDefaults.set(gameDuration, forKey: UserDefaultKeys.gameDuration)
+                            }
+                            userDefaults.synchronize()
                         }
-                        userDefaults.synchronize()
                     }
                 }
             }
+            
         }
     }
     

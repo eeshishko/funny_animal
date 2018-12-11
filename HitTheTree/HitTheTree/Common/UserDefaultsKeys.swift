@@ -12,4 +12,6 @@ class UserDefaultKeys{
 	static let records = "FIFarmInvasionUserDefaultsRecords"
 	static let playerName = "FIFarmInvasionUserDefaultsPlayerName"
     static let launchCount = "FIFarmInvasionUserDefaultsLaunchCount"
+    static let finishGameCount = "FIFarmInvasionUserDefaultsFinishGame"
+    static let gameDuration = "FIFarmInvasionUserDefaultsDurationGame"
 }
