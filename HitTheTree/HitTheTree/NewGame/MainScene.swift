@@ -12,12 +12,16 @@ class MainScene: SCNNode {
     
     let floor = SCNFloor()
     let floorNode = SCNNode()
+    
+    let rockManager = RockManager()
+    var cloudsManager: NewCloudsManager!
 
     override init() {
         super.init()
         setupFloor()
         setupLight()
-        addCube()
+        addRock()
+        cloudsManager = NewCloudsManager(node: self, worldWidth: Float(floor.width), worldLength: Float(floor.length))
     }
     
     fileprivate func setupFloor() {
@@ -41,9 +45,10 @@ class MainScene: SCNNode {
     }
     
     fileprivate func setupLight() {
+        let itencityScale: CGFloat = 1.0
         let ambientNode = SCNNode()
         let light = SCNLight()
-        light.intensity = 300
+        light.intensity = 300 * itencityScale
         light.color = UIColor(white: 0.75, alpha: 1.0)
         light.type = .ambient
         ambientNode.light = light
@@ -52,7 +57,7 @@ class MainScene: SCNNode {
         
         let frontDirNode = SCNNode()
         let front1 = SCNLight()
-        front1.intensity = 2000
+        front1.intensity = 1700 * itencityScale
         front1.color = UIColor(white: 0.5, alpha: 1.0)
         front1.type = .directional
         frontDirNode.light = front1
@@ -63,13 +68,25 @@ class MainScene: SCNNode {
         
         let frontDirNode2 = SCNNode()
         let front2 = SCNLight()
-        front2.intensity = 1200
+        front2.intensity = 1100 * itencityScale
         front2.color = UIColor(white: 0.5, alpha: 1.0)
         front2.type = .directional
         frontDirNode2.light = front2
         frontDirNode2.position = SCNVector3(-floor.length * 1.2,0,1)
-        frontDirNode2.eulerAngles = SCNVector3(-CGFloat.pi/4,-CGFloat.pi/4,0)
+        frontDirNode2.eulerAngles = SCNVector3(CGFloat.pi/2,0,0)
         addChildNode(frontDirNode2)
+        
+        
+        let cloudeTopLightNode = SCNNode()
+        let cloudeTopLight = SCNLight()
+        cloudeTopLight.intensity = 1000 * itencityScale
+        cloudeTopLight.color = UIColor(red: 63.0/255.0, green: 167.0/255.0, blue: 212.0/255.0, alpha: 1.0)
+        cloudeTopLight.categoryBitMask = 4
+        cloudeTopLight.type = .directional
+        cloudeTopLightNode.light = cloudeTopLight
+        cloudeTopLightNode.position = SCNVector3(0,0,0)
+        cloudeTopLightNode.eulerAngles = SCNVector3(0,0,0)
+        addChildNode(cloudeTopLightNode)
     }
     
     fileprivate func addCube() {
@@ -82,6 +99,12 @@ class MainScene: SCNNode {
         node.geometry = box
         node.position = SCNVector3(0,0,3)
         addChildNode(node)
+    }
+    
+    fileprivate func addRock() {
+        let rock1 = RockManager.createRock1()
+        rock1.position = SCNVector3(0,0,0)
+        addChildNode(rock1)
     }
     
     required init?(coder aDecoder: NSCoder) {
