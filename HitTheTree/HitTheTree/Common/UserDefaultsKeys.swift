@@ -11,4 +11,5 @@ import Foundation
 class UserDefaultKeys{
 	static let records = "FIFarmInvasionUserDefaultsRecords"
 	static let playerName = "FIFarmInvasionUserDefaultsPlayerName"
+    static let launchCount = "FIFarmInvasionUserDefaultsLaunchCount"
 }

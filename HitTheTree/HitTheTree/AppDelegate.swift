@@ -18,9 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-		IQKeyboardManager.sharedManager().enable = true
-		IQKeyboardManager.sharedManager().enableAutoToolbar = false
-		IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
+		IQKeyboardManager.shared.enable = true
+		IQKeyboardManager.shared.enableAutoToolbar = false
+		IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         
 		//FirebaseApp.configure()
         
@@ -31,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         Parse.initialize(with: configuration)
         saveInstallationObject()
+        
+        LeaderBoardManager.manager.launchApp()
         
         return true
     }

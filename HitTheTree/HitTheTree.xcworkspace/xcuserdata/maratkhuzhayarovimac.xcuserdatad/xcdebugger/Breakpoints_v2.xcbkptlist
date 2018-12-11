@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HitTheTree/LeaderBoardManager.swift"
-            timestampString = "566160081.9430211"
+            timestampString = "566214705.203161"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "update(playerName:completion:)"
             landmarkType = "7">
          </BreakpointContent>

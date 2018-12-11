@@ -51,6 +51,7 @@ class ChangeNameViewController: UIViewController {
             }
         }
 	}
+    
 }
 
 extension ChangeNameViewController: UITextFieldDelegate {
