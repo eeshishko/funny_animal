@@ -8,22 +8,31 @@
 
 import UIKit
 import SceneKit
+import ARKit
 
 class NewGameController: UIViewController {
 
-    @IBOutlet var sceneView: SCNView!
+    
+    var sceneView: SCNView!
+    var arSceneView: ARSCNView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // create a new scene
         let scene = SCNScene()
+        arSceneView = true ? ARSCNView() : nil
+        sceneView = arSceneView != nil ? arSceneView : SCNView()
+        view.addSubview(sceneView)
         setup(scene: scene)
         
         sceneView.scene = scene
         sceneView.allowsCameraControl = true
         sceneView.showsStatistics = true
         sceneView.backgroundColor = UIColor.black
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(NewGameController.tapHandlder))
+        sceneView.addGestureRecognizer(tap)
     }
     
     func setup(scene: SCNScene) {
@@ -38,6 +47,43 @@ class NewGameController: UIViewController {
         
         let mainSceneNode = MainScene()
         scene.rootNode.addChildNode(mainSceneNode)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Create a session configuration
+        let configuration = ARWorldTrackingConfiguration()
+        configuration.planeDetection = [.horizontal]
+        
+        // Run the view's session
+        arSceneView?.session.run(configuration)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        sceneView.frame = view.bounds
+    }
+    
+    @objc private func tapHandlder(_ recognizer: UITapGestureRecognizer) {
+        
+    }
+    
+}
+
+// MARK: - Utils
+
+extension NewGameController {
+    
+    fileprivate var cameraVector: (SCNVector3, SCNVector3) { // (direction, position)
+        if let frame = self.arSceneView.session.currentFrame {
+            let mat = SCNMatrix4(frame.camera.transform) // 4x4 transform matrix describing camera in world space
+            let dir = SCNVector3(-1 * mat.m31, -1 * mat.m32, -1 * mat.m33) // orientation of camera in world space
+            let pos = SCNVector3(mat.m41, mat.m42, mat.m43) // location of camera in world space
+            
+            return (dir, pos)
+        }
+        return (SCNVector3(0, 0, 0), SCNVector3(0, 0, 0))
     }
     
 }
