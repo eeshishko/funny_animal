@@ -15,6 +15,8 @@ class NewGameController: UIViewController {
     
     var sceneView: SCNView!
     var arSceneView: ARSCNView!
+    let mainScene = MainScene()
+    let cameraNode = SCNNode()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +27,12 @@ class NewGameController: UIViewController {
         sceneView = arSceneView != nil ? arSceneView : SCNView()
         view.addSubview(sceneView)
         setup(scene: scene)
+        if arSceneView == nil {
+            setupCamera(scene: scene)
+            sceneView.allowsCameraControl = true
+        }
         
         sceneView.scene = scene
-        sceneView.allowsCameraControl = true
         sceneView.showsStatistics = true
         sceneView.backgroundColor = UIColor.black
         
@@ -35,18 +40,20 @@ class NewGameController: UIViewController {
         sceneView.addGestureRecognizer(tap)
     }
     
-    func setup(scene: SCNScene) {
+    func setupCamera(scene: SCNScene) {
         
         // create and add a camera to the scene
-        let cameraNode = SCNNode()
-        cameraNode.camera = SCNCamera()
+        let camera =  SCNCamera()
+        cameraNode.camera = camera
         scene.rootNode.addChildNode(cameraNode)
         
         // place the camera
-        cameraNode.position = SCNVector3(x: 0, y: 2, z: 10)
-        
-        let mainSceneNode = MainScene()
-        scene.rootNode.addChildNode(mainSceneNode)
+        cameraNode.position = SCNVector3(x: 1, y: 4, z: 10)
+    }
+    
+    func setup(scene: SCNScene) {
+        mainScene.position = SCNVector3(0,-2,2)
+        scene.rootNode.addChildNode(mainScene)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,7 +73,9 @@ class NewGameController: UIViewController {
     }
     
     @objc private func tapHandlder(_ recognizer: UITapGestureRecognizer) {
-        
+        let touchPoint = recognizer.location(in: sceneView)
+        let pointOfView = sceneView.pointOfView//arSceneView == nil ? sceneView.pointOfView : sceneView.defaultCameraController.pointOfView
+        mainScene.tapLocation(hitTests: sceneView.hitTest(touchPoint, options: [.searchMode : SCNHitTestSearchMode.any.rawValue]), pointOfView: pointOfView ?? SCNNode())
     }
     
 }
@@ -75,15 +84,21 @@ class NewGameController: UIViewController {
 
 extension NewGameController {
     
-    fileprivate var cameraVector: (SCNVector3, SCNVector3) { // (direction, position)
-        if let frame = self.arSceneView.session.currentFrame {
+    fileprivate var cameraVector: (position: SCNVector3, direction: SCNVector3)? { // (direction, position)
+        if let frame = self.arSceneView?.session.currentFrame {
             let mat = SCNMatrix4(frame.camera.transform) // 4x4 transform matrix describing camera in world space
             let dir = SCNVector3(-1 * mat.m31, -1 * mat.m32, -1 * mat.m33) // orientation of camera in world space
             let pos = SCNVector3(mat.m41, mat.m42, mat.m43) // location of camera in world space
             
             return (dir, pos)
         }
-        return (SCNVector3(0, 0, 0), SCNVector3(0, 0, 0))
+        if let mat = cameraNode.camera?.projectionTransform {
+            let dir = SCNVector3(-1 * mat.m31, -1 * mat.m32, -1 * mat.m33) // orientation of camera in world space
+            let pos = SCNVector3(mat.m41, mat.m42, mat.m43) // location of camera in world space
+            return (dir, pos)
+        }
+        
+        return nil
     }
     
 }

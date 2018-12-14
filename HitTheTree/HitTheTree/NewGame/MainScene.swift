@@ -7,6 +7,7 @@
 //
 
 import SceneKit
+import AudioToolbox.AudioServices
 
 class MainScene: SCNNode {
     
@@ -24,6 +25,46 @@ class MainScene: SCNNode {
         cloudsManager = NewCloudsManager(node: self, worldWidth: Float(floor.width), worldLength: Float(floor.length))
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func tapLocation(hitTests: [SCNHitTestResult], pointOfView: SCNNode) {
+        if let firstHitTest = hitTests.filter({$0.node.name == "floor"}).first {
+            let node = firstHitTest.node
+            var pos = convertPosition(firstHitTest.localCoordinates, from: node)
+            pos.z = 0
+            pos.x += Float.random(in: -0.3...0.3)
+            pos.y += Float.random(in: -0.3...0.3)
+            
+            let position1 = convertPosition(SCNVector3(0, 0, 0), from: pointOfView)
+            var direction1 = SCNVector3((pos.x - position1.x) * 1.0, (pos.y - position1.y) * 1.0, (pos.z - position1.z) * 1.0)
+            direction1 = convertVector(direction1, to: nil)
+            print("position: \(position1)  direction: \(direction1)")
+            shoot(position: position1, direction: direction1)
+        }
+    }
+    
+//    func tapLocation(hitTests: [SCNHitTestResult], pointOfView: SCNNode) {
+//        if let firstHitTest = hitTests.filter({$0.node.name == "floor"}).first {
+//            let node = firstHitTest.node
+//            var pos = convertPosition(firstHitTest.localCoordinates, from: node)
+//            pos.z = 0
+//            //pos.x += Float.random(in: -0.3...0.3)
+//            //pos.y += Float.random(in: -0.3...0.3)
+//            pos = convertPosition(pos, to: nil)
+//
+//            var position1 = convertPosition(convertPosition(SCNVector3(-1.0, -1.0, -1.2), from: pointOfView), to: nil)
+//            var direction1 = SCNVector3((pos.x - position1.x) * 1.0, (pos.y - position1.y) * 1.0, (pos.z - position1.z) * 1.0)
+//            //direction1 = convertPosition(direction1, from: nil)
+//            //direction1.y *= -1
+//            //direction1.z *= -1
+//            position1 = convertPosition(position1, from: nil)
+//            print("position: \(position1)  direction: \(direction1)")
+//            shoot(position: position1, direction: direction1)
+//        }
+//    }
+    
     fileprivate func setupFloor() {
         floor.width = 2
         floor.length = 2
@@ -36,6 +77,7 @@ class MainScene: SCNNode {
         
         floor.materials = [mat]
         
+        floorNode.name = "floor"
         floorNode.position = SCNVector3(0,0,0)
         floorNode.eulerAngles = SCNVector3(-CGFloat.pi/2,0,0)
         eulerAngles = SCNVector3(-CGFloat.pi/2,0,0)
@@ -107,8 +149,21 @@ class MainScene: SCNNode {
         addChildNode(rock1)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    
+    private func shoot(position: SCNVector3, direction: SCNVector3) {
+        let arBullet = ARBullet()
+        
+        arBullet.position = position
+        arBullet.initialPosition = position
+        
+        let bulletDirection = direction
+        arBullet.physicsBody?.applyForce(bulletDirection, asImpulse: true)
+        addChildNode(arBullet)
+        
+        let peek = SystemSoundID(1519)
+        AudioServicesPlaySystemSound(peek)
+        
+        //soundManager.playShootSound(node: sceneView.scene.rootNode)
     }
     
     

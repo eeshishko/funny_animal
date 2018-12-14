@@ -25,12 +25,17 @@ import SceneKit
 
 final class ARBullet: SCNNode {
 
-    private static let sphereRadius: CGFloat = 0.002
+    private static let sphereRadius: CGFloat = 0.02
     
     var initialPosition: SCNVector3 = SCNVector3(0,0,0)
     
     var timer: Timer?
     var damage: CGFloat = 1
+    
+    init(hasRigidBody: Bool) {
+        super.init()
+        initialization(hasRigidBody: hasRigidBody)
+    }
 
     override init() {
         super.init()
@@ -45,15 +50,17 @@ final class ARBullet: SCNNode {
         initialization()
     }
 
-    private func initialization() {
+    private func initialization(hasRigidBody: Bool = true) {
         let arKitBox = SCNSphere(radius: ARBullet.sphereRadius)
         self.geometry = arKitBox
-        let shape = SCNPhysicsShape(geometry: arKitBox, options: nil)
-        self.physicsBody = SCNPhysicsBody(type: .dynamic, shape: shape)
-        self.physicsBody?.isAffectedByGravity = false
-        
-        self.physicsBody?.categoryBitMask = CollisionCategory.arBullets.rawValue
-        self.physicsBody?.contactTestBitMask = CollisionCategory.logos.rawValue
+        if hasRigidBody {
+            let shape = SCNPhysicsShape(geometry: arKitBox, options: nil)
+            self.physicsBody = SCNPhysicsBody(type: .dynamic, shape: shape)
+            self.physicsBody?.isAffectedByGravity = false
+            
+            self.physicsBody?.categoryBitMask = CollisionCategory.arBullets.rawValue
+            self.physicsBody?.contactTestBitMask = CollisionCategory.logos.rawValue
+        }
 
         // add texture
         let material = SCNMaterial()
