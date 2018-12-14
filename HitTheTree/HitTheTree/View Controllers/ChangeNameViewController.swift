@@ -36,7 +36,7 @@ class ChangeNameViewController: UIViewController {
 		}
         
         saveButton.isEnabled = false
-        LeaderBoardManager.manager.update(playerName: textFieldValue) {[weak self] (error) in
+        LeaderBoardManager.shared.update(playerName: textFieldValue) {[weak self] (error) in
             self?.saveButton.isEnabled = true
             if let _ = error {
                 let alert = UIAlertController(title: "Ошибка", message: "Что-то на сервере пошло не так. Повторите отправку!", preferredStyle: .alert)

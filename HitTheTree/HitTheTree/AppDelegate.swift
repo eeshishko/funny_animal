@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.initialize(with: configuration)
         saveInstallationObject()
         
-        LeaderBoardManager.manager.launchApp()
+        LeaderBoardManager.shared.launchApp()
         
         return true
     }

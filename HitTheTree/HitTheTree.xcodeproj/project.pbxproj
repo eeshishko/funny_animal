@@ -11,7 +11,6 @@
 		788562FF2198717F002D47FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788562FE2198717F002D47FE /* AppDelegate.swift */; };
 		788563032198717F002D47FE /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788563022198717F002D47FE /* GameViewController.swift */; };
 		788563062198717F002D47FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 788563042198717F002D47FE /* Main.storyboard */; };
-		7885630821987180002D47FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7885630721987180002D47FE /* Assets.xcassets */; };
 		7885630B21987180002D47FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7885630921987180002D47FE /* LaunchScreen.storyboard */; };
 		7885631621987181002D47FE /* HitTheTreeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7885631521987181002D47FE /* HitTheTreeTests.swift */; };
 		78856321219873DA002D47FE /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 78856320219873DA002D47FE /* art.scnassets */; };
@@ -23,6 +22,13 @@
 		78BB1AF021B6F5FB0052C19F /* Ghost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BB1AEF21B6F5FB0052C19F /* Ghost.swift */; };
 		E054187221BEC39500BD7530 /* ChangeNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054187121BEC39500BD7530 /* ChangeNameViewController.swift */; };
 		E054187421BEE7AA00BD7530 /* RateGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054187321BEE7AA00BD7530 /* RateGameViewController.swift */; };
+		E06FF0C921C3EEF8002EA3EA /* DataManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06FF0C821C3EEF8002EA3EA /* DataManagerProtocol.swift */; };
+		E06FF0CB21C3EFB8002EA3EA /* FeatureToggleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06FF0CA21C3EFB8002EA3EA /* FeatureToggleManager.swift */; };
+		E06FF0CD21C3F01C002EA3EA /* FeatureToggles.plist in Resources */ = {isa = PBXBuildFile; fileRef = E06FF0CC21C3F01C002EA3EA /* FeatureToggles.plist */; };
+		E06FF0CF21C3F051002EA3EA /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06FF0CE21C3F051002EA3EA /* DataManager.swift */; };
+		E06FF0D121C3F26D002EA3EA /* ChangeName.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E06FF0D021C3F26D002EA3EA /* ChangeName.storyboard */; };
+		E06FF0D321C3F2B1002EA3EA /* Records.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E06FF0D221C3F2B1002EA3EA /* Records.storyboard */; };
+		E06FF0D521C3F2E6002EA3EA /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E06FF0D421C3F2E6002EA3EA /* About.storyboard */; };
 		E0DA940F21B7376D00CE21FC /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA940E21B7376D00CE21FC /* UserDefaultsKeys.swift */; };
 		E0DA941221B7378300CE21FC /* GameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA941121B7378300CE21FC /* GameResult.swift */; };
 		E0DA941C21B7378E00CE21FC /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA941421B7378E00CE21FC /* RulesViewController.swift */; };
@@ -43,7 +49,7 @@
 		F0174FA921B7A5B1009D1908 /* AnimalMouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0174FA821B7A5B1009D1908 /* AnimalMouse.swift */; };
 		F0174FAB21B7A5BF009D1908 /* AnimalCat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0174FAA21B7A5BF009D1908 /* AnimalCat.swift */; };
 		F0174FAD21B9BC58009D1908 /* CloudsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0174FAC21B9BC58009D1908 /* CloudsManager.swift */; };
-		F0174FAF21B9EF21009D1908 /* AnimalWavesMAnager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0174FAE21B9EF21009D1908 /* AnimalWavesMAnager.swift */; };
+		F0174FAF21B9EF21009D1908 /* AnimalWavesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0174FAE21B9EF21009D1908 /* AnimalWavesManager.swift */; };
 		F06C124D21B5CF170061C4E4 /* AnimalPig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06C124C21B5CF170061C4E4 /* AnimalPig.swift */; };
 		F06C124F21B5EAB30061C4E4 /* AnimalCow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06C124E21B5EAB30061C4E4 /* AnimalCow.swift */; };
 		F06C125121B6598D0061C4E4 /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06C125021B6598D0061C4E4 /* Animal.swift */; };
@@ -68,7 +74,6 @@
 		788562FE2198717F002D47FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		788563022198717F002D47FE /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		788563052198717F002D47FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7885630721987180002D47FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7885630A21987180002D47FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7885630C21987180002D47FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7885631121987181002D47FE /* HitTheTreeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HitTheTreeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +89,14 @@
 		A3EF9B02FA1E35611979E79F /* Pods-HitTheTree.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HitTheTree.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HitTheTree/Pods-HitTheTree.debug.xcconfig"; sourceTree = "<group>"; };
 		E054187121BEC39500BD7530 /* ChangeNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNameViewController.swift; sourceTree = "<group>"; };
 		E054187321BEE7AA00BD7530 /* RateGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateGameViewController.swift; sourceTree = "<group>"; };
+		E06FF0C521C3EE29002EA3EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E06FF0C821C3EEF8002EA3EA /* DataManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerProtocol.swift; sourceTree = "<group>"; };
+		E06FF0CA21C3EFB8002EA3EA /* FeatureToggleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureToggleManager.swift; sourceTree = "<group>"; };
+		E06FF0CC21C3F01C002EA3EA /* FeatureToggles.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = FeatureToggles.plist; sourceTree = "<group>"; };
+		E06FF0CE21C3F051002EA3EA /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		E06FF0D021C3F26D002EA3EA /* ChangeName.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChangeName.storyboard; sourceTree = "<group>"; };
+		E06FF0D221C3F2B1002EA3EA /* Records.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Records.storyboard; sourceTree = "<group>"; };
+		E06FF0D421C3F2E6002EA3EA /* About.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
 		E0DA940E21B7376D00CE21FC /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		E0DA941121B7378300CE21FC /* GameResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameResult.swift; sourceTree = "<group>"; };
 		E0DA941421B7378E00CE21FC /* RulesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
@@ -104,7 +117,7 @@
 		F0174FA821B7A5B1009D1908 /* AnimalMouse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalMouse.swift; sourceTree = "<group>"; };
 		F0174FAA21B7A5BF009D1908 /* AnimalCat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCat.swift; sourceTree = "<group>"; };
 		F0174FAC21B9BC58009D1908 /* CloudsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudsManager.swift; sourceTree = "<group>"; };
-		F0174FAE21B9EF21009D1908 /* AnimalWavesMAnager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalWavesMAnager.swift; sourceTree = "<group>"; };
+		F0174FAE21B9EF21009D1908 /* AnimalWavesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalWavesManager.swift; sourceTree = "<group>"; };
 		F06C124C21B5CF170061C4E4 /* AnimalPig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalPig.swift; sourceTree = "<group>"; };
 		F06C124E21B5EAB30061C4E4 /* AnimalCow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCow.swift; sourceTree = "<group>"; };
 		F06C125021B6598D0061C4E4 /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
@@ -145,7 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				788562FD2198717F002D47FE /* HitTheTree */,
-				7885631421987181002D47FE /* HitTheTreeTests */,
 				788562FC2198717F002D47FE /* Products */,
 				0DE7EE4B721E5D728CC9EC45 /* Pods */,
 				BC9F50163F25580280F9D9E1 /* Frameworks */,
@@ -164,32 +176,14 @@
 		788562FD2198717F002D47FE /* HitTheTree */ = {
 			isa = PBXGroup;
 			children = (
+				E06FF0C421C3EE1A002EA3EA /* Resourses */,
+				E06FF0C221C3ED89002EA3EA /* Managers */,
 				E0DA942321B7379200CE21FC /* Storyboards */,
 				E0DA941321B7378E00CE21FC /* View Controllers */,
 				E0DA941021B7378300CE21FC /* Model */,
 				E0DA940D21B7375E00CE21FC /* Common */,
-				F0174F9721B71233009D1908 /* sounds */,
-				78856320219873DA002D47FE /* art.scnassets */,
 				788562FE2198717F002D47FE /* AppDelegate.swift */,
-				F06C125021B6598D0061C4E4 /* Animal.swift */,
-				F06C124C21B5CF170061C4E4 /* AnimalPig.swift */,
-				F06C124E21B5EAB30061C4E4 /* AnimalCow.swift */,
-				F0174FA821B7A5B1009D1908 /* AnimalMouse.swift */,
-				F0174FAA21B7A5BF009D1908 /* AnimalCat.swift */,
-				78BB1AE521B68E240052C19F /* GrassFloor.swift */,
-				78BB1AE721B6BAC70052C19F /* HealthBar.swift */,
-				78BB1AE921B6D1FE0052C19F /* ARBullet.swift */,
-				78BB1AEB21B6D2350052C19F /* CollisionCategory.swift */,
-				78BB1AED21B6EA700052C19F /* SCNVector3Extension.swift */,
-				78BB1AEF21B6F5FB0052C19F /* Ghost.swift */,
-				F06C12C821B70CD80061C4E4 /* SoundManager.swift */,
-				F0174FA221B72A25009D1908 /* DeathAction.swift */,
-				F0174FAC21B9BC58009D1908 /* CloudsManager.swift */,
-				F0174FAE21B9EF21009D1908 /* AnimalWavesMAnager.swift */,
-				F082660E21BF1AE3007E6875 /* LeaderBoardManager.swift */,
-				7885630721987180002D47FE /* Assets.xcassets */,
-				7885630921987180002D47FE /* LaunchScreen.storyboard */,
-				7885630C21987180002D47FE /* Info.plist */,
+				7885631421987181002D47FE /* HitTheTreeTests */,
 			);
 			path = HitTheTree;
 			sourceTree = "<group>";
@@ -212,9 +206,69 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E06FF0C221C3ED89002EA3EA /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				E06FF0C721C3EEDE002EA3EA /* DataManager */,
+				F082660E21BF1AE3007E6875 /* LeaderBoardManager.swift */,
+				F0174FAC21B9BC58009D1908 /* CloudsManager.swift */,
+				F06C12C821B70CD80061C4E4 /* SoundManager.swift */,
+				F0174FAE21B9EF21009D1908 /* AnimalWavesManager.swift */,
+				E06FF0CA21C3EFB8002EA3EA /* FeatureToggleManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		E06FF0C321C3EDF3002EA3EA /* Animal */ = {
+			isa = PBXGroup;
+			children = (
+				F06C125021B6598D0061C4E4 /* Animal.swift */,
+				F06C124C21B5CF170061C4E4 /* AnimalPig.swift */,
+				F06C124E21B5EAB30061C4E4 /* AnimalCow.swift */,
+				F0174FA821B7A5B1009D1908 /* AnimalMouse.swift */,
+				F0174FAA21B7A5BF009D1908 /* AnimalCat.swift */,
+			);
+			path = Animal;
+			sourceTree = "<group>";
+		};
+		E06FF0C421C3EE1A002EA3EA /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				7885630921987180002D47FE /* LaunchScreen.storyboard */,
+				F0174F9721B71233009D1908 /* sounds */,
+				7885630C21987180002D47FE /* Info.plist */,
+				E06FF0C521C3EE29002EA3EA /* Assets.xcassets */,
+				78856320219873DA002D47FE /* art.scnassets */,
+				E06FF0CC21C3F01C002EA3EA /* FeatureToggles.plist */,
+			);
+			path = Resourses;
+			sourceTree = "<group>";
+		};
+		E06FF0C621C3EE57002EA3EA /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				78BB1AE921B6D1FE0052C19F /* ARBullet.swift */,
+				78BB1AEF21B6F5FB0052C19F /* Ghost.swift */,
+				78BB1AE721B6BAC70052C19F /* HealthBar.swift */,
+				E06FF0C321C3EDF3002EA3EA /* Animal */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		E06FF0C721C3EEDE002EA3EA /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				E06FF0C821C3EEF8002EA3EA /* DataManagerProtocol.swift */,
+				E06FF0CE21C3F051002EA3EA /* DataManager.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
 		E0DA940D21B7375E00CE21FC /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				78BB1AED21B6EA700052C19F /* SCNVector3Extension.swift */,
+				78BB1AEB21B6D2350052C19F /* CollisionCategory.swift */,
 				E0DA940E21B7376D00CE21FC /* UserDefaultsKeys.swift */,
 			);
 			path = Common;
@@ -223,7 +277,10 @@
 		E0DA941021B7378300CE21FC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E06FF0C621C3EE57002EA3EA /* Game */,
 				E0DA941121B7378300CE21FC /* GameResult.swift */,
+				78BB1AE521B68E240052C19F /* GrassFloor.swift */,
+				F0174FA221B72A25009D1908 /* DeathAction.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -258,6 +315,9 @@
 			children = (
 				788563042198717F002D47FE /* Main.storyboard */,
 				E0DA942421B737B400CE21FC /* Menu.storyboard */,
+				E06FF0D421C3F2E6002EA3EA /* About.storyboard */,
+				E06FF0D221C3F2B1002EA3EA /* Records.storyboard */,
+				E06FF0D021C3F26D002EA3EA /* ChangeName.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -362,14 +422,17 @@
 				7885630B21987180002D47FE /* LaunchScreen.storyboard in Resources */,
 				F0174F9A21B71233009D1908 /* background.mp3 in Resources */,
 				F0174FA121B725B1009D1908 /* shoot.wav in Resources */,
+				E06FF0D121C3F26D002EA3EA /* ChangeName.storyboard in Resources */,
 				F0174FA621B74922009D1908 /* cowDead.wav in Resources */,
 				F0174F9F21B71F9D009D1908 /* backgorund_music.mp3 in Resources */,
 				E0DA942521B737B400CE21FC /* Menu.storyboard in Resources */,
 				78856321219873DA002D47FE /* art.scnassets in Resources */,
-				7885630821987180002D47FE /* Assets.xcassets in Resources */,
+				E06FF0D321C3F2B1002EA3EA /* Records.storyboard in Resources */,
 				788563062198717F002D47FE /* Main.storyboard in Resources */,
+				E06FF0D521C3F2E6002EA3EA /* About.storyboard in Resources */,
 				F0174F9D21B7164E009D1908 /* animalHit.mp3 in Resources */,
 				F0174FA721B74922009D1908 /* pigDead.wav in Resources */,
+				E06FF0CD21C3F01C002EA3EA /* FeatureToggles.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,7 +503,7 @@
 			files = (
 				78BB1AE821B6BAC70052C19F /* HealthBar.swift in Sources */,
 				F06C124D21B5CF170061C4E4 /* AnimalPig.swift in Sources */,
-				F0174FAF21B9EF21009D1908 /* AnimalWavesMAnager.swift in Sources */,
+				F0174FAF21B9EF21009D1908 /* AnimalWavesManager.swift in Sources */,
 				E0DA942221B7378E00CE21FC /* SettingsViewController.swift in Sources */,
 				F0174FAD21B9BC58009D1908 /* CloudsManager.swift in Sources */,
 				E0DA942021B7378E00CE21FC /* GameOverViewController.swift in Sources */,
@@ -448,11 +511,14 @@
 				788563032198717F002D47FE /* GameViewController.swift in Sources */,
 				E054187421BEE7AA00BD7530 /* RateGameViewController.swift in Sources */,
 				E0DA941D21B7378E00CE21FC /* GameRecordsViewController.swift in Sources */,
+				E06FF0CB21C3EFB8002EA3EA /* FeatureToggleManager.swift in Sources */,
 				78BB1AF021B6F5FB0052C19F /* Ghost.swift in Sources */,
 				F06C12C921B70CD80061C4E4 /* SoundManager.swift in Sources */,
+				E06FF0C921C3EEF8002EA3EA /* DataManagerProtocol.swift in Sources */,
 				78BB1AEA21B6D1FE0052C19F /* ARBullet.swift in Sources */,
 				E0DA941E21B7378E00CE21FC /* GameRecordTableViewCell.swift in Sources */,
 				78BB1AEE21B6EA700052C19F /* SCNVector3Extension.swift in Sources */,
+				E06FF0CF21C3F051002EA3EA /* DataManager.swift in Sources */,
 				E0DA942121B7378E00CE21FC /* MenuViewController.swift in Sources */,
 				E054187221BEC39500BD7530 /* ChangeNameViewController.swift in Sources */,
 				E0DA940F21B7376D00CE21FC /* UserDefaultsKeys.swift in Sources */,

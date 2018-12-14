@@ -26,7 +26,7 @@ class GameRecordsViewController: UIViewController {
 	}
 	
 	private func loadRecords() {
-        LeaderBoardManager.manager.getResults {[weak self] (results, error) in
+        LeaderBoardManager.shared.getResults {[weak self] (results, error) in
             self?.records = results.filter({$0.score > 0}).sorted(by: {$0.score > $1.score})
             self?.tableView.reloadData()
         }

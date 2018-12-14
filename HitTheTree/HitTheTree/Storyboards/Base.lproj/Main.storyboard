@@ -80,6 +80,83 @@
                 </tapGestureRecognizer>
             </objects>
         </scene>
+        <!--Game Over View Controller-->
+        <scene sceneID="bI2-JU-HPF">
+            <objects>
+                <viewController storyboardIdentifier="GameOverViewControllerID" id="ZTx-XD-bQ0" customClass="GameOverViewController" customModule="HitTheTree" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gJt-S2-63w">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sx0-he-txe">
+                                <rect key="frame" x="266.5" y="16" width="134" height="152"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Время вышло" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1qA-lQ-Bt4">
+                                        <rect key="frame" x="0.0" y="0.0" width="134" height="26.5"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhV-Z7-HL2">
+                                        <rect key="frame" x="0.0" y="34.5" width="134" height="87"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="80"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Рекорд!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mft-hD-Q8Z">
+                                        <rect key="frame" x="0.0" y="129.5" width="134" height="22.5"/>
+                                        <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="17"/>
+                                        <color key="textColor" red="0.99607843139999996" green="0.15686274510000001" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T03-Za-Dvh">
+                                <rect key="frame" x="120" y="308" width="427" height="51"/>
+                                <color key="backgroundColor" red="0.0" green="0.47058823529999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="qdR-HT-VPe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
+                                <state key="normal" title="В меню">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="callMenuBlock:" destination="ZTx-XD-bQ0" eventType="touchUpInside" id="RdK-SN-dyt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.24537299770000001" green="0.56970985659999995" blue="0.91560238599999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="gY3-8W-Kd5" firstAttribute="bottom" secondItem="T03-Za-Dvh" secondAttribute="bottom" constant="16" id="5uR-wm-I16"/>
+                            <constraint firstItem="T03-Za-Dvh" firstAttribute="centerX" secondItem="gY3-8W-Kd5" secondAttribute="centerX" id="Dhs-Y0-4N8"/>
+                            <constraint firstItem="T03-Za-Dvh" firstAttribute="leading" secondItem="gY3-8W-Kd5" secondAttribute="leading" constant="40" id="Gui-pK-663">
+                                <variation key="heightClass=regular-widthClass=regular" constant="120"/>
+                            </constraint>
+                            <constraint firstItem="gY3-8W-Kd5" firstAttribute="trailing" secondItem="T03-Za-Dvh" secondAttribute="trailing" constant="40" id="HfW-0u-Sub">
+                                <variation key="heightClass=regular-widthClass=regular" constant="120"/>
+                            </constraint>
+                            <constraint firstItem="sx0-he-txe" firstAttribute="centerX" secondItem="gY3-8W-Kd5" secondAttribute="centerX" id="SkL-Ec-CAh"/>
+                            <constraint firstItem="sx0-he-txe" firstAttribute="top" secondItem="gY3-8W-Kd5" secondAttribute="top" constant="16" id="dNZ-MT-vKT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gY3-8W-Kd5"/>
+                    </view>
+                    <connections>
+                        <outlet property="gameOverLabel" destination="1qA-lQ-Bt4" id="TAP-ca-cfm"/>
+                        <outlet property="menuButton" destination="T03-Za-Dvh" id="yCf-BD-QsN"/>
+                        <outlet property="recordLabel" destination="mft-hD-Q8Z" id="Huv-dQ-JrD"/>
+                        <outlet property="scoreLabel" destination="yhV-Z7-HL2" id="g2A-N0-jCa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fcp-iX-fZT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="838" y="118"/>
+        </scene>
     </scenes>
     <resources>
         <image name="prizel" width="288" height="288"/>
