@@ -99,7 +99,7 @@ class NewCloudsManager: NSObject {
                 randomX = -(CGFloat(1.2 * worldWidth))
             }
             let randomYValue = Int.random(in: 0..<yCoordinates.count)
-            let z: CGFloat = 1.0
+            let z: CGFloat = CGFloat(Int.random(in: 0...5)) * 0.2 + 0.8
             
             tuple.velocity = CGFloat.random(in: 0.0005...0.002)
             if randomX > 0 {
