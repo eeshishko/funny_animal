@@ -35,7 +35,7 @@ class NewCloudsManager: NSObject {
     
     func setupYCoordinates() {
         yCoordinates.removeAll()
-        let start: CGFloat = CGFloat(-worldLength)/2.0
+        let start: CGFloat = CGFloat(-worldLength)
         let coordinatesCount = 4
         let space: CGFloat = CGFloat(worldLength)/CGFloat(coordinatesCount)
         for i in 0...coordinatesCount {
@@ -71,11 +71,11 @@ class NewCloudsManager: NSObject {
             pos.x += Float(cloud.velocity)
             cloud.node.position = pos
             
-            let f = fabsf(pos.x) - fabsf(worldWidth/2.0)
-            var opacity = f / 0.2
-            if opacity > 0 && opacity < 1 {
-                opacity = 1 - opacity
-            } else if opacity > 1 {
+            let f = (fabsf(pos.x) - worldWidth) / worldWidth
+            var opacity = f
+            if opacity > 0 && opacity < 1.2 {
+                opacity = 1 + (-1.0/1.2) * opacity
+            } else if opacity > 1.2 {
                 opacity = 0.0
                 cloud.node.removeFromParentNode()
             } else if opacity < 0 {
@@ -94,12 +94,12 @@ class NewCloudsManager: NSObject {
         while flag {
             var randomX : CGFloat = 0
             if Int.random(in: 0...1) == 0 {
-                randomX = CGFloat(worldWidth/2.0 + 0.2)
+                randomX = CGFloat(1.2 * worldWidth)
             } else {
-                randomX = -(CGFloat(worldWidth/2.0 + 0.2))
+                randomX = -(CGFloat(1.2 * worldWidth))
             }
             let randomYValue = Int.random(in: 0..<yCoordinates.count)
-            let z: CGFloat = 0.5
+            let z: CGFloat = 1.0
             
             tuple.velocity = CGFloat.random(in: 0.0005...0.002)
             if randomX > 0 {
