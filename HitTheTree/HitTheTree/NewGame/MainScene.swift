@@ -29,41 +29,28 @@ class MainScene: SCNNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func tapLocation(hitTests: [SCNHitTestResult], pointOfView: SCNNode) {
+    func tapLocation(hitTests: [SCNHitTestResult], pointOfView: SCNNode, shootPoint: SCNVector3 = SCNVector3(0, -1, 0)) {
         if let firstHitTest = hitTests.filter({$0.node.name == "floor"}).first {
             let node = firstHitTest.node
             var pos = convertPosition(firstHitTest.localCoordinates, from: node)
             pos.z = 0
-            pos.x += Float.random(in: -0.3...0.3)
-            pos.y += Float.random(in: -0.3...0.3)
+            //pos.x += Float.random(in: -0.3...0.3)
+            //pos.y += Float.random(in: -0.3...0.3)
             
-            let position1 = convertPosition(SCNVector3(0, 0, 0), from: pointOfView)
+//            let position1 = convertPosition(shootPoint, from: pointOfView)
+//            var direction1 = SCNVector3((pos.x - position1.x) * 1.0, (pos.y - position1.y) * 1.0, (pos.z - position1.z) * 1.0)
+            
+            
+            var shootP = pointOfView.convertPosition(shootPoint, from: nil)
+            let position1 = convertPosition(shootP, from: pointOfView)
             var direction1 = SCNVector3((pos.x - position1.x) * 1.0, (pos.y - position1.y) * 1.0, (pos.z - position1.z) * 1.0)
+
+            
             direction1 = convertVector(direction1, to: nil)
             print("position: \(position1)  direction: \(direction1)")
             shoot(position: position1, direction: direction1)
         }
     }
-    
-//    func tapLocation(hitTests: [SCNHitTestResult], pointOfView: SCNNode) {
-//        if let firstHitTest = hitTests.filter({$0.node.name == "floor"}).first {
-//            let node = firstHitTest.node
-//            var pos = convertPosition(firstHitTest.localCoordinates, from: node)
-//            pos.z = 0
-//            //pos.x += Float.random(in: -0.3...0.3)
-//            //pos.y += Float.random(in: -0.3...0.3)
-//            pos = convertPosition(pos, to: nil)
-//
-//            var position1 = convertPosition(convertPosition(SCNVector3(-1.0, -1.0, -1.2), from: pointOfView), to: nil)
-//            var direction1 = SCNVector3((pos.x - position1.x) * 1.0, (pos.y - position1.y) * 1.0, (pos.z - position1.z) * 1.0)
-//            //direction1 = convertPosition(direction1, from: nil)
-//            //direction1.y *= -1
-//            //direction1.z *= -1
-//            position1 = convertPosition(position1, from: nil)
-//            print("position: \(position1)  direction: \(direction1)")
-//            shoot(position: position1, direction: direction1)
-//        }
-//    }
     
     fileprivate func setupFloor() {
         floor.width = 2

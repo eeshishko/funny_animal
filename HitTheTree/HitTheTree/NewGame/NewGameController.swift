@@ -23,7 +23,7 @@ class NewGameController: UIViewController {
         
         // create a new scene
         let scene = SCNScene()
-        arSceneView = true ? ARSCNView() : nil
+        arSceneView = false ? ARSCNView() : nil
         sceneView = arSceneView != nil ? arSceneView : SCNView()
         view.addSubview(sceneView)
         setup(scene: scene)
@@ -48,7 +48,7 @@ class NewGameController: UIViewController {
         scene.rootNode.addChildNode(cameraNode)
         
         // place the camera
-        cameraNode.position = SCNVector3(x: 1, y: 4, z: 10)
+        cameraNode.position = SCNVector3(x: 1, y: 2, z: 10)
     }
     
     func setup(scene: SCNScene) {
@@ -73,9 +73,17 @@ class NewGameController: UIViewController {
     }
     
     @objc private func tapHandlder(_ recognizer: UITapGestureRecognizer) {
+//        let touchPoint = recognizer.location(in: sceneView)
+//        let pointOfView = sceneView.pointOfView//arSceneView == nil ? sceneView.pointOfView : sceneView.defaultCameraController.pointOfView
+//        mainScene.tapLocation(hitTests: sceneView.hitTest(touchPoint, options: [.searchMode : SCNHitTestSearchMode.any.rawValue]), pointOfView: pointOfView ?? SCNNode())
+        
         let touchPoint = recognizer.location(in: sceneView)
-        let pointOfView = sceneView.pointOfView//arSceneView == nil ? sceneView.pointOfView : sceneView.defaultCameraController.pointOfView
-        mainScene.tapLocation(hitTests: sceneView.hitTest(touchPoint, options: [.searchMode : SCNHitTestSearchMode.any.rawValue]), pointOfView: pointOfView ?? SCNNode())
+        let pointOfView = sceneView.pointOfView ?? SCNNode()
+        let shootPoint = CGPoint(x: sceneView.frame.width * 0.2, y: sceneView.frame.height * 1.0)//touchPoint//
+        let shootPoint3D = sceneView.unprojectPoint(SCNVector3(shootPoint.x, shootPoint.y, 0))//pointOfView.convertPosition(, from: nil)
+        let hitTests = sceneView.hitTest(touchPoint, options: [.searchMode : SCNHitTestSearchMode.any.rawValue])
+        mainScene.tapLocation(hitTests: hitTests, pointOfView: pointOfView, shootPoint: shootPoint3D)
+
     }
     
 }
