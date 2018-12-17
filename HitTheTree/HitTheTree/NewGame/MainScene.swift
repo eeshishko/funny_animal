@@ -21,8 +21,8 @@ class MainScene: SCNNode {
         super.init()
         setupFloor()
         setupLight()
-        addRock()
         cloudsManager = NewCloudsManager(node: self, worldWidth: Float(floor.width), worldLength: Float(floor.length))
+        createFence()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -34,14 +34,10 @@ class MainScene: SCNNode {
             let node = firstHitTest.node
             var pos = convertPosition(firstHitTest.localCoordinates, from: node)
             pos.z = 0
-            //pos.x += Float.random(in: -0.3...0.3)
-            //pos.y += Float.random(in: -0.3...0.3)
+//            pos.x += Float.random(in: -0.3...0.3)
+//            pos.y += Float.random(in: -0.3...0.3)
             
-//            let position1 = convertPosition(shootPoint, from: pointOfView)
-//            var direction1 = SCNVector3((pos.x - position1.x) * 1.0, (pos.y - position1.y) * 1.0, (pos.z - position1.z) * 1.0)
-            
-            
-            var shootP = pointOfView.convertPosition(shootPoint, from: nil)
+            let shootP = pointOfView.convertPosition(shootPoint, from: nil)
             let position1 = convertPosition(shootP, from: pointOfView)
             var direction1 = SCNVector3((pos.x - position1.x) * 1.0, (pos.y - position1.y) * 1.0, (pos.z - position1.z) * 1.0)
 
@@ -143,7 +139,7 @@ class MainScene: SCNNode {
         arBullet.position = position
         arBullet.initialPosition = position
         
-        let bulletDirection = direction
+        let bulletDirection = direction.normalized() * 10
         arBullet.physicsBody?.applyForce(bulletDirection, asImpulse: true)
         addChildNode(arBullet)
         
@@ -151,6 +147,20 @@ class MainScene: SCNNode {
         AudioServicesPlaySystemSound(peek)
         
         //soundManager.playShootSound(node: sceneView.scene.rootNode)
+    }
+    
+    
+    private func createFence() -> SCNNode {
+        let node = SCNNode()
+        for i in 0..<4 {
+            let scene = SCNScene(named: "art.scnassets/line_fence.scn")
+            let fence = scene?.rootNode.childNode(withName: "fence", recursively: true) ?? SCNNode()
+            let widthFence: Float = 0.65
+            let y = widthFence/2.0 + (0.01 + widthFence/2.0) * Float(i)
+            fence.position = SCNVector3(0, y, 0)
+            addChildNode(fence)
+        }
+        return node
     }
     
     

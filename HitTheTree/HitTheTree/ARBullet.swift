@@ -25,7 +25,7 @@ import SceneKit
 
 final class ARBullet: SCNNode {
 
-    private static let sphereRadius: CGFloat = 0.2
+    private static let sphereRadius: CGFloat = 0.02
     
     var initialPosition: SCNVector3 = SCNVector3(0,0,0)
     

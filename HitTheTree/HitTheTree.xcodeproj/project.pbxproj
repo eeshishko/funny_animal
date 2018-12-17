@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7831499B21C7CEED00C3D254 /* Missle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7831499A21C7CEED00C3D254 /* Missle.swift */; };
 		788562FF2198717F002D47FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788562FE2198717F002D47FE /* AppDelegate.swift */; };
 		788563032198717F002D47FE /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788563022198717F002D47FE /* GameViewController.swift */; };
 		788563062198717F002D47FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 788563042198717F002D47FE /* Main.storyboard */; };
@@ -63,6 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7831499A21C7CEED00C3D254 /* Missle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Missle.swift; sourceTree = "<group>"; };
 		788562FB2198717F002D47FE /* HitTheTree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HitTheTree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		788562FE2198717F002D47FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		788563022198717F002D47FE /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				F08265CC21BC4D18007E6875 /* NewCloudsManager.swift */,
 				F08265CE21BC4D40007E6875 /* MainScene.swift */,
 				F08265D021BC4D5F007E6875 /* NewGameController.swift */,
+				7831499A21C7CEED00C3D254 /* Missle.swift */,
 			);
 			path = NewGame;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 			files = (
 				F08265CD21BC4D18007E6875 /* NewCloudsManager.swift in Sources */,
 				F08265CF21BC4D40007E6875 /* MainScene.swift in Sources */,
+				7831499B21C7CEED00C3D254 /* Missle.swift in Sources */,
 				78BB1AE821B6BAC70052C19F /* HealthBar.swift in Sources */,
 				F06C124D21B5CF170061C4E4 /* AnimalPig.swift in Sources */,
 				F0174FAF21B9EF21009D1908 /* AnimalWavesMAnager.swift in Sources */,
@@ -565,14 +569,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9UNTWSC5AR;
+				DEVELOPMENT_TEAM = 5DKYS885U3;
 				INFOPLIST_FILE = HitTheTree/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ru1.sberbank.FarmInvasion;
+				PRODUCT_BUNDLE_IDENTIFIER = ru2.sberbank.FarmInvasion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -584,14 +588,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9UNTWSC5AR;
+				DEVELOPMENT_TEAM = 5DKYS885U3;
 				INFOPLIST_FILE = HitTheTree/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ru1.sberbank.FarmInvasion;
+				PRODUCT_BUNDLE_IDENTIFIER = ru2.sberbank.FarmInvasion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -44,7 +44,7 @@ class NewCloudsManager: NSObject {
     }
     
     func createCloud() {
-        let rand = Int.random(in: 1...1)
+        let rand = Int.random(in: 1...2)
         let scene = SCNScene(named: "art.scnassets/cloud\(rand).scn")
         let cloud1 = scene?.rootNode.childNode(withName: "cloud", recursively: false) ?? SCNNode()
         cloud1.categoryBitMask = 3

@@ -12,11 +12,22 @@ import ARKit
 
 class NewGameController: UIViewController {
 
-    
+    @IBOutlet var aimImageView: UIImageView!
     var sceneView: SCNView!
     var arSceneView: ARSCNView!
     let mainScene = MainScene()
     let cameraNode = SCNNode()
+    var bulletTimer: Timer?
+    
+    var aimCenterCoordinate: CGPoint {
+        get {
+            if let imageView = aimImageView {
+                let center = CGPoint(x: imageView.bounds.width/2.0, y: imageView.bounds.height/2.0)
+                return imageView.convert(center, to: sceneView)
+            }
+            return CGPoint.zero
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +36,7 @@ class NewGameController: UIViewController {
         let scene = SCNScene()
         arSceneView = false ? ARSCNView() : nil
         sceneView = arSceneView != nil ? arSceneView : SCNView()
-        view.addSubview(sceneView)
+        view.insertSubview(sceneView, belowSubview: aimImageView)
         setup(scene: scene)
         if arSceneView == nil {
             setupCamera(scene: scene)
@@ -36,8 +47,6 @@ class NewGameController: UIViewController {
         sceneView.showsStatistics = true
         sceneView.backgroundColor = UIColor.black
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(NewGameController.tapHandlder))
-        sceneView.addGestureRecognizer(tap)
     }
     
     func setupCamera(scene: SCNScene) {
@@ -48,7 +57,7 @@ class NewGameController: UIViewController {
         scene.rootNode.addChildNode(cameraNode)
         
         // place the camera
-        cameraNode.position = SCNVector3(x: 1, y: 2, z: 10)
+        cameraNode.position = SCNVector3(x: 0, y: 0, z: 7)
     }
     
     func setup(scene: SCNScene) {
@@ -72,18 +81,25 @@ class NewGameController: UIViewController {
         sceneView.frame = view.bounds
     }
     
-    @objc private func tapHandlder(_ recognizer: UITapGestureRecognizer) {
-//        let touchPoint = recognizer.location(in: sceneView)
-//        let pointOfView = sceneView.pointOfView//arSceneView == nil ? sceneView.pointOfView : sceneView.defaultCameraController.pointOfView
-//        mainScene.tapLocation(hitTests: sceneView.hitTest(touchPoint, options: [.searchMode : SCNHitTestSearchMode.any.rawValue]), pointOfView: pointOfView ?? SCNNode())
-        
-        let touchPoint = recognizer.location(in: sceneView)
+    fileprivate func shoot() {
         let pointOfView = sceneView.pointOfView ?? SCNNode()
         let shootPoint = CGPoint(x: sceneView.frame.width * 0.2, y: sceneView.frame.height * 1.0)//touchPoint//
         let shootPoint3D = sceneView.unprojectPoint(SCNVector3(shootPoint.x, shootPoint.y, 0))//pointOfView.convertPosition(, from: nil)
-        let hitTests = sceneView.hitTest(touchPoint, options: [.searchMode : SCNHitTestSearchMode.any.rawValue])
+        let hitTests = sceneView.hitTest(aimCenterCoordinate, options: [.searchMode : SCNHitTestSearchMode.any.rawValue])
         mainScene.tapLocation(hitTests: hitTests, pointOfView: pointOfView, shootPoint: shootPoint3D)
-
+    }
+    
+    @IBAction private func startBulletAction(_ sender: UIButton) {
+        bulletTimer?.invalidate()
+        shoot()
+        bulletTimer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true, block: {[weak self] (timer) in
+            self?.shoot()
+        })
+    }
+    
+    @IBAction private func endBulletAction(_ sender: UIButton) {
+        bulletTimer?.invalidate()
+        bulletTimer = nil
     }
     
 }
