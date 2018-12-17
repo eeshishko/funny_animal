@@ -23,6 +23,7 @@ class MainScene: SCNNode {
         setupLight()
         cloudsManager = NewCloudsManager(node: self, worldWidth: Float(floor.width), worldLength: Float(floor.length))
         createFence()
+        addTree()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -49,8 +50,8 @@ class MainScene: SCNNode {
     }
     
     fileprivate func setupFloor() {
-        floor.width = 2
-        floor.length = 2
+        floor.width = 2.5 + 0.2
+        floor.length = 2.5
         floor.reflectivity = 0.0
         
         let mat = SCNMaterial()
@@ -73,11 +74,11 @@ class MainScene: SCNNode {
         let itencityScale: CGFloat = 1.0
         let ambientNode = SCNNode()
         let light = SCNLight()
-        light.intensity = 300 * itencityScale
+        light.intensity = 0 * itencityScale
         light.color = UIColor(white: 0.75, alpha: 1.0)
         light.type = .ambient
         ambientNode.light = light
-        addChildNode(ambientNode)
+        //addChildNode(ambientNode)
 
         
         let frontDirNode = SCNNode()
@@ -85,6 +86,8 @@ class MainScene: SCNNode {
         front1.intensity = 1700 * itencityScale
         front1.color = UIColor(white: 0.5, alpha: 1.0)
         front1.type = .directional
+        front1.maximumShadowDistance = 100000
+        front1.orthographicScale = 50
         frontDirNode.light = front1
         frontDirNode.position = SCNVector3(floor.length * 1.2,0,1)
         frontDirNode.eulerAngles = SCNVector3(CGFloat.pi/4, CGFloat.pi/4, 0)
@@ -99,7 +102,7 @@ class MainScene: SCNNode {
         frontDirNode2.light = front2
         frontDirNode2.position = SCNVector3(-floor.length * 1.2,0,1)
         frontDirNode2.eulerAngles = SCNVector3(CGFloat.pi/2,0,0)
-        addChildNode(frontDirNode2)
+        //addChildNode(frontDirNode2)
         
         
         let cloudeTopLightNode = SCNNode()
@@ -111,10 +114,10 @@ class MainScene: SCNNode {
         cloudeTopLightNode.light = cloudeTopLight
         cloudeTopLightNode.position = SCNVector3(0,0,0)
         cloudeTopLightNode.eulerAngles = SCNVector3(0,0,0)
-        addChildNode(cloudeTopLightNode)
+        //addChildNode(cloudeTopLightNode)
     }
     
-    fileprivate func addCube() {
+    fileprivate func addCube(position: SCNVector3 = SCNVector3(0,2,0)) {
         let box = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)
         let mat = SCNMaterial()
         mat.lightingModel = .lambert
@@ -122,7 +125,7 @@ class MainScene: SCNNode {
         box.materials = [mat]
         let node = SCNNode()
         node.geometry = box
-        node.position = SCNVector3(0,0,3)
+        node.position = position
         addChildNode(node)
     }
     
@@ -130,6 +133,16 @@ class MainScene: SCNNode {
         let rock1 = RockManager.createRock1()
         rock1.position = SCNVector3(0,0,0)
         addChildNode(rock1)
+    }
+    
+    fileprivate func addTree() {
+        let scene = SCNScene(named: "art.scnassets/pine_node.scn")
+        let tree = scene?.rootNode.childNode(withName: "tree", recursively: true) ?? SCNNode()
+        tree.position = SCNVector3(0,0,0)
+        addChildNode(tree)
+        
+        addCube(position: SCNVector3(-2,2,0))
+        addCube(position: SCNVector3(-0.8,2,0))
     }
     
     
@@ -152,13 +165,16 @@ class MainScene: SCNNode {
     
     private func createFence() -> SCNNode {
         let node = SCNNode()
-        for i in 0..<4 {
-            let scene = SCNScene(named: "art.scnassets/line_fence.scn")
-            let fence = scene?.rootNode.childNode(withName: "fence", recursively: true) ?? SCNNode()
-            let widthFence: Float = 0.65
-            let y = widthFence/2.0 + (0.01 + widthFence/2.0) * Float(i)
-            fence.position = SCNVector3(0, y, 0)
-            addChildNode(fence)
+        for i in 0...10 {
+            let x = Float(i) * 0.5 - 2.5
+            for j in 0..<4 {
+                let scene = SCNScene(named: "art.scnassets/line_fence.scn")
+                let fence = scene?.rootNode.childNode(withName: "fence", recursively: true) ?? SCNNode()
+                let widthFence: Float = 0.65
+                let y = widthFence/2.0 + (0.01 + widthFence/2.0) * Float(j)
+                fence.position = SCNVector3(x, y, 0)
+                addChildNode(fence)
+            }
         }
         return node
     }

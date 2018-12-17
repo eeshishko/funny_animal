@@ -33,7 +33,7 @@ class NewGameController: UIViewController {
         super.viewDidLoad()
         
         // create a new scene
-        let scene = SCNScene()
+        let scene = SCNScene()//SCNScene(named: "art.scnassets/scene.scn")!
         arSceneView = false ? ARSCNView() : nil
         sceneView = arSceneView != nil ? arSceneView : SCNView()
         view.insertSubview(sceneView, belowSubview: aimImageView)
@@ -70,7 +70,7 @@ class NewGameController: UIViewController {
         
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
-        configuration.planeDetection = [.horizontal]
+        //configuration.planeDetection = [.horizontal]
         
         // Run the view's session
         arSceneView?.session.run(configuration)
