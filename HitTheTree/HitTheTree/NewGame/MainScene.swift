@@ -74,11 +74,12 @@ class MainScene: SCNNode {
         let itencityScale: CGFloat = 1.0
         let ambientNode = SCNNode()
         let light = SCNLight()
-        light.intensity = 0 * itencityScale
+        light.intensity = 500 * itencityScale
         light.color = UIColor(white: 0.75, alpha: 1.0)
         light.type = .ambient
+        light.castsShadow = true
         ambientNode.light = light
-        //addChildNode(ambientNode)
+        addChildNode(ambientNode)
 
         
         let frontDirNode = SCNNode()
@@ -86,8 +87,8 @@ class MainScene: SCNNode {
         front1.intensity = 1700 * itencityScale
         front1.color = UIColor(white: 0.5, alpha: 1.0)
         front1.type = .directional
-        front1.maximumShadowDistance = 100000
-        front1.orthographicScale = 50
+        front1.castsShadow = true
+        front1.maximumShadowDistance = 1000
         frontDirNode.light = front1
         frontDirNode.position = SCNVector3(floor.length * 1.2,0,1)
         frontDirNode.eulerAngles = SCNVector3(CGFloat.pi/4, CGFloat.pi/4, 0)
@@ -99,22 +100,23 @@ class MainScene: SCNNode {
         front2.intensity = 1100 * itencityScale
         front2.color = UIColor(white: 0.5, alpha: 1.0)
         front2.type = .directional
+        front2.castsShadow = true
         frontDirNode2.light = front2
         frontDirNode2.position = SCNVector3(-floor.length * 1.2,0,1)
         frontDirNode2.eulerAngles = SCNVector3(CGFloat.pi/2,0,0)
-        //addChildNode(frontDirNode2)
+        addChildNode(frontDirNode2)
         
         
-        let cloudeTopLightNode = SCNNode()
-        let cloudeTopLight = SCNLight()
-        cloudeTopLight.intensity = 1000 * itencityScale
-        cloudeTopLight.color = UIColor(red: 63.0/255.0, green: 167.0/255.0, blue: 212.0/255.0, alpha: 1.0)
-        cloudeTopLight.categoryBitMask = 4
-        cloudeTopLight.type = .directional
-        cloudeTopLightNode.light = cloudeTopLight
-        cloudeTopLightNode.position = SCNVector3(0,0,0)
-        cloudeTopLightNode.eulerAngles = SCNVector3(0,0,0)
-        //addChildNode(cloudeTopLightNode)
+//        let cloudeTopLightNode = SCNNode()
+//        let cloudeTopLight = SCNLight()
+//        cloudeTopLight.intensity = 1000 * itencityScale
+//        cloudeTopLight.color = UIColor(red: 63.0/255.0, green: 167.0/255.0, blue: 212.0/255.0, alpha: 1.0)
+//        cloudeTopLight.categoryBitMask = 4
+//        cloudeTopLight.type = .directional
+//        cloudeTopLightNode.light = cloudeTopLight
+//        cloudeTopLightNode.position = SCNVector3(0,0,0)
+//        cloudeTopLightNode.eulerAngles = SCNVector3(0,0,0)
+//        addChildNode(cloudeTopLightNode)
     }
     
     fileprivate func addCube(position: SCNVector3 = SCNVector3(0,2,0)) {
@@ -140,9 +142,6 @@ class MainScene: SCNNode {
         let tree = scene?.rootNode.childNode(withName: "tree", recursively: true) ?? SCNNode()
         tree.position = SCNVector3(0,0,0)
         addChildNode(tree)
-        
-        addCube(position: SCNVector3(-2,2,0))
-        addCube(position: SCNVector3(-0.8,2,0))
     }
     
     
