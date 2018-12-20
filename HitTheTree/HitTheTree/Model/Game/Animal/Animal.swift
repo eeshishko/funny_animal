@@ -141,7 +141,7 @@ class Animal: SCNNode {
         animal.type = .cow
         animal.defaultVelocity = SCNVector3(0, YSpeed(level: level), 0.002)
         animal.cowMaterials()
-        animal.maxHealth = health(level: level, maxHealth: 15)
+        animal.maxHealth = health(level: level, maxHealth: 7.5)
         animal.health = animal.maxHealth
         animal.points = 100
         return animal
@@ -153,7 +153,7 @@ class Animal: SCNNode {
         animal.type = .pig
         animal.defaultVelocity = SCNVector3(0, YSpeed(level: level), 0.003)
         animal.pigMaterials()
-        animal.maxHealth = health(level: level, maxHealth: 10)
+        animal.maxHealth = health(level: level, maxHealth: 5)
         animal.health = animal.maxHealth
         animal.points = 200
         return animal
@@ -165,7 +165,7 @@ class Animal: SCNNode {
         animal.type = .cat
         animal.defaultVelocity = SCNVector3(0, YSpeed(level: level), 0.005)
         animal.catMaterials()
-        animal.maxHealth = health(level: level, maxHealth: 5)
+        animal.maxHealth = health(level: level, maxHealth: 2.5)
         animal.health = animal.maxHealth
         animal.points = 500
         return animal
@@ -177,7 +177,7 @@ class Animal: SCNNode {
         animal.type = .mouse
         animal.defaultVelocity = SCNVector3(0, YSpeed(level: level), 0.007)
         animal.mouseMaterials()
-        animal.maxHealth = health(level: level, maxHealth: 2.0)
+        animal.maxHealth = health(level: level, maxHealth: 1.0)
         animal.health = animal.maxHealth
         animal.points = 1000
         return animal

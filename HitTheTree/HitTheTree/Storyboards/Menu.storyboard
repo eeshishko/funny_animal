@@ -9,78 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Change Name View Controller-->
-        <scene sceneID="FI4-bp-sQk">
-            <objects>
-                <viewController id="kkC-k6-4vD" customClass="ChangeNameViewController" customModule="HitTheTree" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="a3l-Jc-LaH">
-                        <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите имя игрока:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFG-O8-kPx">
-                                <rect key="frame" x="478.5" y="374.5" width="237" height="29.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="29.5" id="Beq-50-Kel"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="27"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oCA-RX-Mjf">
-                                <rect key="frame" x="428" y="424" width="338" height="70"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="338" id="12Q-cf-Vl0"/>
-                                    <constraint firstAttribute="height" constant="70" id="Q2a-D2-uwE"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZAG-jT-g5j">
-                                <rect key="frame" x="120" y="514" width="954" height="90"/>
-                                <color key="backgroundColor" red="0.0" green="0.47058823529999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="aTv-J1-gwn"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
-                                <state key="normal" title="Сохранить">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="saveName:" destination="kkC-k6-4vD" eventType="touchUpInside" id="f3i-gR-wgf"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="oCA-RX-Mjf" firstAttribute="centerX" secondItem="TpK-0H-B0e" secondAttribute="centerX" id="10z-A2-qEV"/>
-                            <constraint firstItem="IFG-O8-kPx" firstAttribute="centerX" secondItem="TpK-0H-B0e" secondAttribute="centerX" id="7Tg-80-Eh0"/>
-                            <constraint firstItem="IFG-O8-kPx" firstAttribute="centerY" secondItem="TpK-0H-B0e" secondAttribute="centerY" constant="-30" id="B4h-b9-eGR"/>
-                            <constraint firstItem="oCA-RX-Mjf" firstAttribute="top" secondItem="IFG-O8-kPx" secondAttribute="bottom" constant="20" id="Vg0-uF-BkR"/>
-                            <constraint firstItem="ZAG-jT-g5j" firstAttribute="top" secondItem="oCA-RX-Mjf" secondAttribute="bottom" constant="20" id="hRK-eE-vK5"/>
-                            <constraint firstItem="TpK-0H-B0e" firstAttribute="trailing" secondItem="ZAG-jT-g5j" secondAttribute="trailing" constant="40" id="kfj-nz-aLn">
-                                <variation key="heightClass=regular-widthClass=regular" constant="120"/>
-                            </constraint>
-                            <constraint firstItem="ZAG-jT-g5j" firstAttribute="leading" secondItem="TpK-0H-B0e" secondAttribute="leading" constant="40" id="skt-2E-o0A">
-                                <variation key="heightClass=regular-widthClass=regular" constant="120"/>
-                            </constraint>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="TpK-0H-B0e"/>
-                    </view>
-                    <connections>
-                        <outlet property="nameTextField" destination="oCA-RX-Mjf" id="vfT-PE-He1"/>
-                        <outlet property="saveButton" destination="ZAG-jT-g5j" id="Y7e-Zn-Vit"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="poW-ES-OAT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1054.7738693467336" y="-538.12949640287775"/>
-        </scene>
         <!--Menu View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -141,7 +69,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="ztA-aJ-uqF" kind="show" id="ezZ-ak-z0A"/>
+                                            <segue destination="I3a-J3-hXd" kind="show" id="ezZ-ak-z0A"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Zc-2O-cNP">
@@ -157,7 +85,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="taq-Wf-Fdg" kind="show" id="knU-eP-QRI"/>
+                                            <segue destination="dsA-8Y-n3d" kind="show" id="knU-eP-QRI"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rGU-KP-aL8">
@@ -210,7 +138,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="TRP-pZ-TFF"/>
                     <connections>
-                        <segue destination="kkC-k6-4vD" kind="show" identifier="showChangeName" id="3cQ-Pw-kMe"/>
+                        <segue destination="B2X-VQ-ZwU" kind="show" identifier="showChangeName" id="3cQ-Pw-kMe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -223,160 +151,7 @@
                 <viewControllerPlaceholder storyboardName="Main" id="1ze-iy-nIn" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Nw-Bl-QJq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1476" y="-322"/>
-        </scene>
-        <!--Game Records View Controller-->
-        <scene sceneID="8QH-mm-zDK">
-            <objects>
-                <viewController id="ztA-aJ-uqF" customClass="GameRecordsViewController" customModule="HitTheTree" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="i4z-ZB-acY">
-                        <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="glA-uN-Oqj">
-                                <rect key="frame" x="16" y="32" width="40" height="55"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="HkU-Qp-lnW"/>
-                                    <constraint firstAttribute="height" constant="55" id="ekk-dU-bxy"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="close"/>
-                                <connections>
-                                    <action selector="close:" destination="ztA-aJ-uqF" eventType="touchUpInside" id="TkJ-ZH-ZTM"/>
-                                </connections>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="afx-Cg-Dqb">
-                                <rect key="frame" x="0.0" y="84" width="1194" height="730"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Рекорды" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KY3-ba-iop">
-                                <rect key="frame" x="72" y="44" width="1050" height="30"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="27"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="afx-Cg-Dqb" firstAttribute="top" secondItem="KY3-ba-iop" secondAttribute="bottom" constant="10" id="0tj-EO-lnr"/>
-                            <constraint firstItem="C75-PH-TZg" firstAttribute="bottom" secondItem="afx-Cg-Dqb" secondAttribute="bottom" id="H1g-P6-Tlv"/>
-                            <constraint firstItem="KY3-ba-iop" firstAttribute="top" secondItem="C75-PH-TZg" secondAttribute="top" constant="20" id="HOl-9n-FaI"/>
-                            <constraint firstItem="C75-PH-TZg" firstAttribute="trailing" secondItem="KY3-ba-iop" secondAttribute="trailing" constant="72" id="Pms-QA-DWW"/>
-                            <constraint firstItem="glA-uN-Oqj" firstAttribute="leading" secondItem="C75-PH-TZg" secondAttribute="leading" constant="16" id="TjJ-gO-4Pc"/>
-                            <constraint firstItem="glA-uN-Oqj" firstAttribute="top" secondItem="C75-PH-TZg" secondAttribute="top" constant="8" id="Xhi-Ix-h8n"/>
-                            <constraint firstItem="C75-PH-TZg" firstAttribute="trailing" secondItem="afx-Cg-Dqb" secondAttribute="trailing" id="Zw9-WR-afE"/>
-                            <constraint firstItem="afx-Cg-Dqb" firstAttribute="leading" secondItem="C75-PH-TZg" secondAttribute="leading" id="a2f-xS-JsI"/>
-                            <constraint firstItem="KY3-ba-iop" firstAttribute="leading" secondItem="glA-uN-Oqj" secondAttribute="trailing" constant="16" id="fb7-0c-b0u"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="C75-PH-TZg"/>
-                    </view>
-                    <connections>
-                        <outlet property="tableView" destination="afx-Cg-Dqb" id="d4a-j6-2BE"/>
-                        <outlet property="titleLabel" destination="KY3-ba-iop" id="nJE-UO-dl9"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="d1a-bN-Dk7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1860.15625" y="140.0390625"/>
-        </scene>
-        <!--Rules View Controller-->
-        <scene sceneID="TvP-yt-anT">
-            <objects>
-                <viewController id="taq-Wf-Fdg" customClass="RulesViewController" customModule="HitTheTree" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="2PJ-g2-6F5">
-                        <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Правила" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jHc-Ki-F32">
-                                <rect key="frame" x="527" y="44" width="140" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="vsj-nt-hAQ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="27"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uDP-rC-TOf">
-                                <rect key="frame" x="16" y="32" width="40" height="55"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="XTY-aK-7F5"/>
-                                    <constraint firstAttribute="width" constant="40" id="sGi-VX-V1k"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="close"/>
-                                <connections>
-                                    <action selector="close:" destination="ztA-aJ-uqF" eventType="touchUpInside" id="PXH-v7-OXJ"/>
-                                    <action selector="close:" destination="taq-Wf-Fdg" eventType="touchUpInside" id="RhP-Lp-S4Q"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zsy-iH-0oE">
-                                <rect key="frame" x="16" y="82" width="1162" height="632"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Farm Invasion">
-                                        <attributes>
-                                            <color key="NSColor" red="0.42288754341715995" green="0.53204959593905243" blue="0.79028514588859422" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="24" name="MarkerFelt-Thin"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content"> - веселая игра с использованием технологии AR. На ваш прекрасный газон нападают животные, сбежавшие с ближайшей фермы. 
-
-Для того, чтобы играть, необходимо навести камеру на плоскую поверхность, где будет распологаться газон.
-
-Задача: не позволить животным пересечь красную линию </string>
-                                        <attributes>
-                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <font key="NSFont" size="24" name="MarkerFelt-Thin"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTO-9f-WPr">
-                                <rect key="frame" x="40" y="714" width="1114" height="90"/>
-                                <color key="backgroundColor" red="0.0" green="0.47058823529999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="04o-YH-vEr"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="90" id="4vo-VU-daW"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
-                                <state key="normal" title="Оценить нашу игру!">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="pcb-Bl-uap" kind="show" id="5HH-BC-cHj"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="Zsy-iH-0oE" firstAttribute="top" secondItem="jHc-Ki-F32" secondAttribute="bottom" constant="8" id="3hU-Gt-RQd"/>
-                            <constraint firstItem="jHc-Ki-F32" firstAttribute="top" secondItem="WXW-1Z-i2Z" secondAttribute="top" constant="20" id="5dN-Zp-5HR"/>
-                            <constraint firstItem="OTO-9f-WPr" firstAttribute="top" secondItem="Zsy-iH-0oE" secondAttribute="bottom" id="BMv-XC-5hq"/>
-                            <constraint firstItem="WXW-1Z-i2Z" firstAttribute="trailing" secondItem="Zsy-iH-0oE" secondAttribute="trailing" constant="16" id="C8z-Fc-1ow"/>
-                            <constraint firstItem="OTO-9f-WPr" firstAttribute="leading" secondItem="WXW-1Z-i2Z" secondAttribute="leading" constant="40" id="Hn0-v4-63O"/>
-                            <constraint firstItem="uDP-rC-TOf" firstAttribute="leading" secondItem="WXW-1Z-i2Z" secondAttribute="leading" constant="16" id="Nkf-cx-CLJ"/>
-                            <constraint firstItem="jHc-Ki-F32" firstAttribute="centerX" secondItem="WXW-1Z-i2Z" secondAttribute="centerX" id="PXb-G0-osY"/>
-                            <constraint firstItem="Zsy-iH-0oE" firstAttribute="leading" secondItem="WXW-1Z-i2Z" secondAttribute="leading" constant="16" id="Vo8-1v-oEg"/>
-                            <constraint firstItem="WXW-1Z-i2Z" firstAttribute="bottom" secondItem="Zsy-iH-0oE" secondAttribute="bottom" constant="100" id="kfV-1P-U1s"/>
-                            <constraint firstItem="WXW-1Z-i2Z" firstAttribute="trailing" secondItem="OTO-9f-WPr" secondAttribute="trailing" constant="40" id="qVf-IV-gSM"/>
-                            <constraint firstItem="uDP-rC-TOf" firstAttribute="top" secondItem="WXW-1Z-i2Z" secondAttribute="top" constant="8" id="sT4-M4-9D3"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="WXW-1Z-i2Z"/>
-                    </view>
-                    <connections>
-                        <outlet property="textView" destination="Zsy-iH-0oE" id="VLi-gR-jm1"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6pb-0A-BwA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1067" y="883"/>
+            <point key="canvasLocation" x="1526" y="-396"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="NKX-4V-Dyl">
@@ -403,7 +178,6 @@
                                 </constraints>
                                 <state key="normal" backgroundImage="close"/>
                                 <connections>
-                                    <action selector="close:" destination="ztA-aJ-uqF" eventType="touchUpInside" id="5VH-b9-FJ1"/>
                                     <action selector="close:" destination="6wJ-Bd-niN" eventType="touchUpInside" id="vXZ-vw-svQ"/>
                                 </connections>
                             </button>
@@ -420,141 +194,31 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FY2-1D-T39" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1861" y="883"/>
+            <point key="canvasLocation" x="1773" y="883"/>
         </scene>
-        <!--Game Over View Controller-->
-        <scene sceneID="zaL-FL-7vg">
+        <!--ChangeName-->
+        <scene sceneID="xsn-qc-45P">
             <objects>
-                <viewController storyboardIdentifier="GameOverViewControllerID" id="9fO-nz-bD7" customClass="GameOverViewController" customModule="HitTheTree" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="fNd-ii-3ZF">
-                        <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="eVN-yU-XZz">
-                                <rect key="frame" x="530" y="40" width="134" height="152"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Время вышло" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2q-Kc-5ww">
-                                        <rect key="frame" x="0.0" y="0.0" width="134" height="26.5"/>
-                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95m-ae-fxe">
-                                        <rect key="frame" x="0.0" y="34.5" width="134" height="87"/>
-                                        <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="80"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Рекорд!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqe-sn-RUk">
-                                        <rect key="frame" x="0.0" y="129.5" width="134" height="22.5"/>
-                                        <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="17"/>
-                                        <color key="textColor" red="0.99607843139999996" green="0.15686274510000001" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QeO-Rl-gHV">
-                                <rect key="frame" x="120" y="747" width="954" height="51"/>
-                                <color key="backgroundColor" red="0.0" green="0.47058823529999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="51" id="t5y-Om-261"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
-                                <state key="normal" title="В меню">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="callMenuBlock:" destination="9fO-nz-bD7" eventType="touchUpInside" id="Kzh-jB-EKO"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.24537299771155377" green="0.56970985659102713" blue="0.91560238599777222" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="QeO-Rl-gHV" firstAttribute="centerX" secondItem="uic-wK-pML" secondAttribute="centerX" id="Dws-lK-GaW"/>
-                            <constraint firstItem="eVN-yU-XZz" firstAttribute="centerX" secondItem="uic-wK-pML" secondAttribute="centerX" id="MYN-Ky-YwZ"/>
-                            <constraint firstItem="QeO-Rl-gHV" firstAttribute="leading" secondItem="uic-wK-pML" secondAttribute="leading" constant="40" id="hUR-Y7-xmq">
-                                <variation key="heightClass=regular-widthClass=regular" constant="120"/>
-                            </constraint>
-                            <constraint firstItem="uic-wK-pML" firstAttribute="bottom" secondItem="QeO-Rl-gHV" secondAttribute="bottom" constant="16" id="jfI-RG-5Bw"/>
-                            <constraint firstItem="eVN-yU-XZz" firstAttribute="top" secondItem="uic-wK-pML" secondAttribute="top" constant="16" id="ljM-Dg-ok4"/>
-                            <constraint firstItem="uic-wK-pML" firstAttribute="trailing" secondItem="QeO-Rl-gHV" secondAttribute="trailing" constant="40" id="o9S-mY-1tr">
-                                <variation key="heightClass=regular-widthClass=regular" constant="120"/>
-                            </constraint>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="uic-wK-pML"/>
-                    </view>
-                    <connections>
-                        <outlet property="gameOverLabel" destination="R2q-Kc-5ww" id="H12-pl-yKn"/>
-                        <outlet property="menuButton" destination="QeO-Rl-gHV" id="pV2-Z0-lPJ"/>
-                        <outlet property="recordLabel" destination="vqe-sn-RUk" id="e7l-Ni-MZy"/>
-                        <outlet property="scoreLabel" destination="95m-ae-fxe" id="g7z-nh-ebZ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PrJ-I2-Mbs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="ChangeName" id="B2X-VQ-ZwU" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pyz-HW-ZuC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2586" y="140"/>
+            <point key="canvasLocation" x="1054.7738693467336" y="-538.12949640287775"/>
         </scene>
-        <!--Rate Game View Controller-->
-        <scene sceneID="1P4-Ec-sqe">
+        <!--Records-->
+        <scene sceneID="sC1-jD-rop">
             <objects>
-                <viewController id="pcb-Bl-uap" customClass="RateGameViewController" customModule="HitTheTree" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="cQb-iR-cFu">
-                        <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Оцени нашу игру!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeE-Pc-MbN">
-                                <rect key="frame" x="16" y="339" width="1162" height="30"/>
-                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="27"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8HJ-gN-MZg" customClass="CosmosView" customModule="Cosmos">
-                                <rect key="frame" x="537" y="409" width="120" height="20"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hem-MY-TGm">
-                                <rect key="frame" x="16" y="30" width="40" height="55"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="iVy-Nk-Uhr"/>
-                                    <constraint firstAttribute="width" constant="40" id="nhZ-Ql-ntH"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="close"/>
-                                <connections>
-                                    <action selector="close:" destination="pcb-Bl-uap" eventType="touchUpInside" id="aoF-cP-rHX"/>
-                                    <action selector="close:" destination="ztA-aJ-uqF" eventType="touchUpInside" id="wp7-a1-gm5"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="QeE-Pc-MbN" firstAttribute="leading" secondItem="hVh-Z9-3BG" secondAttribute="leading" constant="16" id="H6c-Z0-lLg"/>
-                            <constraint firstItem="Hem-MY-TGm" firstAttribute="top" secondItem="hVh-Z9-3BG" secondAttribute="top" constant="6" id="H6j-2g-HYG"/>
-                            <constraint firstItem="hVh-Z9-3BG" firstAttribute="trailing" secondItem="QeE-Pc-MbN" secondAttribute="trailing" constant="16" id="Lzw-5R-zHf"/>
-                            <constraint firstItem="8HJ-gN-MZg" firstAttribute="centerX" secondItem="hVh-Z9-3BG" secondAttribute="centerX" id="a86-Ip-WUO"/>
-                            <constraint firstItem="8HJ-gN-MZg" firstAttribute="centerY" secondItem="hVh-Z9-3BG" secondAttribute="centerY" id="iE6-Sh-rHG"/>
-                            <constraint firstItem="8HJ-gN-MZg" firstAttribute="top" secondItem="QeE-Pc-MbN" secondAttribute="bottom" constant="40" id="n0y-aj-OcT"/>
-                            <constraint firstItem="QeE-Pc-MbN" firstAttribute="centerX" secondItem="hVh-Z9-3BG" secondAttribute="centerX" id="sxS-0I-b5Z"/>
-                            <constraint firstItem="Hem-MY-TGm" firstAttribute="leading" secondItem="hVh-Z9-3BG" secondAttribute="leading" constant="16" id="xef-mp-euG"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="hVh-Z9-3BG"/>
-                    </view>
-                    <connections>
-                        <outlet property="cosmosView" destination="8HJ-gN-MZg" id="oeE-fh-0Le"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Tfj-dv-eEE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Records" id="I3a-J3-hXd" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Egh-UK-dzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1090" y="1659"/>
+            <point key="canvasLocation" x="1860.15625" y="140.0390625"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="wFe-hG-knl">
+            <objects>
+                <viewControllerPlaceholder storyboardName="About" id="dsA-8Y-n3d" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SFf-7w-U6K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1067" y="883"/>
         </scene>
     </scenes>
     <resources>

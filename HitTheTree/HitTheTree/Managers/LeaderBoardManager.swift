@@ -10,7 +10,7 @@ import Parse
 
 class LeaderBoardManager: NSObject {
     
-    static let manager = LeaderBoardManager()
+    static let shared = LeaderBoardManager()
     
     let vendorId = UIDevice.current.identifierForVendor?.uuidString ?? "dev_user"
     var timer: Timer!

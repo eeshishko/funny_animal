@@ -40,7 +40,7 @@ class GameOverViewController: UIViewController {
 //            }
 //        }
         
-        LeaderBoardManager.manager.getResults {[weak self] (results, error) in
+        LeaderBoardManager.shared.getResults {[weak self] (results, error) in
             guard let `self` = self else {
                 return
             }
@@ -55,7 +55,7 @@ class GameOverViewController: UIViewController {
 	}
 	
 	func saveResult() {
-        LeaderBoardManager.manager.addResult(result: gameResult.score) {[weak self] (error) in
+        LeaderBoardManager.shared.addResult(result: gameResult.score) {[weak self] (error) in
             if let _ = error {
                 self?.showServerErrorAlert()
             } else {

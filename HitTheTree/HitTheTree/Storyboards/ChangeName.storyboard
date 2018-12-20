@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kkC-k6-4vD">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Change Name View Controller-->
+        <scene sceneID="FI4-bp-sQk">
+            <objects>
+                <viewController id="kkC-k6-4vD" customClass="ChangeNameViewController" customModule="HitTheTree" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a3l-Jc-LaH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите имя игрока:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFG-O8-kPx">
+                                <rect key="frame" x="478.5" y="374.5" width="237" height="29.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29.5" id="Beq-50-Kel"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oCA-RX-Mjf">
+                                <rect key="frame" x="428" y="424" width="338" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="338" id="12Q-cf-Vl0"/>
+                                    <constraint firstAttribute="height" constant="70" id="Q2a-D2-uwE"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZAG-jT-g5j">
+                                <rect key="frame" x="120" y="514" width="954" height="90"/>
+                                <color key="backgroundColor" red="0.0" green="0.47058823529999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="aTv-J1-gwn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
+                                <state key="normal" title="Сохранить">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="saveName:" destination="kkC-k6-4vD" eventType="touchUpInside" id="f3i-gR-wgf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oCA-RX-Mjf" firstAttribute="centerX" secondItem="TpK-0H-B0e" secondAttribute="centerX" id="10z-A2-qEV"/>
+                            <constraint firstItem="IFG-O8-kPx" firstAttribute="centerX" secondItem="TpK-0H-B0e" secondAttribute="centerX" id="7Tg-80-Eh0"/>
+                            <constraint firstItem="IFG-O8-kPx" firstAttribute="centerY" secondItem="TpK-0H-B0e" secondAttribute="centerY" constant="-30" id="B4h-b9-eGR"/>
+                            <constraint firstItem="oCA-RX-Mjf" firstAttribute="top" secondItem="IFG-O8-kPx" secondAttribute="bottom" constant="20" id="Vg0-uF-BkR"/>
+                            <constraint firstItem="ZAG-jT-g5j" firstAttribute="top" secondItem="oCA-RX-Mjf" secondAttribute="bottom" constant="20" id="hRK-eE-vK5"/>
+                            <constraint firstItem="TpK-0H-B0e" firstAttribute="trailing" secondItem="ZAG-jT-g5j" secondAttribute="trailing" constant="40" id="kfj-nz-aLn">
+                                <variation key="heightClass=regular-widthClass=regular" constant="120"/>
+                            </constraint>
+                            <constraint firstItem="ZAG-jT-g5j" firstAttribute="leading" secondItem="TpK-0H-B0e" secondAttribute="leading" constant="40" id="skt-2E-o0A">
+                                <variation key="heightClass=regular-widthClass=regular" constant="120"/>
+                            </constraint>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TpK-0H-B0e"/>
+                    </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="oCA-RX-Mjf" id="vfT-PE-He1"/>
+                        <outlet property="saveButton" destination="ZAG-jT-g5j" id="Y7e-Zn-Vit"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="poW-ES-OAT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1054.7738693467336" y="-538.12949640287775"/>
+        </scene>
+    </scenes>
+</document>

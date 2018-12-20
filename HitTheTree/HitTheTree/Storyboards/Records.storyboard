@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ztA-aJ-uqF">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Game Records View Controller-->
+        <scene sceneID="8QH-mm-zDK">
+            <objects>
+                <viewController id="ztA-aJ-uqF" customClass="GameRecordsViewController" customModule="HitTheTree" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="i4z-ZB-acY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="glA-uN-Oqj">
+                                <rect key="frame" x="16" y="32" width="40" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="HkU-Qp-lnW"/>
+                                    <constraint firstAttribute="height" constant="55" id="ekk-dU-bxy"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="close"/>
+                                <connections>
+                                    <action selector="close:" destination="ztA-aJ-uqF" eventType="touchUpInside" id="TkJ-ZH-ZTM"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="afx-Cg-Dqb">
+                                <rect key="frame" x="0.0" y="84" width="1194" height="730"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Рекорды" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KY3-ba-iop">
+                                <rect key="frame" x="72" y="44" width="1050" height="30"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="afx-Cg-Dqb" firstAttribute="top" secondItem="KY3-ba-iop" secondAttribute="bottom" constant="10" id="0tj-EO-lnr"/>
+                            <constraint firstItem="C75-PH-TZg" firstAttribute="bottom" secondItem="afx-Cg-Dqb" secondAttribute="bottom" id="H1g-P6-Tlv"/>
+                            <constraint firstItem="KY3-ba-iop" firstAttribute="top" secondItem="C75-PH-TZg" secondAttribute="top" constant="20" id="HOl-9n-FaI"/>
+                            <constraint firstItem="C75-PH-TZg" firstAttribute="trailing" secondItem="KY3-ba-iop" secondAttribute="trailing" constant="72" id="Pms-QA-DWW"/>
+                            <constraint firstItem="glA-uN-Oqj" firstAttribute="leading" secondItem="C75-PH-TZg" secondAttribute="leading" constant="16" id="TjJ-gO-4Pc"/>
+                            <constraint firstItem="glA-uN-Oqj" firstAttribute="top" secondItem="C75-PH-TZg" secondAttribute="top" constant="8" id="Xhi-Ix-h8n"/>
+                            <constraint firstItem="C75-PH-TZg" firstAttribute="trailing" secondItem="afx-Cg-Dqb" secondAttribute="trailing" id="Zw9-WR-afE"/>
+                            <constraint firstItem="afx-Cg-Dqb" firstAttribute="leading" secondItem="C75-PH-TZg" secondAttribute="leading" id="a2f-xS-JsI"/>
+                            <constraint firstItem="KY3-ba-iop" firstAttribute="leading" secondItem="glA-uN-Oqj" secondAttribute="trailing" constant="16" id="fb7-0c-b0u"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="C75-PH-TZg"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="afx-Cg-Dqb" id="d4a-j6-2BE"/>
+                        <outlet property="titleLabel" destination="KY3-ba-iop" id="nJE-UO-dl9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d1a-bN-Dk7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1860.15625" y="140.0390625"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="close" width="1697" height="2400"/>
+    </resources>
+</document>

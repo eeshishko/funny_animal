@@ -258,7 +258,7 @@ class GameViewController: UIViewController {
         timer.invalidate()
         gameTimer.invalidate()
 		
-        let storyboard = UIStoryboard(name: "Menu", bundle: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let gameOverVc = storyboard.instantiateViewController(withIdentifier: "GameOverViewControllerID") as! GameOverViewController
 		
 		gameOverVc.delegate = self
@@ -269,7 +269,7 @@ class GameViewController: UIViewController {
 		
 		present(gameOverVc, animated: true, completion: nil)
         
-        LeaderBoardManager.manager.finishGame(withDuration: totalGameTimeSeconds)
+        LeaderBoardManager.shared.finishGame(withDuration: totalGameTimeSeconds)
 	}
     
     func startGame() {
