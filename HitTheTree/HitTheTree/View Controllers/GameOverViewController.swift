@@ -27,7 +27,7 @@ class GameOverViewController: UIViewController {
 		
         menuButton.isEnabled = false
 		scoreLabel.text = "\(gameResult.score)"
-		gameOverLabel.text = "Время вышло, \(gameResult.playerName)"
+		gameOverLabel.text = "Игра окончена, \(gameResult.playerName)"
 //        let records: [GameResult]
 		recordLabel.isHidden = true
 //        if let encodedData = UserDefaults.standard.object(forKey: UserDefaultKeys.records) as? Data {
