@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		631FD694B2DD2EF6DB38D48D /* Pods_HitTheTree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA2D266DB2E4835D1BAEBBA /* Pods_HitTheTree.framework */; };
+		783149CF21CBE4FA00C3D254 /* NewCloudsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783149C921CBE4FA00C3D254 /* NewCloudsManager.swift */; };
+		783149D021CBE4FA00C3D254 /* RockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783149CA21CBE4FA00C3D254 /* RockManager.swift */; };
+		783149D121CBE4FA00C3D254 /* TreesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783149CB21CBE4FA00C3D254 /* TreesManager.swift */; };
+		783149D221CBE4FA00C3D254 /* NewGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783149CC21CBE4FA00C3D254 /* NewGameController.swift */; };
+		783149D321CBE4FA00C3D254 /* Missle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783149CD21CBE4FA00C3D254 /* Missle.swift */; };
+		783149D421CBE4FA00C3D254 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783149CE21CBE4FA00C3D254 /* MainScene.swift */; };
 		788562FF2198717F002D47FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788562FE2198717F002D47FE /* AppDelegate.swift */; };
 		788563032198717F002D47FE /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788563022198717F002D47FE /* GameViewController.swift */; };
 		788563062198717F002D47FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 788563042198717F002D47FE /* Main.storyboard */; };
@@ -70,6 +76,12 @@
 /* Begin PBXFileReference section */
 		1CA2D266DB2E4835D1BAEBBA /* Pods_HitTheTree.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HitTheTree.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F126C41A457B5E4C2323250 /* Pods_HitTheTreeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HitTheTreeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		783149C921CBE4FA00C3D254 /* NewCloudsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCloudsManager.swift; sourceTree = "<group>"; };
+		783149CA21CBE4FA00C3D254 /* RockManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RockManager.swift; sourceTree = "<group>"; };
+		783149CB21CBE4FA00C3D254 /* TreesManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreesManager.swift; sourceTree = "<group>"; };
+		783149CC21CBE4FA00C3D254 /* NewGameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGameController.swift; sourceTree = "<group>"; };
+		783149CD21CBE4FA00C3D254 /* Missle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Missle.swift; sourceTree = "<group>"; };
+		783149CE21CBE4FA00C3D254 /* MainScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
 		788562FB2198717F002D47FE /* HitTheTree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HitTheTree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		788562FE2198717F002D47FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		788563022198717F002D47FE /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +166,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		783149C821CBE4FA00C3D254 /* NewGame */ = {
+			isa = PBXGroup;
+			children = (
+				783149C921CBE4FA00C3D254 /* NewCloudsManager.swift */,
+				783149CA21CBE4FA00C3D254 /* RockManager.swift */,
+				783149CB21CBE4FA00C3D254 /* TreesManager.swift */,
+				783149CC21CBE4FA00C3D254 /* NewGameController.swift */,
+				783149CD21CBE4FA00C3D254 /* Missle.swift */,
+				783149CE21CBE4FA00C3D254 /* MainScene.swift */,
+			);
+			path = NewGame;
+			sourceTree = "<group>";
+		};
 		788562F22198717F002D47FE = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +201,7 @@
 		788562FD2198717F002D47FE /* HitTheTree */ = {
 			isa = PBXGroup;
 			children = (
+				783149C821CBE4FA00C3D254 /* NewGame */,
 				E06FF0C421C3EE1A002EA3EA /* Resourses */,
 				E06FF0C221C3ED89002EA3EA /* Managers */,
 				E0DA942321B7379200CE21FC /* Storyboards */,
@@ -455,21 +481,15 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-HitTheTree/Pods-HitTheTree-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -501,25 +521,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				783149D321CBE4FA00C3D254 /* Missle.swift in Sources */,
+				783149CF21CBE4FA00C3D254 /* NewCloudsManager.swift in Sources */,
 				78BB1AE821B6BAC70052C19F /* HealthBar.swift in Sources */,
 				F06C124D21B5CF170061C4E4 /* AnimalPig.swift in Sources */,
 				F0174FAF21B9EF21009D1908 /* AnimalWavesManager.swift in Sources */,
 				E0DA942221B7378E00CE21FC /* SettingsViewController.swift in Sources */,
 				F0174FAD21B9BC58009D1908 /* CloudsManager.swift in Sources */,
 				E0DA942021B7378E00CE21FC /* GameOverViewController.swift in Sources */,
+				783149D421CBE4FA00C3D254 /* MainScene.swift in Sources */,
 				F06C124F21B5EAB30061C4E4 /* AnimalCow.swift in Sources */,
 				788563032198717F002D47FE /* GameViewController.swift in Sources */,
 				E054187421BEE7AA00BD7530 /* RateGameViewController.swift in Sources */,
 				E0DA941D21B7378E00CE21FC /* GameRecordsViewController.swift in Sources */,
+				783149D021CBE4FA00C3D254 /* RockManager.swift in Sources */,
 				E06FF0CB21C3EFB8002EA3EA /* FeatureToggleManager.swift in Sources */,
 				78BB1AF021B6F5FB0052C19F /* Ghost.swift in Sources */,
 				F06C12C921B70CD80061C4E4 /* SoundManager.swift in Sources */,
 				E06FF0C921C3EEF8002EA3EA /* DataManagerProtocol.swift in Sources */,
 				78BB1AEA21B6D1FE0052C19F /* ARBullet.swift in Sources */,
+				783149D221CBE4FA00C3D254 /* NewGameController.swift in Sources */,
 				E0DA941E21B7378E00CE21FC /* GameRecordTableViewCell.swift in Sources */,
 				78BB1AEE21B6EA700052C19F /* SCNVector3Extension.swift in Sources */,
 				E06FF0CF21C3F051002EA3EA /* DataManager.swift in Sources */,
 				E0DA942121B7378E00CE21FC /* MenuViewController.swift in Sources */,
+				783149D121CBE4FA00C3D254 /* TreesManager.swift in Sources */,
 				E054187221BEC39500BD7530 /* ChangeNameViewController.swift in Sources */,
 				E0DA940F21B7376D00CE21FC /* UserDefaultsKeys.swift in Sources */,
 				F0174FA321B72A25009D1908 /* DeathAction.swift in Sources */,
@@ -697,10 +723,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6T42T57GF6;
 				INFOPLIST_FILE = HitTheTree/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.eeshishko.FarmInvasion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -716,10 +739,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6T42T57GF6;
 				INFOPLIST_FILE = HitTheTree/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.eeshishko.FarmInvasion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -735,11 +755,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B5MHTW4TA8;
 				INFOPLIST_FILE = HitTheTreeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SberTech.HitTheTreeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -756,11 +772,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B5MHTW4TA8;
 				INFOPLIST_FILE = HitTheTreeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SberTech.HitTheTreeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;

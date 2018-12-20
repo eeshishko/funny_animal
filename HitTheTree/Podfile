@@ -6,8 +6,6 @@ target 'HitTheTree' do
   use_frameworks!
   
   pod 'IQKeyboardManagerSwift'
-  pod 'Firebase/Core'
-  pod 'Firebase/Database'
   pod 'Cosmos'
   pod 'Parse'
 

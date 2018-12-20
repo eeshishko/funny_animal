@@ -8,7 +8,6 @@
 
 import UIKit
 import IQKeyboardManagerSwift
-import Firebase
 import Parse
 
 @UIApplicationMain
