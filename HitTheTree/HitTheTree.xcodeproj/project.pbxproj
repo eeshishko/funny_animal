@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7831499B21C7CEED00C3D254 /* Missle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7831499A21C7CEED00C3D254 /* Missle.swift */; };
+		631FD694B2DD2EF6DB38D48D /* Pods_HitTheTree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CA2D266DB2E4835D1BAEBBA /* Pods_HitTheTree.framework */; };
 		788562FF2198717F002D47FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788562FE2198717F002D47FE /* AppDelegate.swift */; };
 		788563032198717F002D47FE /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788563022198717F002D47FE /* GameViewController.swift */; };
 		788563062198717F002D47FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 788563042198717F002D47FE /* Main.storyboard */; };
@@ -21,6 +21,8 @@
 		78BB1AEC21B6D2360052C19F /* CollisionCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BB1AEB21B6D2350052C19F /* CollisionCategory.swift */; };
 		78BB1AEE21B6EA700052C19F /* SCNVector3Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BB1AED21B6EA700052C19F /* SCNVector3Extension.swift */; };
 		78BB1AF021B6F5FB0052C19F /* Ghost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BB1AEF21B6F5FB0052C19F /* Ghost.swift */; };
+		E054187221BEC39500BD7530 /* ChangeNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054187121BEC39500BD7530 /* ChangeNameViewController.swift */; };
+		E054187421BEE7AA00BD7530 /* RateGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054187321BEE7AA00BD7530 /* RateGameViewController.swift */; };
 		E0DA940F21B7376D00CE21FC /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA940E21B7376D00CE21FC /* UserDefaultsKeys.swift */; };
 		E0DA941221B7378300CE21FC /* GameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA941121B7378300CE21FC /* GameResult.swift */; };
 		E0DA941C21B7378E00CE21FC /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA941421B7378E00CE21FC /* RulesViewController.swift */; };
@@ -46,11 +48,7 @@
 		F06C124F21B5EAB30061C4E4 /* AnimalCow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06C124E21B5EAB30061C4E4 /* AnimalCow.swift */; };
 		F06C125121B6598D0061C4E4 /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06C125021B6598D0061C4E4 /* Animal.swift */; };
 		F06C12C921B70CD80061C4E4 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06C12C821B70CD80061C4E4 /* SoundManager.swift */; };
-		F08265C921BC4CFE007E6875 /* RockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08265C821BC4CFE007E6875 /* RockManager.swift */; };
-		F08265CB21BC4D0B007E6875 /* TreesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08265CA21BC4D0B007E6875 /* TreesManager.swift */; };
-		F08265CD21BC4D18007E6875 /* NewCloudsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08265CC21BC4D18007E6875 /* NewCloudsManager.swift */; };
-		F08265CF21BC4D40007E6875 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08265CE21BC4D40007E6875 /* MainScene.swift */; };
-		F08265D121BC4D5F007E6875 /* NewGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08265D021BC4D5F007E6875 /* NewGameController.swift */; };
+		F082660F21BF1AE3007E6875 /* LeaderBoardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F082660E21BF1AE3007E6875 /* LeaderBoardManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7831499A21C7CEED00C3D254 /* Missle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Missle.swift; sourceTree = "<group>"; };
+		1CA2D266DB2E4835D1BAEBBA /* Pods_HitTheTree.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HitTheTree.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F126C41A457B5E4C2323250 /* Pods_HitTheTreeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HitTheTreeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		788562FB2198717F002D47FE /* HitTheTree.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HitTheTree.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		788562FE2198717F002D47FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		788563022198717F002D47FE /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +81,9 @@
 		78BB1AEB21B6D2350052C19F /* CollisionCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollisionCategory.swift; sourceTree = "<group>"; };
 		78BB1AED21B6EA700052C19F /* SCNVector3Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNVector3Extension.swift; sourceTree = "<group>"; };
 		78BB1AEF21B6F5FB0052C19F /* Ghost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ghost.swift; sourceTree = "<group>"; };
+		A3EF9B02FA1E35611979E79F /* Pods-HitTheTree.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HitTheTree.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HitTheTree/Pods-HitTheTree.debug.xcconfig"; sourceTree = "<group>"; };
+		E054187121BEC39500BD7530 /* ChangeNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNameViewController.swift; sourceTree = "<group>"; };
+		E054187321BEE7AA00BD7530 /* RateGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateGameViewController.swift; sourceTree = "<group>"; };
 		E0DA940E21B7376D00CE21FC /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		E0DA941121B7378300CE21FC /* GameResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameResult.swift; sourceTree = "<group>"; };
 		E0DA941421B7378E00CE21FC /* RulesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
@@ -107,11 +109,8 @@
 		F06C124E21B5EAB30061C4E4 /* AnimalCow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalCow.swift; sourceTree = "<group>"; };
 		F06C125021B6598D0061C4E4 /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
 		F06C12C821B70CD80061C4E4 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
-		F08265C821BC4CFE007E6875 /* RockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockManager.swift; sourceTree = "<group>"; };
-		F08265CA21BC4D0B007E6875 /* TreesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreesManager.swift; sourceTree = "<group>"; };
-		F08265CC21BC4D18007E6875 /* NewCloudsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCloudsManager.swift; sourceTree = "<group>"; };
-		F08265CE21BC4D40007E6875 /* MainScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
-		F08265D021BC4D5F007E6875 /* NewGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGameController.swift; sourceTree = "<group>"; };
+		F082660E21BF1AE3007E6875 /* LeaderBoardManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderBoardManager.swift; sourceTree = "<group>"; };
+		F3B4D26127C328619FEA3DD0 /* Pods-HitTheTree.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HitTheTree.release.xcconfig"; path = "Pods/Target Support Files/Pods-HitTheTree/Pods-HitTheTree.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				631FD694B2DD2EF6DB38D48D /* Pods_HitTheTree.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,12 +132,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DE7EE4B721E5D728CC9EC45 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A3EF9B02FA1E35611979E79F /* Pods-HitTheTree.debug.xcconfig */,
+				F3B4D26127C328619FEA3DD0 /* Pods-HitTheTree.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		788562F22198717F002D47FE = {
 			isa = PBXGroup;
 			children = (
 				788562FD2198717F002D47FE /* HitTheTree */,
 				7885631421987181002D47FE /* HitTheTreeTests */,
 				788562FC2198717F002D47FE /* Products */,
+				0DE7EE4B721E5D728CC9EC45 /* Pods */,
+				BC9F50163F25580280F9D9E1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -175,7 +186,7 @@
 				F0174FA221B72A25009D1908 /* DeathAction.swift */,
 				F0174FAC21B9BC58009D1908 /* CloudsManager.swift */,
 				F0174FAE21B9EF21009D1908 /* AnimalWavesMAnager.swift */,
-				F08265C721BC4CDA007E6875 /* NewGame */,
+				F082660E21BF1AE3007E6875 /* LeaderBoardManager.swift */,
 				7885630721987180002D47FE /* Assets.xcassets */,
 				7885630921987180002D47FE /* LaunchScreen.storyboard */,
 				7885630C21987180002D47FE /* Info.plist */,
@@ -190,6 +201,15 @@
 				7885631721987181002D47FE /* Info.plist */,
 			);
 			path = HitTheTreeTests;
+			sourceTree = "<group>";
+		};
+		BC9F50163F25580280F9D9E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1CA2D266DB2E4835D1BAEBBA /* Pods_HitTheTree.framework */,
+				2F126C41A457B5E4C2323250 /* Pods_HitTheTreeTests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		E0DA940D21B7375E00CE21FC /* Common */ = {
@@ -217,6 +237,8 @@
 				E0DA941921B7378E00CE21FC /* GameOverViewController.swift */,
 				E0DA941A21B7378E00CE21FC /* MenuViewController.swift */,
 				E0DA941B21B7378E00CE21FC /* SettingsViewController.swift */,
+				E054187121BEC39500BD7530 /* ChangeNameViewController.swift */,
+				E054187321BEE7AA00BD7530 /* RateGameViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -253,19 +275,6 @@
 			path = sounds;
 			sourceTree = "<group>";
 		};
-		F08265C721BC4CDA007E6875 /* NewGame */ = {
-			isa = PBXGroup;
-			children = (
-				F08265C821BC4CFE007E6875 /* RockManager.swift */,
-				F08265CA21BC4D0B007E6875 /* TreesManager.swift */,
-				F08265CC21BC4D18007E6875 /* NewCloudsManager.swift */,
-				F08265CE21BC4D40007E6875 /* MainScene.swift */,
-				F08265D021BC4D5F007E6875 /* NewGameController.swift */,
-				7831499A21C7CEED00C3D254 /* Missle.swift */,
-			);
-			path = NewGame;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -273,9 +282,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7885631A21987181002D47FE /* Build configuration list for PBXNativeTarget "HitTheTree" */;
 			buildPhases = (
+				6DF099847E9A70FBFD15484A /* [CP] Check Pods Manifest.lock */,
 				788562F72198717F002D47FE /* Sources */,
 				788562F82198717F002D47FE /* Frameworks */,
 				788562F92198717F002D47FE /* Resources */,
+				4D3723D68CA3F556AD9C44E6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -371,14 +382,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4D3723D68CA3F556AD9C44E6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HitTheTree/Pods-HitTheTree-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HitTheTree/Pods-HitTheTree-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6DF099847E9A70FBFD15484A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HitTheTree-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		788562F72198717F002D47FE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F08265CD21BC4D18007E6875 /* NewCloudsManager.swift in Sources */,
-				F08265CF21BC4D40007E6875 /* MainScene.swift in Sources */,
-				7831499B21C7CEED00C3D254 /* Missle.swift in Sources */,
 				78BB1AE821B6BAC70052C19F /* HealthBar.swift in Sources */,
 				F06C124D21B5CF170061C4E4 /* AnimalPig.swift in Sources */,
 				F0174FAF21B9EF21009D1908 /* AnimalWavesMAnager.swift in Sources */,
@@ -387,23 +446,23 @@
 				E0DA942021B7378E00CE21FC /* GameOverViewController.swift in Sources */,
 				F06C124F21B5EAB30061C4E4 /* AnimalCow.swift in Sources */,
 				788563032198717F002D47FE /* GameViewController.swift in Sources */,
+				E054187421BEE7AA00BD7530 /* RateGameViewController.swift in Sources */,
 				E0DA941D21B7378E00CE21FC /* GameRecordsViewController.swift in Sources */,
-				F08265CB21BC4D0B007E6875 /* TreesManager.swift in Sources */,
-				F08265D121BC4D5F007E6875 /* NewGameController.swift in Sources */,
 				78BB1AF021B6F5FB0052C19F /* Ghost.swift in Sources */,
 				F06C12C921B70CD80061C4E4 /* SoundManager.swift in Sources */,
 				78BB1AEA21B6D1FE0052C19F /* ARBullet.swift in Sources */,
 				E0DA941E21B7378E00CE21FC /* GameRecordTableViewCell.swift in Sources */,
 				78BB1AEE21B6EA700052C19F /* SCNVector3Extension.swift in Sources */,
 				E0DA942121B7378E00CE21FC /* MenuViewController.swift in Sources */,
+				E054187221BEC39500BD7530 /* ChangeNameViewController.swift in Sources */,
 				E0DA940F21B7376D00CE21FC /* UserDefaultsKeys.swift in Sources */,
 				F0174FA321B72A25009D1908 /* DeathAction.swift in Sources */,
 				78BB1AE621B68E240052C19F /* GrassFloor.swift in Sources */,
 				788562FF2198717F002D47FE /* AppDelegate.swift in Sources */,
 				F0174FAB21B7A5BF009D1908 /* AnimalCat.swift in Sources */,
 				F06C125121B6598D0061C4E4 /* Animal.swift in Sources */,
+				F082660F21BF1AE3007E6875 /* LeaderBoardManager.swift in Sources */,
 				78BB1AEC21B6D2360052C19F /* CollisionCategory.swift in Sources */,
-				F08265C921BC4CFE007E6875 /* RockManager.swift in Sources */,
 				F0174FA921B7A5B1009D1908 /* AnimalMouse.swift in Sources */,
 				E0DA941C21B7378E00CE21FC /* RulesViewController.swift in Sources */,
 				E0DA941221B7378300CE21FC /* GameResult.swift in Sources */,
@@ -566,17 +625,17 @@
 		};
 		7885631B21987181002D47FE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A3EF9B02FA1E35611979E79F /* Pods-HitTheTree.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5DKYS885U3;
 				INFOPLIST_FILE = HitTheTree/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ru2.sberbank.FarmInvasion;
+				PRODUCT_BUNDLE_IDENTIFIER = ru11.eeshishko.FarmInvasion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -585,17 +644,17 @@
 		};
 		7885631C21987181002D47FE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3B4D26127C328619FEA3DD0 /* Pods-HitTheTree.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5DKYS885U3;
 				INFOPLIST_FILE = HitTheTree/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ru2.sberbank.FarmInvasion;
+				PRODUCT_BUNDLE_IDENTIFIER = ru11.eeshishko.FarmInvasion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

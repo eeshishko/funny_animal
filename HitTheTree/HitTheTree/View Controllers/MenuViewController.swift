@@ -12,4 +12,19 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 	}
+	
+	override func viewDidAppear(_ animated: Bool) {
+		checkIfNameExists()
+	}
+	
+	private func checkIfNameExists() {
+		if let _ = UserDefaults.standard.string(forKey: UserDefaultKeys.playerName) {
+			return
+		} else {
+			performSegue(withIdentifier: "showChangeName", sender: nil)
+		}
+	}
+	@IBAction func changeName(_ sender: Any) {
+		performSegue(withIdentifier: "showChangeName", sender: nil)
+	}
 }
