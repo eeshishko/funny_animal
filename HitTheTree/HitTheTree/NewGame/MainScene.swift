@@ -9,7 +9,40 @@
 import SceneKit
 import AudioToolbox.AudioServices
 
+
+protocol MainSceneDelegate: NSObjectProtocol {
+    func stopGame(duration: Int, totalPoints: Int)
+    func updateLabels(seconds: Int, points: Int)
+}
+
 class MainScene: SCNNode {
+    weak var delegate: MainSceneDelegate?
+    let defaultPlayerName = "Игрок 1"
+    
+    var maxAnimalsCount = 10
+    let minimalRespawnCooldown = 3
+    
+    private let redPlaneNode = SCNNode()
+    
+    
+    //var sceneView: SCNView!
+    var scene: SCNScene!
+    let soundManager = SoundManager()
+    
+    var timer: Timer!
+    var gameTimer: Timer!
+    var animals: [Animal] = []
+    var planeIsDetection = false
+    var totalPoints: Int = 0
+    
+    var totalGameTimeSeconds = 0
+    
+    var animalXCoordinates: [CGFloat] = []
+    
+    var lastAnimalAddingDate = Date()
+    
+    let animalsWaves : [Animal.AnimalType] = [.cow, .cow, .cow, .cow, .pig, .pig, .pig, .cat, .cat, .mouse]
+    var totalCountHasAddedAnimals: Int = 0
     
     let floor = SCNFloor()
     let floorNode = SCNNode()
@@ -19,11 +52,16 @@ class MainScene: SCNNode {
 
     override init() {
         super.init()
+        timer = Timer.scheduledTimer(timeInterval: 1.0/60.0, target: self, selector: #selector(MainScene.updateGameState), userInfo: nil, repeats: true)
+        setupAnimalXCoordinates()
         setupFloor()
         setupLight()
         cloudsManager = NewCloudsManager(node: self, worldWidth: Float(floor.width), worldLength: Float(floor.length))
-        createFence()
+        setupFence()
         addTree()
+        soundManager.playBackgroundMusic(node: self)
+        startGame()
+        setupRedPlane()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -161,9 +199,17 @@ class MainScene: SCNNode {
         //soundManager.playShootSound(node: sceneView.scene.rootNode)
     }
     
+    func setupAnimalXCoordinates() {
+        animalXCoordinates.removeAll()
+        let step : CGFloat = 0.5
+        let startX : CGFloat = -2.25
+        for i in 0..<10 {
+            let x = CGFloat(i) * step + startX
+            animalXCoordinates.append(x)
+        }
+    }
     
-    private func createFence() -> SCNNode {
-        let node = SCNNode()
+    private func setupFence() {
         for i in 0...10 {
             let x = Float(i) * 0.5 - 2.5
             for j in 0..<4 {
@@ -175,8 +221,191 @@ class MainScene: SCNNode {
                 addChildNode(fence)
             }
         }
-        return node
     }
     
+    
+    @objc func updateGameState() {
+        //print("update game state")
+        
+        
+        for animal in animals {
+            
+            if !animal.isAlive {
+                continue
+            }
+            
+            if animal.position.z <= Float(animal.box.width/2.0 + 0.000001) {
+                var vector = animal.position
+                vector.z = Float(animal.box.width/2.0)
+                animal.position = vector
+                animal.velocity = animal.defaultVelocity
+            }
+            
+            let velocity = animal.velocity + kGravity
+            animal.velocity = velocity
+            
+            var position = animal.position
+            position = SCNVector3(position.x + velocity.x, position.y + velocity.y, position.z + velocity.z)
+            animal.position = position
+            
+            if animal.position.y <= Float(redPlaneNode.position.y) {
+                timer.invalidate()
+                playAnimationRichingRedPlane(animal: animal) {[weak self] in
+                    self?.stopGame()
+                }
+                break
+            }
+        }
+        addAnimal()
+    }
+    
+    func playAnimationRichingRedPlane(animal: Animal, completion: (() -> Void)? ) {
+        completion?()
+    }
+    
+    func addAnimal() {
+        if animals.count < maxAnimalsCount {
+            let addingCount = maxAnimalsCount - animals.count
+            
+            for _ in 0..<addingCount {
+                //тут создаем животное
+                createAnimal()
+            }
+            lastAnimalAddingDate = Date()
+        } else {
+            if Int(Date().timeIntervalSince1970 - lastAnimalAddingDate.timeIntervalSince1970) > minimalRespawnCooldown {
+                lastAnimalAddingDate = Date()
+                createAnimal()
+            }
+        }
+        
+    }
+    
+    func createAnimal() {
+        let type = animalsWaves[totalCountHasAddedAnimals % animalsWaves.count]
+        let level = totalCountHasAddedAnimals / animalsWaves.count
+        var animal = Animal.createCow(level: level)
+        switch type {
+        case .cow:
+            animal = Animal.createCow(level: level)
+        case .pig:
+            animal = Animal.createPig(level: level)
+        case .cat:
+            animal = Animal.createCat(level: level)
+        case .mouse:
+            animal = Animal.createMouse(level: level)
+        }
+        
+        animal.position = randomCoordinate(animalSize: animal.box.width) //SCNVector3(0, 0, animal.box.width/2.0 * 3)//
+        animal.eulerAngles = SCNVector3(CGFloat.pi/2, 0, 0)
+        addChildNode(animal)
+        animals.append(animal)
+        totalCountHasAddedAnimals += 1
+    }
+    
+    func randomCoordinate(animalSize: CGFloat) -> SCNVector3 {
+        var flag = true
+        var pos = SCNVector3(0, 0, 0)
+        while flag {
+            flag = false
+            let rand = Int.random(in: 0..<animalXCoordinates.count)
+            let length = floor.length
+            let randomX = animalXCoordinates[rand]
+            let randomY = length - CGFloat.random(in: -0.1...0.1)
+            let randomZ = CGFloat.random(in: animalSize/2...2 * animalSize)
+            
+            pos = SCNVector3(randomX, randomY, randomZ)
+            if animals.count < animalXCoordinates.count {
+                for animal in animals {
+                    if animal.position.x == pos.x {
+                        flag = true
+                        break
+                    }
+                }
+            }
+            
+        }
+        return pos
+    }
+    
+    func restartTimeAndPoints() {
+        self.totalGameTimeSeconds = 0
+        self.totalPoints = 0
+    }
+    
+    func stopGame() {
+        soundManager.stopBackgroundMusic(node: self)
+        timer.invalidate()
+        gameTimer.invalidate()
+        delegate?.stopGame(duration: totalGameTimeSeconds, totalPoints: totalPoints)
+    }
+    
+    func startGame() {
+        gameTimer?.invalidate()
+        restartTimeAndPoints()
+        DispatchQueue.main.async {
+            self.delegate?.updateLabels(seconds: self.totalGameTimeSeconds, points: self.totalPoints)
+        }
+        gameTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: {[weak self] (timer) in
+            guard let `self` = self else {
+                return
+            }
+            self.totalGameTimeSeconds += 1
+            DispatchQueue.main.async {
+                self.delegate?.updateLabels(seconds: self.totalGameTimeSeconds, points: self.totalPoints)
+            }
+        })
+        addAnimal()
+    }
+    
+    
+    func setupRedPlane() {
+        let redPlaneYCoordinate: CGFloat = -0.8 * floor.length
+        redPlaneNode.position = SCNVector3(0,redPlaneYCoordinate,0.00001)
+        let redPlane = SCNPlane()
+        redPlane.width = floor.width * 2
+        redPlane.height = 0.005
+        
+        let material = SCNMaterial()
+        material.diffuse.contents = UIColor.red
+        redPlane.materials = [material]
+        redPlaneNode.geometry = redPlane
+        addChildNode(redPlaneNode)
+    }
+    
+}
+
+
+
+
+
+// MARK: - SCNPhysicsContactDelegate
+
+extension MainScene: SCNPhysicsContactDelegate {
+    
+    func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
+        guard let nodeABitMask = contact.nodeA.physicsBody?.categoryBitMask,
+            let nodeBBitMask = contact.nodeB.physicsBody?.categoryBitMask,
+            nodeABitMask & nodeBBitMask == CollisionCategory.logos.rawValue & CollisionCategory.arBullets.rawValue else {
+                return
+        }
+        print("collision")
+        
+        
+        
+        contact.nodeB.removeFromParentNode()
+        
+        if let animal = contact.nodeA as? Animal, animal.isAlive {
+            animal.damage(value: 4.0)
+            if animal.health == 0 {
+                soundManager.playAnimalDead(animal: animal)
+                totalPoints += animal.points
+                animals = animals.filter({$0.parent != nil})
+            }
+            DispatchQueue.main.async {
+                self.delegate?.updateLabels(seconds: self.totalGameTimeSeconds, points: self.totalPoints)
+            }
+        }
+    }
     
 }

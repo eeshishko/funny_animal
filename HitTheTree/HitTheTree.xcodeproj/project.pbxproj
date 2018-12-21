@@ -56,6 +56,7 @@
 		F0174FAB21B7A5BF009D1908 /* AnimalCat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0174FAA21B7A5BF009D1908 /* AnimalCat.swift */; };
 		F0174FAD21B9BC58009D1908 /* CloudsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0174FAC21B9BC58009D1908 /* CloudsManager.swift */; };
 		F0174FAF21B9EF21009D1908 /* AnimalWavesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0174FAE21B9EF21009D1908 /* AnimalWavesManager.swift */; };
+		F05F56A121CCB02600D65CC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E06FF0C521C3EE29002EA3EA /* Assets.xcassets */; };
 		F06C124D21B5CF170061C4E4 /* AnimalPig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06C124C21B5CF170061C4E4 /* AnimalPig.swift */; };
 		F06C124F21B5EAB30061C4E4 /* AnimalCow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06C124E21B5EAB30061C4E4 /* AnimalCow.swift */; };
 		F06C125121B6598D0061C4E4 /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06C125021B6598D0061C4E4 /* Animal.swift */; };
@@ -458,6 +459,7 @@
 				E06FF0D521C3F2E6002EA3EA /* About.storyboard in Resources */,
 				F0174F9D21B7164E009D1908 /* animalHit.mp3 in Resources */,
 				F0174FA721B74922009D1908 /* pigDead.wav in Resources */,
+				F05F56A121CCB02600D65CC8 /* Assets.xcassets in Resources */,
 				E06FF0CD21C3F01C002EA3EA /* FeatureToggles.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

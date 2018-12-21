@@ -41,6 +41,9 @@ extension Animal {
         
         let face = isAlive ? material1 : material1Dead
         box.materials = [face, material2, material3, material4, material5, material6]
+        for material in box.materials {
+            material.lightingModel = .lambert
+        }
     }
     
 }

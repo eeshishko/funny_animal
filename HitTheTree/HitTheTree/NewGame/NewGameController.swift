@@ -13,11 +13,16 @@ import ARKit
 class NewGameController: UIViewController {
 
     @IBOutlet var aimImageView: UIImageView!
+    @IBOutlet var timeLabel: UILabel!
+    @IBOutlet var pointsLabel: UILabel!
+    @IBOutlet var hotView: UIView!
+    
     var sceneView: SCNView!
     var arSceneView: ARSCNView!
     let mainScene = MainScene()
     let cameraNode = SCNNode()
     var bulletTimer: Timer?
+    var countHottingBullet: Int = 0
     
     var aimCenterCoordinate: CGPoint {
         get {
@@ -34,7 +39,7 @@ class NewGameController: UIViewController {
         
         // create a new scene
         let scene = SCNScene()//SCNScene(named: "art.scnassets/scene.scn")!
-        arSceneView = false ? ARSCNView() : nil
+        arSceneView = true ? ARSCNView() : nil
         sceneView = arSceneView != nil ? arSceneView : SCNView()
         view.insertSubview(sceneView, belowSubview: aimImageView)
         setup(scene: scene)
@@ -61,8 +66,11 @@ class NewGameController: UIViewController {
     }
     
     func setup(scene: SCNScene) {
+        mainScene.delegate = self
         mainScene.position = SCNVector3(0,-2,2)
         scene.rootNode.addChildNode(mainScene)
+        scene.physicsWorld.contactDelegate = mainScene
+        sceneView.audioListener = scene.rootNode
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -87,10 +95,15 @@ class NewGameController: UIViewController {
         let shootPoint3D = sceneView.unprojectPoint(SCNVector3(shootPoint.x, shootPoint.y, 0))//pointOfView.convertPosition(, from: nil)
         let hitTests = sceneView.hitTest(aimCenterCoordinate, options: [.searchMode : SCNHitTestSearchMode.any.rawValue])
         mainScene.tapLocation(hitTests: hitTests, pointOfView: pointOfView, shootPoint: shootPoint3D)
+//        countHottingBullet += 1
+//        if countHottingBullet > 30 {
+//
+//        }
     }
     
     @IBAction private func startBulletAction(_ sender: UIButton) {
         bulletTimer?.invalidate()
+        countHottingBullet = 0
         shoot()
         bulletTimer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true, block: {[weak self] (timer) in
             self?.shoot()
@@ -98,9 +111,14 @@ class NewGameController: UIViewController {
     }
     
     @IBAction private func endBulletAction(_ sender: UIButton) {
+        stopBullet()
+    }
+    
+    fileprivate func stopBullet() {
         bulletTimer?.invalidate()
         bulletTimer = nil
     }
+    
     
 }
 
@@ -125,4 +143,43 @@ extension NewGameController {
         return nil
     }
     
+}
+
+
+extension NewGameController : MainSceneDelegate {
+    
+    func stopGame(duration: Int, totalPoints: Int) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let gameOverVc = storyboard.instantiateViewController(withIdentifier: "GameOverViewControllerID") as! GameOverViewController
+        
+        gameOverVc.delegate = self
+        gameOverVc.gameDuration = duration
+        
+        let result = GameResult(score: totalPoints, date: Date())
+        gameOverVc.gameResult = result
+        
+        present(gameOverVc, animated: true, completion: nil)
+        
+        LeaderBoardManager.shared.finishGame(withDuration: duration)
+    }
+    
+    
+    func updateLabels(seconds: Int, points: Int) {
+        let minutes: Int = seconds/60
+        let seconds: Int = minutes > 0 ? seconds % minutes : seconds
+        if seconds < 10 {
+            self.timeLabel.text = "\(minutes):0\(seconds)"
+        } else {
+            self.timeLabel.text = "\(minutes):\(seconds)"
+        }
+        self.pointsLabel.text = "Points: \(points)"
+    }
+    
+}
+
+extension NewGameController: GameOverViewControllerDelegate {
+    func didTapMenuButton(viewController: UIViewController) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

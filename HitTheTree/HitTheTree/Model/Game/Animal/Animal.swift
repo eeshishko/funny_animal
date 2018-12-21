@@ -8,6 +8,9 @@
 
 import SceneKit
 
+fileprivate let kAnimalScaleSize : CGFloat = 2
+fileprivate let kAnimalScaleVelocity : CGFloat = 2
+
 class Animal: SCNNode {
     enum AnimalType: Int {
         case cow = 1, pig, cat, mouse
@@ -132,11 +135,11 @@ class Animal: SCNNode {
     }
 	
 	private static func YSpeed(level: Int) -> CGFloat {
-		return YSpeedValue - CGFloat(level) * 0.0002
+		return (YSpeedValue - CGFloat(level) * 0.0002) * kAnimalScaleVelocity
 	}
     
     static func createCow(level: Int = 0) -> Animal {
-        let size: CGFloat = 0.1
+        let size: CGFloat = 0.1 * kAnimalScaleSize
         let animal = Animal(box: SCNBox(width: size, height: size, length: size, chamferRadius: 0))
         animal.type = .cow
         animal.defaultVelocity = SCNVector3(0, YSpeed(level: level), 0.002)
@@ -148,7 +151,7 @@ class Animal: SCNNode {
     }
     
     static func createPig(level: Int = 0) -> Animal {
-        let size: CGFloat = 0.07
+        let size: CGFloat = 0.07 * kAnimalScaleSize
         let animal = Animal(box: SCNBox(width: size, height: size, length: size, chamferRadius: 0))
         animal.type = .pig
         animal.defaultVelocity = SCNVector3(0, YSpeed(level: level), 0.003)
@@ -160,7 +163,7 @@ class Animal: SCNNode {
     }
     
     static func createCat(level: Int = 0) -> Animal {
-        let size: CGFloat = 0.05
+        let size: CGFloat = 0.05 * kAnimalScaleSize
         let animal = Animal(box: SCNBox(width: size, height: size, length: size, chamferRadius: 0))
         animal.type = .cat
         animal.defaultVelocity = SCNVector3(0, YSpeed(level: level), 0.005)
@@ -172,7 +175,7 @@ class Animal: SCNNode {
     }
     
     static func createMouse(level: Int = 0) -> Animal {
-        let size: CGFloat = 0.03
+        let size: CGFloat = 0.03 * kAnimalScaleSize
         let animal = Animal(box: SCNBox(width: size, height: size, length: size, chamferRadius: 0))
         animal.type = .mouse
         animal.defaultVelocity = SCNVector3(0, YSpeed(level: level), 0.007)
