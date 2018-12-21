@@ -67,7 +67,7 @@ class NewGameController: UIViewController {
     
     func setup(scene: SCNScene) {
         mainScene.delegate = self
-        mainScene.position = SCNVector3(0,-2,2)
+        mainScene.position = SCNVector3(0,-2,-4)
         scene.rootNode.addChildNode(mainScene)
         scene.physicsWorld.contactDelegate = mainScene
         sceneView.audioListener = scene.rootNode

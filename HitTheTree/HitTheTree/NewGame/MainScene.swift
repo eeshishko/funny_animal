@@ -364,7 +364,7 @@ class MainScene: SCNNode {
         redPlaneNode.position = SCNVector3(0,redPlaneYCoordinate,0.00001)
         let redPlane = SCNPlane()
         redPlane.width = floor.width * 2
-        redPlane.height = 0.005
+        redPlane.height = 0.01
         
         let material = SCNMaterial()
         material.diffuse.contents = UIColor.red
