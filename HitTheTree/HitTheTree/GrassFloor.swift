@@ -18,7 +18,7 @@ class GrassFloor: SCNNode {
     init(width: CGFloat = 2, height: CGFloat = 2, redPlaneYCoordinate: CGFloat = -0.8) {
         super.init()
         self.redPlaneYCoordinate = redPlaneYCoordinate
-        let image = UIImage(named: "art.scnassets/grass2.png")
+        let image = UIImage(named: "art.scnassets/grass3.jpg")
         let grassMaterial = SCNMaterial()
         grassMaterial.diffuse.contentsTransform = SCNMatrix4MakeScale(8, 8, 0)
         grassMaterial.diffuse.wrapS = .repeat
