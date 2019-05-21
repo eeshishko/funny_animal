@@ -17,9 +17,8 @@ class GameRecordsViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
-		let playerName = UserDefaults.standard.string(forKey: UserDefaultKeys.playerName)!
-		titleLabel.text = "Рекорды \"\(playerName)\""
+
+		titleLabel.text = "Статистика"
 		
 		setupTableView()
 		loadRecords()
