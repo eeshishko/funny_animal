@@ -23,6 +23,9 @@
 		78BB1AF021B6F5FB0052C19F /* Ghost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BB1AEF21B6F5FB0052C19F /* Ghost.swift */; };
 		E054187221BEC39500BD7530 /* ChangeNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054187121BEC39500BD7530 /* ChangeNameViewController.swift */; };
 		E054187421BEE7AA00BD7530 /* RateGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E054187321BEE7AA00BD7530 /* RateGameViewController.swift */; };
+		E091174E229476540038EAD9 /* Authorization.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E091174B229476540038EAD9 /* Authorization.storyboard */; };
+		E091174F229476540038EAD9 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E091174C229476540038EAD9 /* AuthorizationViewController.swift */; };
+		E0911750229476540038EAD9 /* WebFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E091174D229476540038EAD9 /* WebFormViewController.swift */; };
 		E0DA940F21B7376D00CE21FC /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA940E21B7376D00CE21FC /* UserDefaultsKeys.swift */; };
 		E0DA941221B7378300CE21FC /* GameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA941121B7378300CE21FC /* GameResult.swift */; };
 		E0DA941C21B7378E00CE21FC /* RulesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA941421B7378E00CE21FC /* RulesViewController.swift */; };
@@ -84,6 +87,9 @@
 		A3EF9B02FA1E35611979E79F /* Pods-HitTheTree.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HitTheTree.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HitTheTree/Pods-HitTheTree.debug.xcconfig"; sourceTree = "<group>"; };
 		E054187121BEC39500BD7530 /* ChangeNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNameViewController.swift; sourceTree = "<group>"; };
 		E054187321BEE7AA00BD7530 /* RateGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateGameViewController.swift; sourceTree = "<group>"; };
+		E091174B229476540038EAD9 /* Authorization.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Authorization.storyboard; sourceTree = "<group>"; };
+		E091174C229476540038EAD9 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
+		E091174D229476540038EAD9 /* WebFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebFormViewController.swift; sourceTree = "<group>"; };
 		E0DA940E21B7376D00CE21FC /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		E0DA941121B7378300CE21FC /* GameResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameResult.swift; sourceTree = "<group>"; };
 		E0DA941421B7378E00CE21FC /* RulesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesViewController.swift; sourceTree = "<group>"; };
@@ -212,6 +218,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E091174A229476540038EAD9 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				E091174B229476540038EAD9 /* Authorization.storyboard */,
+				E091174C229476540038EAD9 /* AuthorizationViewController.swift */,
+				E091174D229476540038EAD9 /* WebFormViewController.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
 		E0DA940D21B7375E00CE21FC /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +247,7 @@
 		E0DA941321B7378E00CE21FC /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E091174A229476540038EAD9 /* Authorization */,
 				788563022198717F002D47FE /* GameViewController.swift */,
 				E0DA941421B7378E00CE21FC /* RulesViewController.swift */,
 				E0DA941521B7378E00CE21FC /* Game Records */,
@@ -369,6 +386,7 @@
 				7885630821987180002D47FE /* Assets.xcassets in Resources */,
 				788563062198717F002D47FE /* Main.storyboard in Resources */,
 				F0174F9D21B7164E009D1908 /* animalHit.mp3 in Resources */,
+				E091174E229476540038EAD9 /* Authorization.storyboard in Resources */,
 				F0174FA721B74922009D1908 /* pigDead.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,7 +407,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-HitTheTree/Pods-HitTheTree-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-HitTheTree/Pods-HitTheTree-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
@@ -410,7 +428,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HitTheTree/Pods-HitTheTree-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HitTheTree/Pods-HitTheTree-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6DF099847E9A70FBFD15484A /* [CP] Check Pods Manifest.lock */ = {
@@ -465,6 +483,8 @@
 				78BB1AEC21B6D2360052C19F /* CollisionCategory.swift in Sources */,
 				F0174FA921B7A5B1009D1908 /* AnimalMouse.swift in Sources */,
 				E0DA941C21B7378E00CE21FC /* RulesViewController.swift in Sources */,
+				E0911750229476540038EAD9 /* WebFormViewController.swift in Sources */,
+				E091174F229476540038EAD9 /* AuthorizationViewController.swift in Sources */,
 				E0DA941221B7378300CE21FC /* GameResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
