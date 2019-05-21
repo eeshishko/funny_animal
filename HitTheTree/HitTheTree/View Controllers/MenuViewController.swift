@@ -21,7 +21,7 @@ class MenuViewController: UIViewController {
 		if let _ = UserDefaults.standard.string(forKey: UserDefaultKeys.playerName) {
 			return
 		} else {
-			performSegue(withIdentifier: "showChangeName", sender: nil)
+			//performSegue(withIdentifier: "showChangeName", sender: nil)
 		}
 	}
 	@IBAction func changeName(_ sender: Any) {
