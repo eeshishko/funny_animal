@@ -14,7 +14,7 @@ class GameResult: NSObject, NSCoding {
 	let playerName: String
 	
 	convenience init(score: Int, date: Date) {
-		let playerName = UserDefaults.standard.string(forKey: UserDefaultKeys.playerName)!
+		let playerName = "none"//UserDefaults.standard.string(forKey: UserDefaultKeys.playerName)!
 		self.init(score: score, date: date, playerName: playerName)
 	}
 	
