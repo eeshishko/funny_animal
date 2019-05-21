@@ -89,10 +89,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="iiH-q7-eoL">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background2" translatesAutoresizingMaskIntoConstraints="NO" id="iiH-q7-eoL">
                                 <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
                             </imageView>
-                            <visualEffectView opaque="NO" alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MA5-c1-Dn6">
+                            <visualEffectView opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MA5-c1-Dn6">
                                 <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="znz-5s-C3I">
                                     <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
@@ -110,11 +110,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="4Di-DL-yYD">
-                                <rect key="frame" x="120" y="269" width="954" height="300"/>
+                                <rect key="frame" x="397" y="269" width="400" height="300"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Wb-QG-0fL">
-                                        <rect key="frame" x="0.0" y="0.0" width="954" height="89.5"/>
-                                        <color key="backgroundColor" red="0.0" green="0.47058823529999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="400" height="89.5"/>
+                                        <color key="backgroundColor" white="0.24545162671232876" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <state key="normal" title="Играть">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -129,8 +129,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evH-ke-dAj">
-                                        <rect key="frame" x="0.0" y="105.5" width="954" height="89"/>
-                                        <color key="backgroundColor" red="0.0" green="0.47058823529999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="0.0" y="105.5" width="400" height="89"/>
+                                        <color key="backgroundColor" red="0.24706074595451355" green="0.24705535173416138" blue="0.24705901741981506" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <state key="normal" title="Статистика">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -145,8 +145,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Zc-2O-cNP">
-                                        <rect key="frame" x="0.0" y="210.5" width="954" height="89.5"/>
-                                        <color key="backgroundColor" red="0.0" green="0.47058823529999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="0.0" y="210.5" width="400" height="89.5"/>
+                                        <color key="backgroundColor" red="0.24706074595451355" green="0.24705535173416138" blue="0.24705901741981506" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <state key="normal" title="Правила">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -162,6 +162,7 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="400" id="5Yg-zU-jdd"/>
                                     <constraint firstAttribute="height" constant="250" id="SNp-Gr-N2e">
                                         <variation key="heightClass=regular-widthClass=regular" constant="300"/>
                                     </constraint>
@@ -180,12 +181,6 @@
                             <constraint firstItem="4Di-DL-yYD" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="UU7-ok-6Rx"/>
                             <constraint firstItem="4Di-DL-yYD" firstAttribute="top" relation="greaterThanOrEqual" secondItem="mhx-FW-OUF" secondAttribute="bottom" constant="10" id="epE-QN-5Oj"/>
                             <constraint firstAttribute="trailing" secondItem="iiH-q7-eoL" secondAttribute="trailing" id="ewv-xA-Lmf"/>
-                            <constraint firstItem="4Di-DL-yYD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="g1L-vH-iz1">
-                                <variation key="heightClass=regular-widthClass=regular" constant="120"/>
-                            </constraint>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4Di-DL-yYD" secondAttribute="trailing" constant="40" id="hWs-U2-z6W">
-                                <variation key="heightClass=regular-widthClass=regular" constant="120"/>
-                            </constraint>
                             <constraint firstItem="4Di-DL-yYD" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="oaR-4H-nS1"/>
                             <constraint firstItem="MA5-c1-Dn6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="org-qX-7EQ"/>
                             <constraint firstItem="mhx-FW-OUF" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="pdk-su-4ec"/>
@@ -491,13 +486,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="1194" height="834"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Оцени нашу игру!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeE-Pc-MbN">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Оцени нашу игру!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeE-Pc-MbN">
                                 <rect key="frame" x="16" y="339" width="1162" height="30"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="27"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8HJ-gN-MZg" customClass="CosmosView" customModule="Cosmos">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8HJ-gN-MZg" customClass="CosmosView" customModule="Cosmos">
                                 <rect key="frame" x="537" y="409" width="120" height="20"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -542,7 +537,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="background" width="1280" height="721"/>
+        <image name="background2" width="954" height="530"/>
         <image name="close" width="848.5" height="1200"/>
     </resources>
 </document>
