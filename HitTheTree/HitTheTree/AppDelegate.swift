@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    static var ref: DatabaseReference!
+
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		IQKeyboardManager.shared.enable = true
@@ -24,14 +26,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 		//FirebaseApp.configure()
         
-        let configuration = ParseClientConfiguration {
-            $0.applicationId = "DklpyPDVXTIrH8ZAUczRGAuxNlNqRICIRQ78HGXD"
-            $0.clientKey = "LmqFhWMjBxKeiXICTmwDI3Nr3ofC7oyTXTxpjC3q"
-            $0.server = "https://parseapi.back4app.com"
-        }
-        Parse.initialize(with: configuration)
-        saveInstallationObject()
-        
+//        let configuration = ParseClientConfiguration {
+//            $0.applicationId = "DklpyPDVXTIrH8ZAUczRGAuxNlNqRICIRQ78HGXD"
+//            $0.clientKey = "LmqFhWMjBxKeiXICTmwDI3Nr3ofC7oyTXTxpjC3q"
+//            $0.server = "https://parseapi.back4app.com"
+//        }
+//        Parse.initialize(with: configuration)
+//        saveInstallationObject()
+
+        FirebaseApp.configure()
+        AppDelegate.ref = Database.database().reference()
+
+//        AppDelegate.ref.child("scores/test").setValue(1)
+
         LeaderBoardManager.manager.launchApp()
         
         return true

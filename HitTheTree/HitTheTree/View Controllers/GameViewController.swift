@@ -263,12 +263,21 @@ class GameViewController: UIViewController {
 		gameOverVc.delegate = self
         gameOverVc.gameDuration = totalGameTimeSeconds
 		
-		let result = GameResult(score: self.totalPoints, date: Date())
+//        let result = GameResult(score: self.totalPoints, date: Date())
+
+        let result = GameResult(score: self.totalPoints, playerName: MenuViewController.user!)
 		gameOverVc.gameResult = result
 		
-		present(gameOverVc, animated: true, completion: nil)
-        
+//        present(gameOverVc, animated: true, completion: nil)
+
         LeaderBoardManager.manager.finishGame(withDuration: totalGameTimeSeconds)
+
+//        let signInPage = self.storyboard?.instantiateViewController(withIdentifier: "ViewController")
+        let appDelegate = UIApplication.shared.delegate
+        appDelegate?.window??.rootViewController = gameOverVc
+//
+//        scene = nil
+//        sceneView.stop(self)
 	}
     
     func startGame() {

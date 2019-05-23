@@ -18,7 +18,8 @@ class GameRecordTableViewCell: UITableViewCell {
     }
 
 	func configure(with gameResult: GameResult) {
-		scoreLabel.text = "\(gameResult.score)"
-		dateLabel.text = "\(gameResult.date)"
+        scoreLabel.text = "\(gameResult.score) (\(gameResult.playerName))"
+        dateLabel.isHidden = true
+//        dateLabel.text = "\(gameResult.playerName)"
 	}
 }

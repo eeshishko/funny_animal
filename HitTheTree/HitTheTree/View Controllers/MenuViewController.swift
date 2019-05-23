@@ -11,15 +11,15 @@ import UIKit
 class MenuViewController: UIViewController {
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var userLabel: UILabel!
-    var user: String?
+    static var user: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.user = UserDefaults.standard.string(forKey: "user")
-        self.userLabel.text = user
+        MenuViewController.user = UserDefaults.standard.string(forKey: "user") ?? "Test"
+        self.userLabel.text = MenuViewController.user
 
-        let registered = true//UserDefaults.standard.bool(forKey: "registered")
+        let registered = UserDefaults.standard.bool(forKey: "registered")
         self.playButton.isEnabled = registered
         self.playButton.backgroundColor = registered ? UIColor(red: 95 / 255.0, green: 88 / 255.0, blue: 80 / 255.0, alpha: 1) : UIColor.gray
 
@@ -56,11 +56,11 @@ class MenuViewController: UIViewController {
             print(isAuthorized)
             if !isAuthorized { return }
 
-            self.user = user.name + " " + user.surname
+            MenuViewController.user = user.name + " " + user.surname
             UserDefaults.standard.set(true, forKey: "registered")
-            UserDefaults.standard.set(self.user, forKey: "user")
+            UserDefaults.standard.set(MenuViewController.user, forKey: "user")
             UserDefaults.standard.synchronize()
-            self.userLabel.text = self.user
+            self.userLabel.text = MenuViewController.user
             self.playButton.isEnabled = true
             self.playButton.backgroundColor = UIColor(red: 95 / 255.0, green: 88 / 255.0, blue: 80 / 255.0, alpha: 1)
         }

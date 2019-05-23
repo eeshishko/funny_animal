@@ -17,7 +17,7 @@ extension Animal {
         material1.locksAmbientWithDiffuse = false
         
         let material1Dead = SCNMaterial()
-        material1Dead.diffuse.contents = UIImage(named: "art.scnassets/pig/bug_3.jpg")
+        material1Dead.diffuse.contents = UIImage(named: "art.scnassets/pig/bug_3.png")
         material1Dead.locksAmbientWithDiffuse = false
         
         let material2 = SCNMaterial()

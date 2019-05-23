@@ -14,15 +14,46 @@ class GameRecordsViewController: UIViewController {
 	
 	var records: [GameResult] = [GameResult]()
 	let cellIdentifier = String(describing: GameRecordTableViewCell.self)
-	
+    var timer: Timer?
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
 		titleLabel.text = "Статистика"
+
+//        AppDelegate.ref.child("scores/\(username)").setValue(gameResult.score)
+
+        tableView.tableFooterView = UIView()
 		
 		setupTableView()
-		loadRecords()
+        load()
+
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(load), userInfo: nil, repeats: true)
+
+//        loadRecords()
 	}
+
+    @objc func load() {
+        AppDelegate.ref.child("scores").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as! NSDictionary
+
+            self.records.removeAll()
+
+            for (k,v) in value {
+                self.records.append(GameResult(score: v as! Int, playerName: k as! String))
+            }
+
+            self.records.sort(by: { (f, s) -> Bool in
+                f.score > s.score
+            })
+
+            //            self.tableView.reloadData()
+            self.tableView.reloadSections(IndexSet([0]), with: .automatic)
+
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
 	
 	private func loadRecords() {
         LeaderBoardManager.manager.getResults {[weak self] (results, error) in
@@ -63,4 +94,7 @@ extension GameRecordsViewController: UITableViewDataSource {
 }
 
 extension GameRecordsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
 }
