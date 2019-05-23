@@ -100,12 +100,22 @@
                                 </view>
                                 <blurEffect style="light"/>
                             </visualEffectView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Матвей Кравцов" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4OR-ZA-zIE">
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Матвей Кравцов" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4OR-ZA-zIE">
                                 <rect key="frame" x="308" y="39" width="298" height="28.666666666666671"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ea8-wo-oju" appends="YES" id="vfk-6H-pur"/>
+                                </connections>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoMe" translatesAutoresizingMaskIntoConstraints="NO" id="Wbk-33-qUU">
+                                <rect key="frame" x="308" y="387.66666666666669" width="298" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="wmo-ri-ZIE"/>
+                                </constraints>
+                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feature" translatesAutoresizingMaskIntoConstraints="NO" id="APh-iR-sfC">
                                 <rect key="frame" x="474" y="20" width="240" height="128"/>
                                 <constraints>
@@ -238,6 +248,7 @@
                             <constraint firstAttribute="trailing" secondItem="MA5-c1-Dn6" secondAttribute="trailing" id="3Ih-Td-bde"/>
                             <constraint firstItem="iiH-q7-eoL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3Os-FP-24m"/>
                             <constraint firstAttribute="bottom" secondItem="MA5-c1-Dn6" secondAttribute="bottom" id="80n-vk-W4M"/>
+                            <constraint firstItem="Wbk-33-qUU" firstAttribute="trailing" secondItem="evH-ke-dAj" secondAttribute="trailing" id="IGS-iJ-lPV"/>
                             <constraint firstAttribute="bottom" secondItem="iiH-q7-eoL" secondAttribute="bottom" id="JFj-RS-0Mu"/>
                             <constraint firstItem="MA5-c1-Dn6" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Ll7-9Y-KZs"/>
                             <constraint firstItem="iiH-q7-eoL" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="POo-fw-N3r"/>
@@ -246,6 +257,8 @@
                             <constraint firstAttribute="trailing" secondItem="iiH-q7-eoL" secondAttribute="trailing" id="ewv-xA-Lmf"/>
                             <constraint firstItem="APh-iR-sfC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="hse-tn-vPB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="APh-iR-sfC" secondAttribute="trailing" constant="54" id="kIZ-Jc-JXc"/>
+                            <constraint firstItem="Wbk-33-qUU" firstAttribute="leading" secondItem="evH-ke-dAj" secondAttribute="leading" id="ldG-HS-oib"/>
+                            <constraint firstItem="Wbk-33-qUU" firstAttribute="top" secondItem="4Di-DL-yYD" secondAttribute="bottom" constant="100" id="nas-71-DZU"/>
                             <constraint firstItem="4Di-DL-yYD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oaR-4H-nS1"/>
                             <constraint firstItem="MA5-c1-Dn6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="org-qX-7EQ"/>
                             <constraint firstItem="4Di-DL-yYD" firstAttribute="top" secondItem="4OR-ZA-zIE" secondAttribute="bottom" constant="20" id="swq-6Q-aWu"/>
@@ -261,8 +274,13 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ea8-wo-oju">
+                    <connections>
+                        <action selector="userTapped:" destination="BYZ-38-t0r" id="l2Z-fh-DM7"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1066.3316582914572" y="141.00719424460434"/>
+            <point key="canvasLocation" x="1066.2561576354681" y="140"/>
         </scene>
         <!--Main-->
         <scene sceneID="xxF-Zo-gfI">
@@ -564,13 +582,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Оцени нашу игру!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeE-Pc-MbN">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Оцени нашу игру!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeE-Pc-MbN">
                                 <rect key="frame" x="60" y="97" width="692" height="30"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="27"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8HJ-gN-MZg" customClass="CosmosView" customModule="Cosmos">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8HJ-gN-MZg" customClass="CosmosView" customModule="Cosmos">
                                 <rect key="frame" x="346" y="167" width="120" height="20"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
@@ -620,6 +638,7 @@
         <image name="close" width="848.5" height="1200"/>
         <image name="fail" width="1280" height="721"/>
         <image name="feature" width="810" height="488"/>
+        <image name="logoMe" width="900" height="219"/>
         <image name="play" width="142" height="142"/>
         <image name="statistics" width="147" height="147"/>
     </resources>

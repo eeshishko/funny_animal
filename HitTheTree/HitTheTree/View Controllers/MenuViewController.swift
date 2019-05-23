@@ -16,7 +16,7 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        MenuViewController.user = UserDefaults.standard.string(forKey: "user") ?? "Test"
+        MenuViewController.user = UserDefaults.standard.string(forKey: "user")
         self.userLabel.text = MenuViewController.user
 
         let registered = UserDefaults.standard.bool(forKey: "registered")
@@ -25,6 +25,27 @@ class MenuViewController: UIViewController {
 
         self.playButton.superview!.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(inactivePlayTapped)))
 	}
+
+    @IBAction func userTapped(_ sender: Any) {
+        let alert = UIAlertController(title: "Смени имя", message: nil, preferredStyle: UIAlertController.Style.alert)
+        alert.addTextField { nameField in
+//            nameField.keyboardType = .alphabet
+            nameField.autocapitalizationType = .words
+        }
+
+        alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Сохранить", style: .default, handler: { _ in
+            if let username = alert.textFields?.first?.text {
+                MenuViewController.user = username
+                self.userLabel.text = MenuViewController.user
+                UserDefaults.standard.set(MenuViewController.user, forKey: "user")
+            }
+        }))
+
+        present(alert, animated: true, completion: nil)
+
+//        self.register(sender)
+    }
 
     @objc func inactivePlayTapped() {
         let alert = UIAlertController(title: "Внимание", message: "Необходимо зарегистрироваться", preferredStyle: .alert)
