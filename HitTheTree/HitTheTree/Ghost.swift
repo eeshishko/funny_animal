@@ -32,7 +32,7 @@ class Ghost: SCNNode {
         
         
         let material2 = SCNMaterial()
-        material2.diffuse.contents = UIImage(named: "art.scnassets/ghost/Ghost2.png")
+        material2.diffuse.contents = UIImage(named: "art.scnassets/empty.png")
         material2.locksAmbientWithDiffuse = true
         
         return [material1, material2, material2, material2, material2, material2]

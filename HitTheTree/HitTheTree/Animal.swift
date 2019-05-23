@@ -16,8 +16,8 @@ class Animal: SCNNode {
 	fileprivate static let YSpeedValue: CGFloat = -0.0009
     fileprivate(set) var defaultVelocity : SCNVector3 = SCNVector3(x: 0, y: 0, z: 0)
     var velocity : SCNVector3 = SCNVector3(x: 0, y: 0, z: 0)
-    fileprivate var maxHealth: CGFloat = 5.0
-    fileprivate(set) var health: CGFloat = 5.0 {
+    fileprivate var maxHealth: CGFloat = 1.0
+    fileprivate(set) var health: CGFloat = 1.0 {
         didSet {
             healthBar.health = health/maxHealth
         }
@@ -29,7 +29,7 @@ class Animal: SCNNode {
     fileprivate(set) var points: Int = 100
     
     fileprivate(set) var box = SCNBox(width: 0.05, height: 0.05, length: 0.05, chamferRadius: 0)
-    
+
     init(box: SCNBox = SCNBox(width: 0.05, height: 0.05, length: 0.05, chamferRadius: 0)) {
         let ghostBox = SCNBox(width: box.width * 0.9, height: box.height * 0.9, length: box.length * 0.9, chamferRadius: box.chamferRadius * 0.9)
         ghost = Ghost(box: ghostBox)
