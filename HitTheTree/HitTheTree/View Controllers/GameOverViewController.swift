@@ -35,7 +35,7 @@ class GameOverViewController: UIViewController {
 //        menuButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(callMenuBlock(_:))))
 
 
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 4) {
             let vc = UIStoryboard(name: "Menu", bundle: nil).instantiateInitialViewController()!
             self.present(vc, animated: true, completion: nil)
         }

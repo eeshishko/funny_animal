@@ -16,15 +16,19 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        MenuViewController.user = UserDefaults.standard.string(forKey: "user")
-        self.userLabel.text = MenuViewController.user
-
-        let registered = UserDefaults.standard.bool(forKey: "registered")
-        self.playButton.isEnabled = registered
-        self.playButton.backgroundColor = registered ? UIColor(red: 95 / 255.0, green: 88 / 255.0, blue: 80 / 255.0, alpha: 1) : UIColor.gray
+        updateState()
 
         self.playButton.superview!.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(inactivePlayTapped)))
 	}
+
+    func updateState() {
+        MenuViewController.user = UserDefaults.standard.string(forKey: "user")
+        self.userLabel.text = MenuViewController.user
+
+        let registered = MenuViewController.user != nil//UserDefaults.standard.bool(forKey: "registered")
+        self.playButton.isEnabled = registered
+        self.playButton.backgroundColor = registered ? UIColor(red: 95 / 255.0, green: 88 / 255.0, blue: 80 / 255.0, alpha: 1) : UIColor.gray
+    }
 
     @IBAction func userTapped(_ sender: Any) {
         let alert = UIAlertController(title: "Смени имя", message: nil, preferredStyle: UIAlertController.Style.alert)
@@ -36,9 +40,11 @@ class MenuViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Сохранить", style: .default, handler: { _ in
             if let username = alert.textFields?.first?.text {
-                MenuViewController.user = username
-                self.userLabel.text = MenuViewController.user
-                UserDefaults.standard.set(MenuViewController.user, forKey: "user")
+                UserDefaults.standard.set(true, forKey: "registered")
+                UserDefaults.standard.set(username, forKey: "user")
+                UserDefaults.standard.synchronize()
+
+                self.updateState()
             }
         }))
 
@@ -77,13 +83,11 @@ class MenuViewController: UIViewController {
             print(isAuthorized)
             if !isAuthorized { return }
 
-            MenuViewController.user = user.name + " " + user.surname
             UserDefaults.standard.set(true, forKey: "registered")
-            UserDefaults.standard.set(MenuViewController.user, forKey: "user")
+            UserDefaults.standard.set(user.name + " " + user.surname, forKey: "user")
             UserDefaults.standard.synchronize()
-            self.userLabel.text = MenuViewController.user
-            self.playButton.isEnabled = true
-            self.playButton.backgroundColor = UIColor(red: 95 / 255.0, green: 88 / 255.0, blue: 80 / 255.0, alpha: 1)
+
+            self.updateState()
         }
 
         webFormVC.title = "Регистрация"

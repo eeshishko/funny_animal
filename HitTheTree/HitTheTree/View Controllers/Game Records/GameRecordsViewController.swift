@@ -27,7 +27,7 @@ class GameRecordsViewController: UIViewController {
 		setupTableView()
         load()
 
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(load), userInfo: nil, repeats: true)
+//        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(load), userInfo: nil, repeats: true)
 
 //        loadRecords()
 	}
